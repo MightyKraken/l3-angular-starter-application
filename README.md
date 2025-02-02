@@ -1,27 +1,27 @@
-# L3AngularStarterApplication
+# Prerequisite installations
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+1. Nodejs(Optional) : https://nodejs.org/en/download
+2. Deno(Optional) : https://deno.com/
+3. Bun(Optional): https://bun.sh/
+4. Docker (Required): https://www.docker.com/
+5. Git (Required): https://git-scm.com/downloads
+6. VScode (Optional): https://code.visualstudio.com/
 
-## Development server
+# Starter Guide.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. clone: git clone https://github.com/MightyKraken/l3-angular-starter-application.git (must have git installed)
+2. install: ```npm install```
+3. run: ```npm run start```
+4. test: ```npm run test```
+5. lint: ```npm run lint```
+6. format: ```npm run format```
+7. build: ```npm run build```
+8. docker-image-create: ```npm run docker-build``` or ```docker build -t l3-angular-starter-application -f Dockerfile.prod .```
+9. run-docker-container: ```npm run docker-run``` or ```docker run --detach --publish 80:80 --name l3-angular-starter-application l3-angular-starter-application```
+9. stop-docker-container: ```npm run docker-stop``` or ```docker stop l3-angular-starter-application```
+10. delete-docker-container: ```npm run docker-container-remove``` or ```docker rm -f l3-angular-starter-application```
+11. delete-docker-image: ```npm run docker-image-remove``` or ```docker rmi -f l3-angular-starter-application```
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
