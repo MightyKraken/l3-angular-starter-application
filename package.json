@@ -15,7 +15,7 @@
 		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
-		"prettier": "npm prettier . --write"
+		"prettier": "npx prettier . --write"
 	},
 	"private": true,
 	"dependencies": {
