@@ -23,5 +23,18 @@
 11. delete-docker-image: ```npm run docker-image-remove``` or ```docker rmi -f l3-angular-starter-application```
 
 
+# Features With Starter Repo
+* Angular with Docker file
+* Tailwind support
+* Material support
+* Prettier ESLint stylelint htmlhint support
+* commitlint husky lint-staged support
+* Tsconfig configured
+* Generic modules and components
+* Font setup
+* Icons setup
+* Theme setup
+
+
 
 
