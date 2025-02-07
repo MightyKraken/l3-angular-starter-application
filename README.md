@@ -25,12 +25,13 @@
 
 # Features With Starter Repo
 
-- Angular with Docker file
+- Angular with Docker file ✔
+- Prettier eslint setup ✔
 - Tailwind support
-- Material support
-- Prettier ESLint stylelint htmlhint support
+- NgPrime support
+- stylelint htmlhint support
 - commitlint husky lint-staged support
-- Tsconfig configured
+- Tsconfig configured ✔
 - Generic modules and components
 - Font setup
 - Icons setup
