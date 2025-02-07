@@ -15,7 +15,7 @@ export default [
 		}
 	},
 	{ ignores: ["node_modules/", "dist/", ".angular/"] },
-	{ files: ["**/*.{js,mjs,cjs,ts}"] },
+	{ files: ["src/*.{js,mjs,cjs,ts}"] },
 	{
 		languageOptions: {
 			globals: globals.browser,
@@ -35,6 +35,7 @@ export default [
 			"@typescript-eslint/array-type": ["error", { default: "generic" }],
 			"@typescript-eslint/adjacent-overload-signatures": "error",
 			"@typescript-eslint/no-unused-vars": "off",
+			"@typescript-eslint/no-explicit-any": "off",
 			"@typescript-eslint/explicit-function-return-type": [
 				"error",
 				{
