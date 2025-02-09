@@ -13,8 +13,8 @@
 		"docker-stop": "docker stop l3-angular-starter-application",
 		"docker-container-remove": "docker rm -f l3-angular-starter-application",
 		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
-		"lint": "eslint",
-		"lint:fix": "eslint --fix",
+		"lint": "eslint && stylelint \"**/*.{css,scss}\" ",
+		"lint:fix": "eslint --fix && stylelint \"**/*.{css,scss}\" --fix",
 		"prettier": "npx prettier . --write"
 	},
 	"private": true,
@@ -54,6 +54,8 @@
 		"karma-jasmine-html-reporter": "~2.1.0",
 		"prettier": "3.4.2",
 		"prettier-plugin-tailwindcss": "^0.6.11",
+		"stylelint": "^16.14.1",
+		"stylelint-config-standard-scss": "^14.0.0",
 		"typescript": "~5.5.2",
 		"typescript-eslint": "^8.22.0"
 	}

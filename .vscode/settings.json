@@ -1,6 +1,7 @@
 {
     "editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint":  "explicit",
     },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#edfbd5",
@@ -23,4 +24,7 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#DAF7A6",
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
 }
