@@ -10,6 +10,7 @@ export class AppComponent {
 	ngOnInit(): void {}
 
 	x(): void {
+		const a = '22';
 		console.log('sss');
 	}
 }
