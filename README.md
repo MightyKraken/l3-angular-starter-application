@@ -28,10 +28,10 @@
 - Angular with Docker file ✔
 - Prettier eslint setup ✔
 - Tailwind support ✔
-- NgPrime support
 - stylelint htmlhint support ✔
-- commitlint husky lint-staged support
+- commitlint husky lint-staged support ✔
 - Tsconfig configured ✔
+- NgPrime support
 - Generic modules and components
 - Font setup
 - Icons setup
