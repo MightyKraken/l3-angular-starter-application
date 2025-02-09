@@ -19,17 +19,14 @@
 		"prepare": "husky install"
 	},
 	"lint-staged": {
-		"src/**/*.html": [
-			"htmlhint"
-		],
-		"src/**/*.{css,scss}": [
-			"stylelint"
-		],
-		"src/**/*.{ts,js}": [
-			"eslint --fix"
-		],
 		"src/**/*.{ts,js,css,scss,html}": [
 			"prettier --write"
+		],
+        "src/**/*.{ts,js}": [
+			"eslint --fix"
+		],
+        "src/**/*.{css,scss}": [
+			"stylelint --fix"
 		]
 	},
 	"private": true,
