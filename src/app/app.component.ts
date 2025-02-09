@@ -8,9 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'l3-angular-starter-application';
 	ngOnInit(): void {}
-
-	x(): void {
-		const a = '22';
-		console.log('sss');
-	}
 }
