@@ -27,7 +27,7 @@
 
 - Angular with Docker file ✔
 - Prettier eslint setup ✔
-- Tailwind support
+- Tailwind support ✔
 - NgPrime support
 - stylelint htmlhint support
 - commitlint husky lint-staged support
