@@ -23,6 +23,19 @@
         "titleBar.inactiveBackground": "#daf7a699",
         "titleBar.inactiveForeground": "#15202b99"
     },
+    "htmlhint.options": {
+		"tagname-lowercase": true,
+		"attr-lowercase": true,
+		"attr-value-double-quotes": true,
+		"doctype-first": false,
+		"tag-pair": true,
+		"spec-char-escape": true,
+		"id-unique": true,
+		"src-not-empty": true,
+		"attr-no-duplication": true,
+		"title-require": true,
+		"empty-tag-not-self-closed": false
+	},
     "peacock.color": "#DAF7A6",
     "css.validate": false,
     "less.validate": false,

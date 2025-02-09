@@ -13,7 +13,7 @@
 		"docker-stop": "docker stop l3-angular-starter-application",
 		"docker-container-remove": "docker rm -f l3-angular-starter-application",
 		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
-		"lint": "eslint && stylelint \"**/*.{css,scss}\" ",
+		"lint": "eslint && stylelint \"**/*.{css,scss}\" && htmlhint \"**/*.html\"",
 		"lint:fix": "eslint --fix && stylelint \"**/*.{css,scss}\" --fix",
 		"prettier": "npx prettier . --write"
 	},
@@ -46,6 +46,7 @@
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"eslint-plugin-unused-imports": "^4.1.4",
 		"globals": "^15.14.0",
+		"htmlhint": "^1.1.4",
 		"jasmine-core": "~5.1.0",
 		"karma": "~6.4.0",
 		"karma-chrome-launcher": "~3.2.0",
