@@ -22,10 +22,10 @@
 		"src/**/*.{ts,js,css,scss,html}": [
 			"prettier --write"
 		],
-        "src/**/*.{ts,js}": [
+		"src/**/*.{ts,js}": [
 			"eslint --fix"
 		],
-        "src/**/*.{css,scss}": [
+		"src/**/*.{css,scss}": [
 			"stylelint --fix"
 		]
 	},
@@ -50,6 +50,8 @@
 		"@angular-devkit/build-angular": "^19.1.5",
 		"@angular/cli": "^19.1.5",
 		"@angular/compiler-cli": "^19.1.4",
+		"@commitlint/cli": "^19.7.1",
+		"@commitlint/config-conventional": "^19.7.1",
 		"@eslint/js": "^9.19.0",
 		"@types/jasmine": "~5.1.0",
 		"eslint": "^9.19.0",
