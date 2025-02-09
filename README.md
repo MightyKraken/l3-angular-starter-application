@@ -29,7 +29,7 @@
 - Prettier eslint setup ✔
 - Tailwind support ✔
 - NgPrime support
-- stylelint htmlhint support
+- stylelint htmlhint support ✔
 - commitlint husky lint-staged support
 - Tsconfig configured ✔
 - Generic modules and components

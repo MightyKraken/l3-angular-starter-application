@@ -15,7 +15,22 @@
 		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
 		"lint": "eslint && stylelint \"**/*.{css,scss}\" && htmlhint \"**/*.html\"",
 		"lint:fix": "eslint --fix && stylelint \"**/*.{css,scss}\" --fix",
-		"prettier": "npx prettier . --write"
+		"prettier": "npx prettier . --write",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"src/**/*.html": [
+			"htmlhint"
+		],
+		"src/**/*.{css,scss}": [
+			"stylelint"
+		],
+		"src/**/*.{ts,js}": [
+			"eslint"
+		],
+		"src/**/*.{ts,js,css,scss,html}": [
+			"prettier --write"
+		]
 	},
 	"private": true,
 	"dependencies": {
@@ -47,12 +62,14 @@
 		"eslint-plugin-unused-imports": "^4.1.4",
 		"globals": "^15.14.0",
 		"htmlhint": "^1.1.4",
+		"husky": "^8.0.0",
 		"jasmine-core": "~5.1.0",
 		"karma": "~6.4.0",
 		"karma-chrome-launcher": "~3.2.0",
 		"karma-coverage": "~2.2.0",
 		"karma-jasmine": "~5.1.0",
 		"karma-jasmine-html-reporter": "~2.1.0",
+		"lint-staged": "^15.4.3",
 		"prettier": "3.4.2",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"stylelint": "^16.14.1",
