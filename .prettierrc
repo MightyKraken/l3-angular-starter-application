@@ -12,5 +12,5 @@
 	"arrowParens": "always",
 	"endOfLine": "lf",
 	"plugins": ["prettier-plugin-tailwindcss"],
-	"tailwindStylesheet": "./src/styles.scss"
+	"tailwindStylesheet": "./src/styles/styles.scss"
 }
