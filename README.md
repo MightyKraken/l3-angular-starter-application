@@ -36,3 +36,12 @@
 - Font setup
 - Icons setup
 - Theme setup
+- environment setup
+- Storybook support
+- Logo Support
+- Color support
+
+# Important Branches
+
+- angular19 -> angular 19 version compatible
+- v19/ui-kit -> angular 19 ui kit in development

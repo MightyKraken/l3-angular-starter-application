@@ -7,7 +7,11 @@
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
+					"prefix": "app",
 					"style": "scss"
+				},
+				"@schematics/angular:directive": {
+					"prefix": "app"
 				}
 			},
 			"root": "",
@@ -29,7 +33,7 @@
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles.scss"],
+						"styles": ["src/styles/styles.scss"],
 						"scripts": []
 					},
 					"configurations": {
@@ -46,15 +50,27 @@
 									"maximumError": "4kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							]
 						},
 						"development": {
 							"optimization": false,
 							"extractLicenses": false,
-							"sourceMap": true
+							"sourceMap": true,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.dev.ts"
+								}
+							]
 						}
 					},
-					"defaultConfiguration": "production"
+					"defaultConfiguration": "development"
 				},
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
@@ -83,7 +99,7 @@
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles.scss"],
+						"styles": ["src/styles/styles.scss"],
 						"scripts": []
 					}
 				}
