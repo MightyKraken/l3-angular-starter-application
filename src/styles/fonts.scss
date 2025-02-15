@@ -1,0 +1,12 @@
+@font-face {
+	font-family: Gantari;
+	src: url('/fonts/Gantari/Gantari-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 900; /* Variable font weight range */
+	font-style: normal;
+}
+
+body {
+	font-family: Gantari, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
