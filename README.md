@@ -33,10 +33,10 @@
 - Tsconfig configured ✔
 - NgPrime support
 - Generic modules and components
-- Font setup
+- Font setup ✔
 - Icons setup
 - Theme setup
-- environment setup
+- environment setup ✔
 - Storybook support
 - Logo Support
 - Color support
