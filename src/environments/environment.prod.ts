@@ -1,3 +1,7 @@
+import { environmentBase } from './environment.local';
+
 const baseUrl = '';
 
-export const environment = {};
+export const environment = {
+	...environmentBase
+};
