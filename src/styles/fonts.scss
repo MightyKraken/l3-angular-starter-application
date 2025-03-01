@@ -10,3 +10,9 @@ body {
 	font-weight: 500;
 	font-style: normal;
 }
+
+@for $i from 8 through 128 {
+	.font-size-#{$i} {
+		font-size: #{$i}px;
+	}
+}
