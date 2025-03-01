@@ -35,7 +35,7 @@
 - Material Support
 - Generic modules and components
 - Font setup ✔
-- Icons setup
+- Material symbols for Icons setup ✔
 - Theme setup
 - environment setup ✔
 - Storybook support
