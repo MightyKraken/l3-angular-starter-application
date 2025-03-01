@@ -32,16 +32,24 @@
 - commitlint husky lint-staged support ✔
 - Tsconfig configured ✔
 - NgPrime support
+- Material Support
 - Generic modules and components
 - Font setup ✔
 - Icons setup
 - Theme setup
 - environment setup ✔
 - Storybook support
-- Logo Support
+- Logo Support ✔
 - Color support
 
 # Important Branches
 
 - angular19 -> angular 19 version compatible
 - v19/ui-kit -> angular 19 ui kit in development
+
+# Customization
+
+- To change logo change the brand.ico file in public folder
+- To change font apply the fonts in styles/fonts.scss. Currently gantari is used
+- You can either use ngPrime or material angular19-ngprime or angular19-material
+-
