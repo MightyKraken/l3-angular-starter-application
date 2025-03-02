@@ -13,8 +13,8 @@
 		"docker-stop": "docker stop l3-angular-starter-application",
 		"docker-container-remove": "docker rm -f l3-angular-starter-application",
 		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
-		"lint": "eslint && stylelint \"**/*.{css,scss}\" && htmlhint \"**/*.html\"",
-		"lint:fix": "eslint --fix && stylelint \"**/*.{css,scss}\" --fix",
+		"lint": "eslint && stylelint \"src/**/*.{css,scss}\" && htmlhint \"**/*.html\"",
+		"lint:fix": "eslint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
 		"prettier": "npx prettier . --write",
 		"prepare": "husky install"
 	},
