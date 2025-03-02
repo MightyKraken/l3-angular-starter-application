@@ -4,9 +4,9 @@ import {
 	TitleStrategy,
 	withComponentInputBinding
 } from '@angular/router';
+import { AppTitleStrategyService } from '@shared';
 
-import { AppTitleStrategyService } from '../services/app-title-strategy.service';
-import { routes } from './app.routes';
+import { routes } from '../routes/app.routes';
 
 export const appConfig: ApplicationConfig = {
 	providers: [

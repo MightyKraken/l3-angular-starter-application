@@ -1,5 +1,10 @@
 {
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"cli": {
+		"cache": {
+			"enabled": false
+		}
+	},
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
@@ -33,7 +38,14 @@
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles/styles.scss"],
+						"styles": [
+							"src/styles/styles.scss",
+							"src/styles/colors.scss",
+							"src/styles/fonts.scss",
+							"src/styles/icons.scss",
+							"src/styles/variables.scss",
+							"src/styles/animations.scss"
+						],
 						"scripts": []
 					},
 					"configurations": {
@@ -99,7 +111,14 @@
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles/styles.scss"],
+						"styles": [
+							"src/styles/styles.scss",
+							"src/styles/colors.scss",
+							"src/styles/fonts.scss",
+							"src/styles/icons.scss",
+							"src/styles/variables.scss",
+							"src/styles/animations.scss"
+						],
 						"scripts": []
 					}
 				}

@@ -7,6 +7,4 @@ import { RouterOutlet } from '@angular/router';
 	styleUrl: './app.component.scss',
 	imports: [RouterOutlet]
 })
-export class AppComponent {
-	title = 'l3-angular-starter-application';
-}
+export class AppComponent {}
