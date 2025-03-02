@@ -43,10 +43,6 @@
     "tailwindCSS.experimental.configFile": ".postcssrc.json",
 
     "workbench.tree.indent": 24,
-    "vscode_custom_css.imports": [
-        "file:///C:/Users/sabik/Documents/custom.css"
-    ],
-    "vscode_custom_css.policy": true,
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -81,9 +77,8 @@
     "sync.autoDownload": true,
     "prettier.tabWidth": 4,
     "mdb.confirmRunAll": false,
-    "editor.fontFamily": "'Ubuntu Mono','Fira Code',  Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Ubuntu Mono','Fira Code', Consolas,'Courier New', monospace",
     "sync.forceDownload": true,
-    "Notes.notesLocation": "/Users/sabikabtahee/.host",
     "vssolution.showMode": "explorer",
     "host-auto.fundGroups": "d",
     "window.commandCenter": true,
@@ -235,7 +230,7 @@
     "workbench.tree.enableStickyScroll": false,
     "git.enableSmartCommit": true,
     "debug.console.fontSize": 12,
-    "editor.lineHeight": 20,
+    "editor.lineHeight": 24,
     "editor.fontWeight": "normal",
     "gitlens.launchpad.indicator.enabled": false,
     "window.title": "${dirty}${rootName}",
@@ -315,7 +310,7 @@
     "editor.scrollbar.verticalScrollbarSize": 2,
     "editor.scrollbar.horizontalScrollbarSize": 2,
     "bookmarks.sideBar.countBadge": "files",
-    "editor.fontSize": 12,
+    "editor.fontSize": 14,
     "editor.minimap.sectionHeaderFontSize": 12,
     "scm.inputFontSize": 12,
     "chat.editor.fontSize": 12,
@@ -357,5 +352,8 @@
         "javascript": "javascript",
         "css": "css"
     },
-    "workbench.productIconTheme": "feather-vscode"
+    "workbench.productIconTheme": "icons-carbon",
+    "[jsonc]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    }
 }
