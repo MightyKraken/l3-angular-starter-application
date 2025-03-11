@@ -35,8 +35,7 @@
         "attr-no-duplication": true,
         "title-require": true,
         "empty-tag-not-self-closed": false
-    }
-    ,
+    },
     "peacock.color": "#DAF7A6",
     "css.validate": false,
     "less.validate": false,
@@ -54,9 +53,6 @@
     },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
     },
     "sync.gist": "",
     "files.eol": "\n",
@@ -234,7 +230,7 @@
     "editor.fontWeight": "normal",
     "gitlens.launchpad.indicator.enabled": false,
     "window.title": "${dirty}${rootName}",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "eq-material-theme-icons-palenight",
     "git.replaceTagsWhenPull": true,
 
     "github.copilot.advanced": {
@@ -352,7 +348,7 @@
         "javascript": "javascript",
         "css": "css"
     },
-    "workbench.productIconTheme": "icons-carbon",
+    "workbench.productIconTheme": "macos-modern",
     "[jsonc]": {
         "editor.defaultFormatter": "denoland.vscode-deno"
     }
