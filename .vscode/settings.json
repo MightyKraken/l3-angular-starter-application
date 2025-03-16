@@ -315,7 +315,7 @@
     "ShortcutMenuBar.toggleTerminal": false,
     "editor.mouseWheelZoom": true,
     "terminal.integrated.mouseWheelZoom": true,
-    "workbench.editor.editorActionsLocation": "titleBar",
+    "workbench.editor.editorActionsLocation": "default",
     "debug.javascript.autoAttachFilter": "disabled",
     "docker.contexts.showInStatusBar": true,
     "workbench.editor.highlightModifiedTabs": true,
