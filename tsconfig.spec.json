@@ -4,7 +4,12 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"outDir": "./out-tsc/spec",
-		"types": ["jasmine"]
+        "module": "ES2022",
+		"types": ["jest"]
 	},
+    "paths": {
+        "@environment": ["src/environments/environment.ts"],
+        "@shared": ["src/app/app-shared/index.ts"]
+    },
 	"include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
