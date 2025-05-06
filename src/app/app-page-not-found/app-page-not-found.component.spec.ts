@@ -19,4 +19,10 @@ describe('AppPageNotFoundComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	it('should contain not found page text', () => {
+		const htmlElement: HTMLElement = fixture.nativeElement;
+		const div = htmlElement.querySelector('#page_not_found');
+		expect(div?.textContent).toMatch(/not found/i);
+	});
 });
