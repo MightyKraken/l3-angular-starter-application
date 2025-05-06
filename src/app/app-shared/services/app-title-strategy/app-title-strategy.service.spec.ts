@@ -8,6 +8,7 @@ import { AppTitleStrategyService } from './app-title-strategy.service';
 describe('AppTitleStrategyService', () => {
 	let service: AppTitleStrategyService;
 	let titleService: Title;
+
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [AppTitleStrategyService, Title]
