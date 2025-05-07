@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { AppPageNotFoundComponent } from './app-page-not-found.component';
 
@@ -21,8 +22,9 @@ describe('AppPageNotFoundComponent', () => {
 	});
 
 	it('should contain not found page text', () => {
-		const htmlElement: HTMLElement = fixture.nativeElement;
-		const div = htmlElement.querySelector('#page_not_found');
-		expect(div?.textContent).toMatch(/not found/i);
+		const container = fixture.debugElement.query(
+			By.css('[data-testid="page-container"]')
+		);
+		expect(container.nativeElement?.textContent).toMatch(/not found/i);
 	});
 });
