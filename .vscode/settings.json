@@ -1,5 +1,6 @@
 {
     "editor.codeActionsOnSave": {
+        "source.addMissingImports": "always",
         "source.fixAll.eslint": "explicit",
         "source.fixAll.stylelint": "explicit"
     },
@@ -351,5 +352,6 @@
     "workbench.productIconTheme": "icons-carbon",
     "[jsonc]": {
         "editor.defaultFormatter": "denoland.vscode-deno"
-    }
+    },
+    "containers.contexts.showInStatusBar": true
 }
