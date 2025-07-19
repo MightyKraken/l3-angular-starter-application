@@ -353,5 +353,8 @@
     "[jsonc]": {
         "editor.defaultFormatter": "denoland.vscode-deno"
     },
-    "containers.contexts.showInStatusBar": true
+    "containers.contexts.showInStatusBar": true,
+    "[nginx]": {
+        "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
+    }
 }

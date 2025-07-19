@@ -5,4 +5,12 @@
 	<p class="subtitle text-lg text-gray-600">
 		Kickstart your Angular project with best practices and modern tooling.
 	</p>
+
+	@if (data) {
+		<div
+			class="max-w-2xl bg-gray-100 rounded p-6 mt-4 mx-auto w-full text-left"
+		>
+			<pre class="text-sm whitespace-pre-wrap">{{ data | json }}</pre>
+		</div>
+	}
 </div>

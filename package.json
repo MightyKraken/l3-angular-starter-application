@@ -18,7 +18,9 @@
 		"lint": "eslint && stylelint \"src/**/*.{css,scss}\" && htmlhint \"src/**/*.html\"",
 		"lint:fix": "eslint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
 		"prettier": "npx prettier . --write",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"docker-build-latest": "docker build -t ghcr.io/sabikabtahee/angular-app:latest .",
+		"docker-push-latest": "docker push ghcr.io/sabikabtahee/angular-app:latest"
 	},
 	"lint-staged": {
 		"src/**/*.{ts,js,css,scss,html}": [

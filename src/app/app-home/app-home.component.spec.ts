@@ -1,3 +1,7 @@
+import {
+	provideHttpClient,
+	withInterceptorsFromDi
+} from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppHomeComponent } from './app-home.component';
@@ -8,7 +12,8 @@ describe('AppHomeComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppHomeComponent]
+			imports: [AppHomeComponent],
+			providers: [provideHttpClient(withInterceptorsFromDi())]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppHomeComponent);
