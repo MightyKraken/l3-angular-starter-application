@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { AppTitleStrategyService } from '@shared';
 
-import { routes } from '../routes/routes';
+import { routes } from '../routes/app.routes';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
