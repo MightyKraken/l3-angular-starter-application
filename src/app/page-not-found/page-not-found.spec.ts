@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { AppPageNotFoundComponent } from './app-page-not-found.component';
+import { PageNotFound } from './page-not-found';
 
-describe('AppPageNotFoundComponent', () => {
-	let component: AppPageNotFoundComponent;
-	let fixture: ComponentFixture<AppPageNotFoundComponent>;
+describe('PageNotFound', () => {
+	let component: PageNotFound;
+	let fixture: ComponentFixture<PageNotFound>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppPageNotFoundComponent]
+			imports: [PageNotFound]
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(AppPageNotFoundComponent);
+		fixture = TestBed.createComponent(PageNotFound);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

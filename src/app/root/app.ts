@@ -4,9 +4,9 @@ import { RouterOutlet } from '@angular/router';
 import { SHARED_COMPONENTS } from '../app-shared/constants/imports.const';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.scss',
+	selector: 'root',
+	templateUrl: './app.html',
+	styleUrl: './app.scss',
 	imports: [RouterOutlet, ...SHARED_COMPONENTS]
 })
-export class AppComponent {}
+export class App {}
