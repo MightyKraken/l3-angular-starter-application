@@ -42,6 +42,26 @@
 - Logo Support ✔
 - Color support
 
+# Common Features For Frontend
+
+- Toast Component
+- Toolbar
+- Left Side Menu Big screen small screen
+- Right Panel side bar dynamic component support
+- Notification Support
+- Making Rest api calls
+- Making server sent event calls
+- Making web socket calls
+- Making view transition animations
+- Making route guards
+- File uploader
+- Form component -> text, number, autocomplete, multiselect, dropdown, Textarea, Radio, MultiOption select
+- Tutorial guiding on a webpage implementation
+- Not found page design
+- Home page design
+- Breadcrumbs design
+-
+
 # Important Branches
 
 - angular19 -> angular 19 version compatible
