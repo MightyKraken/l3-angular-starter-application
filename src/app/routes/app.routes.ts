@@ -13,5 +13,12 @@ export const routes: Routes = [
 		path: 'about',
 		component: AboutComponent
 	},
+	{
+		path: 'auth',
+		loadChildren: () =>
+			import('../authentication/authentication.routes').then(
+				(m) => m.AUTH_ROUTES
+			)
+	},
 	{ path: '**', component: AppPageNotFoundComponent }
 ];
