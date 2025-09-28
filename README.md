@@ -73,3 +73,18 @@
 - To change font apply the fonts in styles/fonts.scss. Currently gantari is used
 - You can either use ngPrime or material angular19-ngprime or angular19-material
 -
+
+# Technologies or Libraries used
+
+- Angular
+- Typescript
+- Docker
+- Htmlhint
+- Prettier
+- Commitlint
+- Stylelint
+- Eslint
+- Huksy
+- Jest
+- Tailwind
+- PrimeNg

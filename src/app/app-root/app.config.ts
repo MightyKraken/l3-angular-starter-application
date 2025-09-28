@@ -9,8 +9,9 @@ import {
 import Aura from '@primeuix/themes/aura';
 import { AppTitleStrategyService } from '@shared';
 import { providePrimeNG } from 'primeng/config';
+import { DialogService } from 'primeng/dynamicdialog';
 
-import { routes } from '../routes/app.routes';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
 				preset: Aura
 			}
 		}),
-		{ provide: TitleStrategy, useClass: AppTitleStrategyService }
+		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
+		DialogService
 	]
 };
