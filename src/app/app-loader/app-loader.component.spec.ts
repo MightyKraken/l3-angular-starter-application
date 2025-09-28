@@ -1,3 +1,4 @@
+import { DestroyRef, Renderer2 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppLoaderComponent } from './app-loader.component';
@@ -8,7 +9,17 @@ describe('AppLoaderComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppLoaderComponent]
+			imports: [AppLoaderComponent],
+			providers: [
+				{
+					provide: Renderer2,
+					useValue: {
+						addClass: jest.fn(),
+						removeClass: jest.fn()
+					}
+				},
+				DestroyRef
+			]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppLoaderComponent);
