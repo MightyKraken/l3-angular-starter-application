@@ -1,5 +1,5 @@
 @if (appLoaderService.isAppLoading$ | async) {
-	<div cdkTrapFocus class="global-loader" tabindex="0">
+	<div pFocusTrap class="global-loader" tabindex="0">
 		<div class="backdrop"></div>
 		<loading-dots></loading-dots>
 	</div>
