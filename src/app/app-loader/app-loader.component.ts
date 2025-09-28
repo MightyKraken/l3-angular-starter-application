@@ -1,6 +1,12 @@
 import { A11yModule } from '@angular/cdk/a11y';
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, OnInit, Renderer2 } from '@angular/core';
+import {
+	Component,
+	DestroyRef,
+	inject,
+	OnInit,
+	Renderer2
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { LoadingDotsComponent } from '../loading-dots/loading-dots.component';
@@ -14,6 +20,7 @@ import { AppLoaderService } from './services/app-loader.service';
 export class AppLoaderComponent implements OnInit {
 	protected appLoaderService = inject(AppLoaderService);
 	private renderer = inject(Renderer2);
+	private destroyRef = inject(DestroyRef);
 
 	ngOnInit(): void {
 		this.blockScrollOnLoading();
@@ -21,7 +28,7 @@ export class AppLoaderComponent implements OnInit {
 
 	blockScrollOnLoading(): void {
 		this.appLoaderService.isAppLoading$
-			.pipe(takeUntilDestroyed())
+			.pipe(takeUntilDestroyed(this.destroyRef))
 			.subscribe((isLoading) => {
 				if (isLoading) {
 					this.renderer.addClass(document.body, 'overflow-hidden');
