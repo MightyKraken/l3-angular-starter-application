@@ -1,4 +1,3 @@
-import { A11yModule } from '@angular/cdk/a11y';
 import { AsyncPipe } from '@angular/common';
 import {
 	Component,
@@ -13,7 +12,7 @@ import { LoadingDotsComponent } from '../loading-dots/loading-dots.component';
 import { AppLoaderService } from './services/app-loader.service';
 @Component({
 	selector: 'app-loader',
-	imports: [LoadingDotsComponent, AsyncPipe, A11yModule],
+	imports: [LoadingDotsComponent, AsyncPipe],
 	templateUrl: './app-loader.component.html',
 	styleUrl: './app-loader.component.scss'
 })
