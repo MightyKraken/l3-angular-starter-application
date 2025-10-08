@@ -14,7 +14,6 @@ import { AppHomeService } from './app-home.service';
 export class AppHomeComponent {
 	appHomeService = inject(AppHomeService);
 	appLoaderService = inject(AppLoaderService);
-
 	data: unknown = null;
 	ngOnInit(): void {}
 

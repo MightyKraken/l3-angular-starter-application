@@ -2,23 +2,43 @@ import { Routes } from '@angular/router';
 
 import { AboutComponent } from '../about/about.component';
 import { AppHomeComponent } from '../app-home/app-home.component';
+import { AppLayoutComponent } from '../app-layout/app-layout.component';
 import { AppPageNotFoundComponent } from '../app-page-not-found/app-page-not-found.component';
+import { ILayoutData } from '../app-shared';
 
 export const routes: Routes = [
 	{
 		path: '',
-		component: AppHomeComponent
-	},
-	{
-		path: 'about',
-		component: AboutComponent
-	},
-	{
-		path: 'auth',
-		loadChildren: () =>
-			import('../authentication/authentication.routes').then(
-				(m) => m.AUTH_ROUTES
-			)
+		component: AppLayoutComponent,
+		children: [
+			{
+				path: '',
+				component: AppHomeComponent,
+				data: <ILayoutData>{
+					showToolbar: true,
+					showNavigation: true
+				}
+			},
+			{
+				path: 'about',
+				component: AboutComponent,
+				data: <ILayoutData>{
+					showToolbar: false,
+					showNavigation: true
+				}
+			},
+			{
+				path: 'auth',
+				loadChildren: () =>
+					import('../authentication/authentication.routes').then(
+						(m) => m.AUTH_ROUTES
+					)
+			}
+		],
+		data: <ILayoutData>{
+			showToolbar: false,
+			showNavigation: false
+		}
 	},
 	{ path: '**', component: AppPageNotFoundComponent }
 ];
