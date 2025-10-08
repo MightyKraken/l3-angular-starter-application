@@ -6,10 +6,7 @@ import {
 	TitleStrategy,
 	withComponentInputBinding
 } from '@angular/router';
-import Aura from '@primeuix/themes/aura';
 import { AppTitleStrategyService } from '@shared';
-import { providePrimeNG } from 'primeng/config';
-import { DialogService } from 'primeng/dynamicdialog';
 
 import { routes } from './app.routes';
 
@@ -19,15 +16,7 @@ export const appConfig: ApplicationConfig = {
 		provideRouter(routes, withComponentInputBinding()),
 		provideHttpClient(),
 		provideAnimationsAsync(),
-		providePrimeNG({
-			theme: {
-				preset: Aura,
-				options: {
-					darkModeSelector: 'none'
-				}
-			}
-		}),
-		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
-		DialogService
+
+		{ provide: TitleStrategy, useClass: AppTitleStrategyService }
 	]
 };
