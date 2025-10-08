@@ -33,9 +33,6 @@
 						"polyfills": ["zone.js"],
 						"tsConfig": "tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
-						"stylePreprocessorOptions": {
-							"includePaths": ["src/styles"]
-						},
 						"assets": [
 							{
 								"glob": "**/*",
@@ -43,7 +40,12 @@
 							}
 						],
 						"styles": [
-							"src/styles/styles.scss"
+							"src/styles/styles.scss",
+							"src/styles/colors.scss",
+							"src/styles/fonts.scss",
+							"src/styles/icons.scss",
+							"src/styles/variables.scss",
+							"src/styles/animations.scss"
 						],
 						"scripts": []
 					},
