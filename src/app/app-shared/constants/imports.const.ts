@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { AppPageNotFoundComponent } from '../../app-page-not-found/app-page-not-found.component';
 import { LoadingDotsComponent } from '../../loading-dots/loading-dots.component';
 
@@ -7,3 +9,5 @@ export const SHARED_COMPONENTS = [
 	AppPageNotFoundComponent,
 	LoadingDotsComponent
 ];
+
+export const COMMON_IMPORTS = [CommonModule];

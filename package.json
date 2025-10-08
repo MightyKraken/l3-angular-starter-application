@@ -2,39 +2,40 @@
 	"name": "l3-angular-starter-application",
 	"version": "0.0.0",
 	"scripts": {
-		"start": "ng serve --port 4200",
-		"start:dev": "ng serve --port 4200 --inspect",
-		"build": "ng build",
-		"build:prod": "ng build --configuration=production",
-		"watch": "ng build --watch --configuration development",
 		"test": "jest --config=jest.config.ts",
-		"test:watch": "jest --watch --config=jest.config.ts",
-		"test:ci": "jest --runInBand",
-		"docker-build": "docker build -t l3-angular-starter-application .",
-		"docker-run": "docker run --detach --publish 80:80 --name l3-angular-starter-application l3-angular-starter-application",
-		"docker-stop": "docker stop l3-angular-starter-application",
-		"docker-restart": "npm run docker-build && npm run docker-run",
-		"docker-container-remove": "docker rm -f l3-angular-starter-application",
-		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
 		"lint": "eslint && stylelint \"src/**/*.{css,scss}\" && htmlhint \"src/**/*.html\"",
+		"start": "ng serve --port 4200",
+		"build": "ng build",
+		"watch": "ng build --watch --configuration development",
+		"test:ci": "jest --runInBand",
+		"prepare": "husky install",
 		"lint:fix": "eslint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
 		"prettier": "npx prettier . --write",
-		"prepare": "husky install",
+		"start:dev": "ng serve --port 4200 --inspect",
+		"build:prod": "ng build --configuration=production",
+		"test:watch": "jest --watch --config=jest.config.ts",
+		"docker-run": "docker run --detach --publish 80:80 --name l3-angular-starter-application l3-angular-starter-application",
+		"docker-stop": "docker stop l3-angular-starter-application",
+		"docker-build": "docker build -t l3-angular-starter-application .",
+		"docker-restart": "npm run docker-build && npm run docker-run",
+		"generate-index": "npx vscode-generate-index-standalone src/",
+		"docker-push-latest": "docker push ghcr.io/sabikabtahee/angular-app:latest",
+		"docker-image-remove": "docker rmi -f l3-angular-starter-application",
 		"docker-build-latest": "docker build -t ghcr.io/sabikabtahee/angular-app:latest .",
-		"docker-push-latest": "docker push ghcr.io/sabikabtahee/angular-app:latest"
+		"docker-container-remove": "docker rm -f l3-angular-starter-application"
 	},
+	"private": true,
 	"lint-staged": {
-		"src/**/*.{ts,js,css,scss,html}": [
-			"prettier --write"
-		],
 		"src/**/*.{ts,js}": [
 			"eslint --fix"
 		],
 		"src/**/*.{css,scss}": [
 			"stylelint --fix"
+		],
+		"src/**/*.{ts,js,css,scss,html}": [
+			"prettier --write"
 		]
 	},
-	"private": true,
 	"dependencies": {
 		"@angular/animations": "^20.1.3",
 		"@angular/cdk": "^20.2.5",
@@ -80,6 +81,7 @@
 		"stylelint-config-standard-scss": "^14.0.0",
 		"ts-node": "^10.9.2",
 		"typescript": "~5.8.3",
-		"typescript-eslint": "^8.38.0"
+		"typescript-eslint": "^8.38.0",
+		"vscode-generate-index-standalone": "^1.7.1"
 	}
 }
