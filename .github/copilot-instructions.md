@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is an Angular 20 starter application with comprehensive tooling setup for code quality, testing, and containerization. The project uses PrimeNG UI components with Aura theme, and follows a modular architecture.
+This is an Angular 20 starter application with comprehensive tooling setup for code quality, testing, and containerization. The project uses angular material components with Aura theme, and follows a modular architecture.
 
 ## Key Architecture Patterns
 
@@ -47,7 +47,7 @@ npm run docker-stop   # Stop container
 1. Create new feature directory under `src/app/`
 2. Include component files: `.ts`, `.html`, `.scss`, `.spec.ts`
 3. Add routes in corresponding feature routing module
-4. Import required PrimeNG modules
+4.
 
 ### Environment Configuration
 

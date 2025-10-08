@@ -1,5 +1,5 @@
 <div class="flex min-h-[60vh] flex-col items-center justify-center text-center">
-	<h1 class="text-4xl font-bold mb-4">
+	<h1 class="mb-4 text-4xl font-bold">
 		Welcome to the L3 Angular Starter Application
 	</h1>
 	<p class="subtitle text-lg text-gray-600">
@@ -8,9 +8,9 @@
 
 	@if (data) {
 		<div
-			class="max-w-2xl bg-gray-100 rounded p-6 mt-4 mx-auto w-full text-left"
+			class="mx-auto mt-4 w-full max-w-2xl rounded bg-gray-100 p-6 text-left"
 		>
-			<pre class="text-sm whitespace-pre-wrap">{{ data | json }}</pre>
+			<pre class="whitespace-pre-wrap text-sm">{{ data | json }}</pre>
 		</div>
 	}
 </div>
