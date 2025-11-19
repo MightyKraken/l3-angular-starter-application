@@ -1,9 +1,8 @@
 import { JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { SHARED_COMPONENTS } from '@shared';
 
-import { AppLoaderService } from '../app-loader';
-import { SHARED_COMPONENTS } from '../app-shared/constants/imports.const';
-import { AppHomeService } from './app-home.service';
+import { AppLoaderService } from '../layout';
 
 @Component({
 	selector: 'app-home',
@@ -12,10 +11,11 @@ import { AppHomeService } from './app-home.service';
 	imports: [JsonPipe, SHARED_COMPONENTS]
 })
 export class AppHomeComponent {
-	appHomeService = inject(AppHomeService);
 	appLoaderService = inject(AppLoaderService);
 	data: unknown = null;
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.startLoading();
+	}
 
 	startLoading(): void {
 		this.appLoaderService.show();

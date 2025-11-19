@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
+import { ILayoutData } from '@shared';
 
 import { AboutComponent } from '../about/about.component';
 import { AppHomeComponent } from '../app-home/app-home.component';
-import { AppLayoutComponent } from '../app-layout/app-layout.component';
 import { AppPageNotFoundComponent } from '../app-page-not-found/app-page-not-found.component';
-import { ILayoutData } from '../app-shared';
+import { AppLayoutComponent } from '../layout';
 
 export const routes: Routes = [
 	{
@@ -32,7 +32,11 @@ export const routes: Routes = [
 				loadChildren: () =>
 					import('../authentication/authentication.routes').then(
 						(m) => m.AUTH_ROUTES
-					)
+					),
+				data: <ILayoutData>{
+					showToolbar: true,
+					showNavigation: true
+				}
 			}
 		],
 		data: <ILayoutData>{
