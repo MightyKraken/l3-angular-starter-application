@@ -1,12 +1,11 @@
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
 	provideRouter,
 	TitleStrategy,
 	withComponentInputBinding
 } from '@angular/router';
-import { AppTitleStrategyService } from '@shared';
+import { AppTitleStrategyService } from 'src/app/shared';
 
 import { routes } from './app.routes';
 
@@ -15,8 +14,6 @@ export const appConfig: ApplicationConfig = {
 		provideZoneChangeDetection({ eventCoalescing: true }),
 		provideRouter(routes, withComponentInputBinding()),
 		provideHttpClient(),
-		provideAnimationsAsync(),
-
 		{ provide: TitleStrategy, useClass: AppTitleStrategyService }
 	]
 };

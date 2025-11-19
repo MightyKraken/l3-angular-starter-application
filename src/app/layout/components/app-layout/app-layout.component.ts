@@ -5,14 +5,10 @@ import {
 	Router,
 	RouterOutlet
 } from '@angular/router';
+import { COMMON_IMPORTS, ILayoutData, SHARED_COMPONENTS } from '@shared';
 import { filter } from 'rxjs';
 
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
-import { ILayoutData } from '../app-shared';
-import {
-	COMMON_IMPORTS,
-	SHARED_COMPONENTS
-} from '../app-shared/constants/imports.const';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 
 @Component({
@@ -31,12 +27,13 @@ export class AppLayoutComponent {
 	route = inject(ActivatedRoute);
 	router = inject(Router);
 
-	showNavigation = computed<boolean>(() => this.layoutData().showNavigation);
-	showToolbar = computed<boolean>(() => this.layoutData().showToolbar);
 	layoutData = signal<ILayoutData>({
 		showNavigation: false,
 		showToolbar: false
 	});
+
+	showNavigation = computed<boolean>(() => this.layoutData().showNavigation);
+	showToolbar = computed<boolean>(() => this.layoutData().showToolbar);
 
 	constructor() {
 		this.setRouteData();
