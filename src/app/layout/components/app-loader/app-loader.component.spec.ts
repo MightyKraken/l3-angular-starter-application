@@ -14,8 +14,8 @@ describe('AppLoaderComponent', () => {
 				{
 					provide: Renderer2,
 					useValue: {
-						addClass: jest.fn(),
-						removeClass: jest.fn()
+						addClass: jasmine.createSpy('addClass'),
+						removeClass: jasmine.createSpy('removeClass')
 					}
 				},
 				DestroyRef
