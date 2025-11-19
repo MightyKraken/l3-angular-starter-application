@@ -24,10 +24,10 @@ describe('AppTitleStrategyService', () => {
 	describe('updateTitle', () => {
 		it('should update to portal title based on undefined router state', () => {
 			const routerState = {} as RouterStateSnapshot;
-			const buildTitleSpy = jest
-				.spyOn(service, 'buildTitle')
-				.mockReturnValue(undefined);
-			const setTitleSpy = jest.spyOn(titleService, 'setTitle');
+			const buildTitleSpy = spyOn(service, 'buildTitle').and.returnValue(
+				undefined
+			);
+			const setTitleSpy = spyOn(titleService, 'setTitle');
 
 			service.updateTitle(routerState);
 
@@ -37,10 +37,10 @@ describe('AppTitleStrategyService', () => {
 
 		it('should update title based on router state', () => {
 			const routerState = {} as RouterStateSnapshot;
-			const buildTitleSpy = jest
-				.spyOn(service, 'buildTitle')
-				.mockReturnValue('Page 1');
-			const setTitleSpy = jest.spyOn(titleService, 'setTitle');
+			const buildTitleSpy = spyOn(service, 'buildTitle').and.returnValue(
+				'Page 1'
+			);
+			const setTitleSpy = spyOn(titleService, 'setTitle');
 
 			service.updateTitle(routerState);
 

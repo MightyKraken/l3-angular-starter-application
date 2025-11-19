@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 
+import { activatedRouteMock, routerMock } from '../../../../tests';
 import { AppLayoutComponent } from './app-layout.component';
 
 describe('AppLayoutComponent', () => {
@@ -8,7 +10,11 @@ describe('AppLayoutComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppLayoutComponent]
+			imports: [AppLayoutComponent],
+			providers: [
+				{ provide: ActivatedRoute, useValue: activatedRouteMock },
+				{ provide: Router, useValue: routerMock }
+			]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppLayoutComponent);
