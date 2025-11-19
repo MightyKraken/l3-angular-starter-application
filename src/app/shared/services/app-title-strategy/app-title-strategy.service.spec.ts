@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 import { RouterStateSnapshot } from '@angular/router';
 import { environment } from '@environment';
+import { vi } from 'vitest';
 
 import { AppTitleStrategyService } from './app-title-strategy.service';
 
@@ -24,10 +25,10 @@ describe('AppTitleStrategyService', () => {
 	describe('updateTitle', () => {
 		it('should update to portal title based on undefined router state', () => {
 			const routerState = {} as RouterStateSnapshot;
-			const buildTitleSpy = spyOn(service, 'buildTitle').and.returnValue(
-				undefined
-			);
-			const setTitleSpy = spyOn(titleService, 'setTitle');
+			const buildTitleSpy = vi
+				.spyOn(service, 'buildTitle')
+				.mockReturnValue(undefined);
+			const setTitleSpy = vi.spyOn(titleService, 'setTitle');
 
 			service.updateTitle(routerState);
 
@@ -37,10 +38,10 @@ describe('AppTitleStrategyService', () => {
 
 		it('should update title based on router state', () => {
 			const routerState = {} as RouterStateSnapshot;
-			const buildTitleSpy = spyOn(service, 'buildTitle').and.returnValue(
-				'Page 1'
-			);
-			const setTitleSpy = spyOn(titleService, 'setTitle');
+			const buildTitleSpy = vi
+				.spyOn(service, 'buildTitle')
+				.mockReturnValue('Page 1');
+			const setTitleSpy = vi.spyOn(titleService, 'setTitle');
 
 			service.updateTitle(routerState);
 

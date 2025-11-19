@@ -1,5 +1,6 @@
 import { DestroyRef, Renderer2 } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { vi } from 'vitest';
 
 import { AppLoaderComponent } from './app-loader.component';
 
@@ -14,8 +15,8 @@ describe('AppLoaderComponent', () => {
 				{
 					provide: Renderer2,
 					useValue: {
-						addClass: jasmine.createSpy('addClass'),
-						removeClass: jasmine.createSpy('removeClass')
+						addClass: vi.fn(),
+						removeClass: vi.fn()
 					}
 				},
 				DestroyRef

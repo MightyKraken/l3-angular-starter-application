@@ -334,7 +334,7 @@
     },
     "workbench.productIconTheme": "icons-carbon",
     "[jsonc]": {
-        "editor.defaultFormatter": "denoland.vscode-deno"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "containers.contexts.showInStatusBar": true,
     "[nginx]": {
