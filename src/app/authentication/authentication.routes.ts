@@ -1,34 +1,31 @@
 import { Routes } from '@angular/router';
 
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { OtpComponent } from './otp/otp.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+
 export const AUTH_ROUTES: Routes = [
 	{
 		path: 'signin',
-		loadComponent: () =>
-			import('./sign-in/sign-in.component').then((m) => m.SignInComponent)
+		component: SignInComponent
 	},
 	{
 		path: 'signup',
-		loadComponent: () =>
-			import('./sign-up/sign-up.component').then((m) => m.SignUpComponent)
+		component: SignUpComponent
 	},
 	{
 		path: 'reset-password',
-		loadComponent: () =>
-			import('./reset-password/reset-password.component').then(
-				(m) => m.ResetPasswordComponent
-			)
+		component: ResetPasswordComponent
 	},
 	{
 		path: 'change-password',
-		loadComponent: () =>
-			import('./change-password/change-password.component').then(
-				(m) => m.ChangePasswordComponent
-			)
+		component: ChangePasswordComponent
 	},
 	{
 		path: 'otp-enter',
-		loadComponent: () =>
-			import('./otp/otp.component').then((m) => m.OtpComponent)
+		component: OtpComponent
 	},
 	{
 		path: '',
