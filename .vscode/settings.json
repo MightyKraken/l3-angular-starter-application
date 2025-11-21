@@ -219,7 +219,7 @@
     "editor.lineHeight": 24,
     "gitlens.launchpad.indicator.enabled": false,
     "window.title": "${dirty}${rootName}",
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "symbols",
     "git.replaceTagsWhenPull": true,
 
     "github.copilot.advanced": {
