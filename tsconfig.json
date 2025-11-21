@@ -19,7 +19,7 @@
 		"moduleResolution": "bundler",
 		"importHelpers": true,
 		"target": "ES2022",
-    "module": "ES2022",
+		"module": "ES2022",
 		"paths": {
 			"@environment": ["./src/environments/environment.ts"],
 			"@shared": ["./src/app/shared/index.ts"]
@@ -30,5 +30,14 @@
 		"strictInjectionParameters": true,
 		"strictInputAccessModifiers": true,
 		"strictTemplates": true
-	}
+	},
+	"files": [],
+	"references": [
+		{
+			"path": "./tsconfig.app.json"
+		},
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
 }
