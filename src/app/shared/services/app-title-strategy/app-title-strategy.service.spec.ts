@@ -2,7 +2,6 @@ import { TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 import { RouterStateSnapshot } from '@angular/router';
 import { environment } from '@environment';
-import { vi } from 'vitest';
 
 import { AppTitleStrategyService } from './app-title-strategy.service';
 
