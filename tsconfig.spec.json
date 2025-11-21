@@ -5,7 +5,7 @@
 	"compilerOptions": {
 		"outDir": "./out-tsc/spec",
 		"module": "ES2022",
-		"types": ["vitest/globals", "vitest"]
+		"types": ["vitest/globals"]
 	},
 	"include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

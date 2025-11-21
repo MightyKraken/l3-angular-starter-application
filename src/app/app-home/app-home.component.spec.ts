@@ -3,6 +3,7 @@ import {
 	withInterceptorsFromDi
 } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { AppHomeComponent } from './app-home.component';
 
@@ -13,7 +14,10 @@ describe('AppHomeComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppHomeComponent],
-			providers: [provideHttpClient(withInterceptorsFromDi())]
+			providers: [
+				provideHttpClient(withInterceptorsFromDi()),
+				provideRouter([])
+			]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppHomeComponent);
