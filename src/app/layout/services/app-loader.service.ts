@@ -9,7 +9,7 @@ export class AppLoaderService {
 	isAppLoading = this._isAppLoading.asReadonly();
 
 	constructor() {
-		this.toggleOverflowHidden();
+		this.manageBodyOverflow();
 	}
 
 	show(): void {
@@ -20,7 +20,7 @@ export class AppLoaderService {
 		this._isAppLoading.set(false);
 	}
 
-	private toggleOverflowHidden(): void {
+	private manageBodyOverflow(): void {
 		effect(() => {
 			document.body.classList.toggle('overflow-hidden', this._isAppLoading());
 		});
