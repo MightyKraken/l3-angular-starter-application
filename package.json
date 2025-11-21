@@ -3,6 +3,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"test": "ng test",
+		"test:once": "ng test --watch=false",
 		"lint": "eslint && stylelint \"src/**/*.{css,scss}\" && htmlhint \"src/**/*.html\"",
 		"start": "ng serve --port 4200",
 		"build": "ng build",
