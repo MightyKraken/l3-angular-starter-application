@@ -38,6 +38,7 @@
 	},
 	"dependencies": {
 		"@angular/animations": "21.0.0",
+		"@angular/aria": "^21.0.0",
 		"@angular/cdk": "21.0.0",
 		"@angular/common": "21.0.0",
 		"@angular/compiler": "21.0.0",
@@ -57,6 +58,7 @@
 		"@commitlint/cli": "19.7.1",
 		"@commitlint/config-conventional": "19.7.1",
 		"@eslint/js": "9.19.0",
+		"@tailwindcss/postcss": "4.1.14",
 		"eslint": "9.19.0",
 		"eslint-config-prettier": "10.0.1",
 		"eslint-plugin-prettier": "5.2.3",
@@ -71,12 +73,11 @@
 		"prettier-plugin-tailwindcss": "0.6.11",
 		"stylelint": "16.14.1",
 		"stylelint-config-standard-scss": "14.0.0",
+		"tailwindcss": "4.1.14",
 		"ts-node": "10.9.2",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "8.47.0",
 		"vitest": "^4.0.8",
-		"vscode-generate-index-standalone": "1.7.1",
-		"@tailwindcss/postcss": "4.1.14",
-		"tailwindcss": "4.1.14"
+		"vscode-generate-index-standalone": "1.7.1"
 	}
 }
