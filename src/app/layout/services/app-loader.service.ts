@@ -1,4 +1,4 @@
-import { effect, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
 	providedIn: 'root'
@@ -8,21 +8,13 @@ export class AppLoaderService {
 
 	isAppLoading = this._isAppLoading.asReadonly();
 
-	constructor() {
-		this.manageBodyOverflow();
-	}
-
 	show(): void {
 		this._isAppLoading.set(true);
+		document.body.classList.add('overflow-hidden');
 	}
 
 	hide(): void {
 		this._isAppLoading.set(false);
-	}
-
-	private manageBodyOverflow(): void {
-		effect(() => {
-			document.body.classList.toggle('overflow-hidden', this._isAppLoading());
-		});
+		document.body.classList.remove('overflow-hidden');
 	}
 }
