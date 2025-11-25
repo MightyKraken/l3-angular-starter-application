@@ -1,5 +1,6 @@
 const baseUrl = '';
 
 export const environmentBase = {
-	PortalTitle: 'Angular Starter'
+	PortalTitle: 'Angular Starter',
+	apiUrl: '/api'
 };
