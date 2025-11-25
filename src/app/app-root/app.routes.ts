@@ -34,8 +34,8 @@ export const routes: Routes = [
 						(m) => m.AUTH_ROUTES
 					),
 				data: <ILayoutData>{
-					showToolbar: true,
-					showNavigation: true
+					showToolbar: false,
+					showNavigation: false
 				}
 			}
 		],
