@@ -2,9 +2,13 @@
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"cli": {
 		"cache": {
-			"enabled": false
+			"enabled": true
 		},
-		"analytics": false
+		"analytics": false,
+		"packageManager": "bun",
+		"warnings": {
+			"versionMismatch": true
+		}
 	},
 	"version": 1,
 	"newProjectRoot": "projects",
@@ -110,19 +114,28 @@
 	},
 	"schematics": {
 		"@schematics/angular:component": {
-			"type": "component"
+			"type": "component",
+			"prefix": "",
+			"style": "scss",
+			"changeDetection": "OnPush",
+			"standalone": true
 		},
 		"@schematics/angular:directive": {
-			"type": "directive"
+			"type": "directive",
+			"prefix": "",
+			"standalone": true
 		},
 		"@schematics/angular:service": {
 			"type": "service"
 		},
 		"@schematics/angular:guard": {
-			"typeSeparator": "."
+			"typeSeparator": ".",
+			"functional": false,
+			"implements": ["CanActivate"]
 		},
 		"@schematics/angular:interceptor": {
-			"typeSeparator": "."
+			"typeSeparator": ".",
+			"functional": true
 		},
 		"@schematics/angular:module": {
 			"typeSeparator": "."
