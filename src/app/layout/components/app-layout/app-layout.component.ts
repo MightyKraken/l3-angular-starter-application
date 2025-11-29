@@ -1,4 +1,11 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	computed,
+	inject,
+	signal
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
 	ActivatedRoute,
 	NavigationEnd,
@@ -21,7 +28,8 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 		...COMMON_IMPORTS
 	],
 	templateUrl: './app-layout.component.html',
-	styleUrl: './app-layout.component.scss'
+	styleUrl: './app-layout.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppLayoutComponent {
 	route = inject(ActivatedRoute);
@@ -41,7 +49,10 @@ export class AppLayoutComponent {
 
 	private setRouteData(): void {
 		this.router.events
-			.pipe(filter((event) => event instanceof NavigationEnd))
+			.pipe(
+				filter((event) => event instanceof NavigationEnd),
+				takeUntilDestroyed()
+			)
 			.subscribe(() => {
 				this.layoutData.set(this.getFirstRouteData());
 			});
