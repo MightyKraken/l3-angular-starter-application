@@ -28,7 +28,7 @@ export class SignUpComponent {
 	private router = inject(Router);
 	private authService = inject(AuthService);
 
-	signupModel = signal({
+	readonly signupModel = signal({
 		username: '',
 		email: '',
 		password: ''
@@ -63,9 +63,9 @@ export class SignUpComponent {
 		);
 	});
 
-	isSubmitting = signal(false);
+	readonly isSubmitting = signal(false);
 
-	errorMessage = signal<string | null>(null);
+	readonly errorMessage = signal<string | null>(null);
 
 	onSubmit(): void {
 		if (this.signupForm().invalid()) {

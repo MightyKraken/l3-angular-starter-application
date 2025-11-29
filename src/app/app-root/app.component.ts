@@ -6,8 +6,8 @@ import { AppLoaderComponent } from '../layout';
 
 @Component({
 	selector: 'app-root',
+	imports: [RouterOutlet, AppLoaderComponent, ...SHARED_COMPONENTS],
 	templateUrl: './app.component.html',
-	styleUrl: './app.component.scss',
-	imports: [RouterOutlet, AppLoaderComponent, ...SHARED_COMPONENTS]
+	styleUrl: './app.component.scss'
 })
 export class AppComponent {}
