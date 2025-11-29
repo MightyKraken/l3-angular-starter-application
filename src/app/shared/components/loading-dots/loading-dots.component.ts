@@ -13,8 +13,8 @@ import { Component, input } from '@angular/core';
 	}
 })
 export class LoadingDotsComponent {
-	size = input<string>('16px');
-	gap = input<string>('16px');
-	jumpDistance = input<string>('-15px');
-	speed = input<string>('1.8s');
+	readonly size = input<string>('16px');
+	readonly gap = input<string>('16px');
+	readonly jumpDistance = input<string>('-15px');
+	readonly speed = input<string>('1.8s');
 }

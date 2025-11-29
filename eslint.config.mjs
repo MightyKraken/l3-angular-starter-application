@@ -4,7 +4,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-
+import eslintPluginAngular from '@angular-eslint/eslint-plugin';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
 	{
@@ -25,6 +25,10 @@ export default [
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	{
+		files: ['**/*.ts'],
+		plugins: {
+			'@angular-eslint': eslintPluginAngular
+		},
 		rules: {
 			'simple-import-sort/imports': 'error',
 			'simple-import-sort/exports': 'error',
@@ -42,7 +46,20 @@ export default [
 					allowExpressions: true,
 					allowTypedFunctionExpressions: true
 				}
-			]
+			],
+			'@angular-eslint/component-class-suffix': 'error',
+			'@angular-eslint/directive-class-suffix': 'error',
+			'@angular-eslint/no-empty-lifecycle-method': 'error',
+			'@angular-eslint/consistent-component-styles': 'error',
+			'@angular-eslint/contextual-decorator': 'error',
+			'@angular-eslint/no-duplicates-in-metadata-arrays': 'error',
+			'@angular-eslint/prefer-inject': 'error',
+			'@angular-eslint/sort-lifecycle-methods': 'error',
+			'@angular-eslint/use-lifecycle-interface': 'error',
+			'@angular-eslint/use-pipe-transform-interface': 'error',
+			'@angular-eslint/relative-url-prefix': ['error'],
+			'@angular-eslint/prefer-signals': ['error'],
+			'@angular-eslint/sort-keys-in-type-decorator': ['error']
 		}
 	},
 	eslintPluginPrettier

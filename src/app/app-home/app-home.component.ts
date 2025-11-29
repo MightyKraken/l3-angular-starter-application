@@ -1,17 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { COMMON_IMPORTS, SHARED_COMPONENTS } from '@shared';
 
 import { AppLoaderService } from '../layout';
 
 @Component({
 	selector: 'app-home',
+	imports: [SHARED_COMPONENTS, COMMON_IMPORTS],
 	templateUrl: './app-home.component.html',
-	styleUrl: './app-home.component.scss',
-	imports: [SHARED_COMPONENTS, COMMON_IMPORTS]
+	styleUrl: './app-home.component.scss'
 })
-export class AppHomeComponent {
+export class AppHomeComponent implements OnInit {
 	appLoaderService = inject(AppLoaderService);
 	data: unknown = null;
+
 	ngOnInit(): void {
 		this.startLoading();
 	}

@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
 	providedIn: 'root'
 })
 export class AppLoaderService {
-	private _isAppLoading = signal(false);
+	private readonly _isAppLoading = signal(false);
 
 	isAppLoading = this._isAppLoading.asReadonly();
 
