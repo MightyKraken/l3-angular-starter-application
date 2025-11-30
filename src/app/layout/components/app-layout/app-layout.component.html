@@ -1,10 +1,10 @@
 <!-- Content With Navigation And Toolbar-->
 @if (showNavigation() && showToolbar()) {
 	<div class="flex">
-		<ng-container *ngTemplateOutlet="navigationbar"></ng-container>
+		<ng-container *ngTemplateOutlet="navigationbar" />
 		<div class="grow flex-col">
-			<ng-container *ngTemplateOutlet="toolbar"></ng-container>
-			<ng-container *ngTemplateOutlet="content"></ng-container>
+			<ng-container *ngTemplateOutlet="toolbar" />
+			<ng-container *ngTemplateOutlet="content" />
 		</div>
 	</div>
 }
@@ -12,32 +12,32 @@
 <!-- Content With Navigation -->
 @if (showNavigation() && !showToolbar()) {
 	<div class="flex">
-		<ng-container *ngTemplateOutlet="navigationbar"></ng-container>
-		<ng-container *ngTemplateOutlet="content"></ng-container>
+		<ng-container *ngTemplateOutlet="navigationbar" />
+		<ng-container *ngTemplateOutlet="content" />
 	</div>
 }
 
 <!-- Content With Toolbar-->
 @if (!showNavigation() && showToolbar()) {
 	<div class="flex-col">
-		<ng-container *ngTemplateOutlet="toolbar"></ng-container>
-		<ng-container *ngTemplateOutlet="content"></ng-container>
+		<ng-container *ngTemplateOutlet="toolbar" />
+		<ng-container *ngTemplateOutlet="content" />
 	</div>
 }
 
 <!-- Content -->
 @if (!showNavigation() && !showToolbar()) {
-	<ng-container *ngTemplateOutlet="content"></ng-container>
+	<ng-container *ngTemplateOutlet="content" />
 }
 
 <ng-template #content>
-	<router-outlet></router-outlet>
+	<router-outlet />
 </ng-template>
 
 <ng-template #navigationbar>
-	<app-navigation-bar></app-navigation-bar>
+	<app-navigation-bar />
 </ng-template>
 
 <ng-template #toolbar>
-	<app-tool-bar></app-tool-bar>
+	<app-tool-bar />
 </ng-template>
