@@ -10,8 +10,11 @@ import { AppLoaderService } from '../layout';
 	styleUrl: './app-home.component.scss'
 })
 export class AppHomeComponent implements OnInit {
+	private xa = true;
 	appLoaderService = inject(AppLoaderService);
 	data: unknown = null;
+	x = false;
+	d = 22;
 
 	ngOnInit(): void {
 		this.startLoading();
