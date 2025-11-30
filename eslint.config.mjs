@@ -5,31 +5,27 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintPluginAngular from '@angular-eslint/eslint-plugin';
+import eslintPluginAngularTemplate from '@angular-eslint/eslint-plugin-template';
+import angularTemplateParser from '@angular-eslint/template-parser';
 import stylistic from '@stylistic/eslint-plugin';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	{
-		plugins: {
-			'simple-import-sort': simpleImportSort,
-			'unused-imports': unusedImports,
-			'@typescript-eslint/tslint': tseslint,
-			'@stylistic': stylistic
-		}
-	},
 	{ ignores: ['node_modules/', 'dist/', '.angular/'] },
-	{ files: ['src/*.{js,mjs,cjs,ts}'] },
-	{
-		languageOptions: {
-			globals: globals.browser,
-			parser: '@typescript-eslint/parser'
-		}
-	},
 	pluginJs.configs.recommended,
-	...tseslint.configs.recommended,
+	...tseslint.configs.recommended.map((config) => ({
+		...config,
+		files: ['**/*.ts']
+	})),
 	{
 		files: ['**/*.ts'],
 		plugins: {
+			'simple-import-sort': simpleImportSort,
+			'unused-imports': unusedImports,
+			'@stylistic': stylistic,
 			'@angular-eslint': eslintPluginAngular
+		},
+		languageOptions: {
+			globals: globals.browser
 		},
 		rules: {
 			// ESLint core rules
@@ -107,6 +103,44 @@ export default [
 
 			// unused-imports rules
 			'unused-imports/no-unused-imports': 'error'
+		}
+	},
+	{
+		files: ['**/*.html'],
+		plugins: {
+			'@angular-eslint/template': eslintPluginAngularTemplate
+		},
+		languageOptions: {
+			parser: angularTemplateParser
+		},
+		rules: {
+			// @angular-eslint/template rules
+			'@angular-eslint/template/attributes-order': [
+				'error',
+				{
+					alphabetical: true,
+					order: [
+						'STRUCTURAL_DIRECTIVE',
+						'TEMPLATE_REFERENCE',
+						'INPUT_BINDING',
+						'TWO_WAY_BINDING',
+						'OUTPUT_BINDING',
+						'ATTRIBUTE_BINDING'
+					]
+				}
+			],
+			'@angular-eslint/template/banana-in-box': 'error',
+			'@angular-eslint/template/button-has-type': 'error',
+			'@angular-eslint/template/eqeqeq': [
+				'error',
+				{ allowNullOrUndefined: true }
+			],
+			'@angular-eslint/template/no-duplicate-attributes': 'error',
+			'@angular-eslint/template/no-negated-async': 'error',
+			'@angular-eslint/template/prefer-control-flow': 'error',
+			'@angular-eslint/template/prefer-ngsrc': 'error',
+			'@angular-eslint/template/prefer-self-closing-tags': 'error',
+			'@angular-eslint/template/use-track-by-function': 'error'
 		}
 	},
 	eslintPluginPrettier
