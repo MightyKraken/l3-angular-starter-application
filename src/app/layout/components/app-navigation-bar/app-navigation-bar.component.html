@@ -5,15 +5,15 @@
 
 	<nav class="sidebar-nav">
 		@for (item of navigationItems; track item.route) {
-			<a
-				[routerLink]="item.route"
-				[routerLinkActiveOptions]="{ exact: item.route === '/' }"
-				class="nav-item"
-				routerLinkActive="active"
-			>
-				<span class="nav-icon">{{ item.icon }}</span>
-				<span class="nav-label">{{ item.label }}</span>
-			</a>
+		<a
+			[routerLink]="item.route"
+			[routerLinkActiveOptions]="{ exact: item.route === '/' }"
+			class="nav-item"
+			routerLinkActive="active"
+		>
+			<span class="nav-icon">{{ item.icon }}</span>
+			<span class="nav-label">{{ item.label }}</span>
+		</a>
 		}
 	</nav>
 </aside>

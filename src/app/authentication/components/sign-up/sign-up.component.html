@@ -10,11 +10,11 @@
 
 		<!-- General Error Message -->
 		@if (errorMessage()) {
-			<div
-				class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700"
-			>
-				{{ errorMessage() }}
-			</div>
+		<div
+			class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700"
+		>
+			{{ errorMessage() }}
+		</div>
 		}
 
 		<!-- Signup Form -->
@@ -38,12 +38,11 @@
 					placeholder="Choose a username"
 					type="text"
 				/>
-				@if (
-					signupForm.username().touched() && signupForm.username().invalid()
+				@if ( signupForm.username().touched() && signupForm.username().invalid()
 				) {
-					<p class="mt-1 text-xs text-red-600">
-						{{ signupForm.username().errors()[0].message }}
-					</p>
+				<p class="mt-1 text-xs text-red-600">
+					{{ signupForm.username().errors()[0].message }}
+				</p>
 				}
 			</div>
 
@@ -64,9 +63,9 @@
 					type="email"
 				/>
 				@if (signupForm.email().touched() && signupForm.email().invalid()) {
-					<p class="mt-1 text-xs text-red-600">
-						{{ signupForm.email().errors()[0].message }}
-					</p>
+				<p class="mt-1 text-xs text-red-600">
+					{{ signupForm.email().errors()[0].message }}
+				</p>
 				}
 			</div>
 
@@ -91,12 +90,11 @@
 						type="password"
 					/>
 				</div>
-				@if (
-					signupForm.password().touched() && signupForm.password().invalid()
+				@if ( signupForm.password().touched() && signupForm.password().invalid()
 				) {
-					<p class="mt-1 text-xs text-red-600">
-						{{ signupForm.password().errors()[0].message }}
-					</p>
+				<p class="mt-1 text-xs text-red-600">
+					{{ signupForm.password().errors()[0].message }}
+				</p>
 				}
 			</div>
 
@@ -113,39 +111,39 @@
 				>
 					<span class="absolute inset-y-0 left-0 flex items-center pl-3">
 						@if (isSubmitting()) {
-							<svg
-								class="h-5 w-5 animate-spin text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<circle
-									class="opacity-25"
-									cx="12"
-									cy="12"
-									r="10"
-									stroke="currentColor"
-									stroke-width="4"
-								/>
-								<path
-									class="opacity-75"
-									d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-									fill="currentColor"
-								/>
-							</svg>
-						} @else {
-							<svg
-								class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+						<svg
+							class="h-5 w-5 animate-spin text-white"
+							fill="none"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<circle
+								class="opacity-25"
+								cx="12"
+								cy="12"
+								r="10"
+								stroke="currentColor"
+								stroke-width="4"
+							/>
+							<path
+								class="opacity-75"
+								d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									clip-rule="evenodd"
-									d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
-									fill-rule="evenodd"
-								/>
-							</svg>
+							/>
+						</svg>
+						} @else {
+						<svg
+							class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								clip-rule="evenodd"
+								d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+								fill-rule="evenodd"
+							/>
+						</svg>
 						}
 					</span>
 					{{ isSubmitting() ? 'Signing up...' : 'Sign Up' }}
