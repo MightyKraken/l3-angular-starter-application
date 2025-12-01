@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { AppToolBarComponent } from './app-tool-bar.component';
 
@@ -8,7 +9,8 @@ describe('AppToolBarComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppToolBarComponent]
+			imports: [AppToolBarComponent],
+			providers: [provideRouter([])]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppToolBarComponent);
