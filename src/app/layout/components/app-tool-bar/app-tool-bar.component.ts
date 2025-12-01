@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
 	selector: 'app-tool-bar',
-	imports: [],
+	imports: [RouterLink, RouterLinkActive],
 	templateUrl: './app-tool-bar.component.html',
 	styleUrl: './app-tool-bar.component.scss'
 })

@@ -8,7 +8,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 export const AUTH_ROUTES: Routes = [
 	{
-		path: 'signin',
+		path: 'sign-in',
 		component: SignInComponent
 	},
 	{
@@ -29,7 +29,7 @@ export const AUTH_ROUTES: Routes = [
 	},
 	{
 		path: '',
-		redirectTo: 'signin',
+		redirectTo: 'sign-in',
 		pathMatch: 'full'
 	}
 ];
