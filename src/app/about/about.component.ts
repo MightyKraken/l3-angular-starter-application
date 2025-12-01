@@ -1,7 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-
-import { AboutService } from './about.service';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'about',
@@ -9,11 +6,4 @@ import { AboutService } from './about.service';
 	templateUrl: './about.component.html',
 	styleUrl: './about.component.scss'
 })
-export class AboutComponent {
-	private aboutService = inject(AboutService);
-	protected readonly bindValue = toSignal(this.aboutService.emitter);
-
-	changeValue(): void {
-		this.aboutService.change(Math.random());
-	}
-}
+export class AboutComponent {}
