@@ -1,8 +1,8 @@
 {
 	"singleQuote": true,
-	"semi": true,
 	"trailingComma": "none",
 	"printWidth": 80,
+	"semi": true,
 	"useTabs": true,
 	"tabWidth": 2,
 	"quoteProps": "consistent",
@@ -12,5 +12,13 @@
 	"arrowParens": "always",
 	"endOfLine": "lf",
 	"plugins": ["prettier-plugin-tailwindcss"],
-	"tailwindStylesheet": "./src/styles/styles.scss"
+	"tailwindStylesheet": "./src/styles/styles.scss",
+	"overrides": [
+		{
+			"files": "*.html",
+			"options": {
+				"parser": "html"
+			}
+		}
+	]
 }

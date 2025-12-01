@@ -1,8 +1,8 @@
 {
     "editor.codeActionsOnSave": {
-        "source.addMissingImports": "always",
-        "source.fixAll.eslint": "explicit",
-        "source.fixAll.stylelint": "explicit"
+        "source.addMissingImports": "never",
+        "source.fixAll.eslint": "never",
+        "source.fixAll.stylelint": "never"
     },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#edfbd5",

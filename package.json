@@ -11,7 +11,7 @@
 		"test:ci": "ng test --run",
 		"prepare": "husky install",
 		"lint:fix": "eslint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
-		"prettier": "bun prettier . --write",
+		"prettier": "prettier . --write",
 		"start:dev": "ng serve --port 4200 --inspect",
 		"build:prod": "ng build --configuration=production",
 		"docker-run": "docker run --detach --publish 80:80 --name l3-angular-starter-application l3-angular-starter-application",

@@ -1,33 +1,33 @@
 <!-- Content With Navigation And Toolbar-->
 @if (showNavigation() && showToolbar()) {
-	<div class="flex">
-		<ng-container *ngTemplateOutlet="navigationbar" />
-		<div class="grow flex-col">
-			<ng-container *ngTemplateOutlet="toolbar" />
-			<ng-container *ngTemplateOutlet="content" />
-		</div>
+<div class="flex">
+	<ng-container *ngTemplateOutlet="navigationbar" />
+	<div class="grow flex-col">
+		<ng-container *ngTemplateOutlet="toolbar" />
+		<ng-container *ngTemplateOutlet="content" />
 	</div>
+</div>
 }
 
 <!-- Content With Navigation -->
 @if (showNavigation() && !showToolbar()) {
-	<div class="flex">
-		<ng-container *ngTemplateOutlet="navigationbar" />
-		<ng-container *ngTemplateOutlet="content" />
-	</div>
+<div class="flex">
+	<ng-container *ngTemplateOutlet="navigationbar" />
+	<ng-container *ngTemplateOutlet="content" />
+</div>
 }
 
 <!-- Content With Toolbar-->
 @if (!showNavigation() && showToolbar()) {
-	<div class="flex-col">
-		<ng-container *ngTemplateOutlet="toolbar" />
-		<ng-container *ngTemplateOutlet="content" />
-	</div>
+<div class="flex-col">
+	<ng-container *ngTemplateOutlet="toolbar" />
+	<ng-container *ngTemplateOutlet="content" />
+</div>
 }
 
 <!-- Content -->
 @if (!showNavigation() && !showToolbar()) {
-	<ng-container *ngTemplateOutlet="content" />
+<ng-container *ngTemplateOutlet="content" />
 }
 
 <ng-template #content>
