@@ -1,12 +1,13 @@
 import { Location } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-page-not-found',
 	imports: [RouterLink],
 	templateUrl: './app-page-not-found.component.html',
-	styleUrl: './app-page-not-found.component.scss'
+	styleUrl: './app-page-not-found.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppPageNotFoundComponent {
 	private location = inject(Location);
