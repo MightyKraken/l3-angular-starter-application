@@ -4,7 +4,7 @@
 	</div>
 
 	<nav class="sidebar-nav">
-		@for (item of navigationItems; track item.route) {
+		@for (item of navigationItems(); track item.route) {
 		<a
 			[routerLink]="item.route"
 			[routerLinkActiveOptions]="{ exact: item.route === '/' }"

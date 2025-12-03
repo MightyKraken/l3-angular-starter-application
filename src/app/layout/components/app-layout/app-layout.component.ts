@@ -3,8 +3,6 @@ import {
 	Component,
 	computed,
 	inject,
-	OnChanges,
-	OnInit,
 	signal
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -33,7 +31,7 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 	styleUrl: './app-layout.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppLayoutComponent implements OnChanges, OnInit {
+export class AppLayoutComponent {
 	route = inject(ActivatedRoute);
 	router = inject(Router);
 
@@ -49,14 +47,6 @@ export class AppLayoutComponent implements OnChanges, OnInit {
 
 	constructor() {
 		this.setRouteData();
-	}
-
-	ngOnChanges(): void {
-		console.log('ngOnChanges');
-	}
-
-	ngOnInit(): void {
-		console.log('ngOnINit');
 	}
 
 	private setRouteData(): void {
