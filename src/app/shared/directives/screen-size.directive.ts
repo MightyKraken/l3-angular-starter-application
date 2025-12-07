@@ -2,7 +2,7 @@ import { computed, Directive, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { debounceTime, fromEvent, map, startWith, tap } from 'rxjs';
 
-import { ScreenSize } from '../constants/screen-size.const';
+import { ScreenBreakPoints } from '../constants/screen-break-points.const';
 
 interface WindowSize {
 	width: number;
@@ -44,18 +44,18 @@ export class ScreenSizeDirective {
 	readonly height = computed(() => this.windowSize().height);
 
 	readonly isMobile = computed(
-		() => this.width() <= ScreenSize.ScreenBreakWidthExtraSmall
+		() => this.width() <= ScreenBreakPoints.ScreenBreakWidthMobile
 	);
 
 	readonly isSmall = computed(
-		() => this.width() <= ScreenSize.ScreenBreakWidthSmall
+		() => this.width() <= ScreenBreakPoints.ScreenBreakWidthSmall
 	);
 
 	readonly isMedium = computed(
-		() => this.width() <= ScreenSize.ScreenBreakWidthMedium
+		() => this.width() <= ScreenBreakPoints.ScreenBreakWidthMedium
 	);
 
 	readonly isLarge = computed(
-		() => this.width() > ScreenSize.ScreenBreakWidthMedium
+		() => this.width() > ScreenBreakPoints.ScreenBreakWidthMedium
 	);
 }

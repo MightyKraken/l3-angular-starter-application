@@ -1,6 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import {
 	ApplicationConfig,
+	provideAppInitializer,
 	provideZonelessChangeDetection
 } from '@angular/core';
 import {
@@ -17,6 +18,11 @@ export const appConfig: ApplicationConfig = {
 		provideRouter(routes, withComponentInputBinding()),
 		provideHttpClient(),
 		provideZonelessChangeDetection(),
+		provideAppInitializer(() => {
+			console.log(
+				'Loads Before app bootstraps and blocks bootstrap until work is done'
+			);
+		}),
 		{ provide: TitleStrategy, useClass: AppTitleStrategyService }
 	]
 };
