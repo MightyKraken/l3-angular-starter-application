@@ -2,7 +2,7 @@
     "editor.codeActionsOnSave": {
         "source.addMissingImports.ts": "always",
 		"source.fixAll": "always",
-		"source.organizeImports": "never",
+		"source.organizeImports": "always",
     },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#edfbd5",
