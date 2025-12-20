@@ -227,8 +227,8 @@
     },
     "scm-buttons.showGitStash": true,
     "diffEditor.ignoreTrimWhitespace": true,
-    "javascript.preferences.importModuleSpecifier": "relative",
-    "typescript.preferences.importModuleSpecifier": "relative",
+    "javascript.preferences.importModuleSpecifier": "shortest",
+    "typescript.preferences.importModuleSpecifier": "shortest",
     "editor.wordWrap": "on",
     "gitlens.views.scm.grouped.views": {
         "commits": false,
