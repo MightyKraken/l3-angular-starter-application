@@ -144,7 +144,7 @@
         "suppressGitDisabledWarning": true,
         "suppressLineUncommittedWarning": true
     },
-    "workbench.editor.wrapTabs": true,
+    "workbench.editor.wrapTabs": false,
     "vssolution.trackActiveItem": true,
     "explorer.confirmDragAndDrop": false,
     "editor.accessibilitySupport": "off",
