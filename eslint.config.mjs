@@ -1,13 +1,13 @@
+import eslintPluginAngular from '@angular-eslint/eslint-plugin';
+import eslintPluginAngularTemplate from '@angular-eslint/eslint-plugin-template';
+import angularTemplateParser from '@angular-eslint/template-parser';
 import pluginJs from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import eslintPluginAngular from '@angular-eslint/eslint-plugin';
-import eslintPluginAngularTemplate from '@angular-eslint/eslint-plugin-template';
-import angularTemplateParser from '@angular-eslint/template-parser';
-import stylistic from '@stylistic/eslint-plugin';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
 	{ ignores: ['node_modules/', 'dist/', '.angular/'] },
@@ -142,6 +142,14 @@ export default [
 			'@angular-eslint/template/prefer-self-closing-tags': 'error',
 			'@angular-eslint/template/use-track-by-function': 'error'
 		}
+	},
+	{
+		'prettier/prettier': [
+			'error',
+			{
+				endOfLine: 'auto'
+			}
+		]
 	},
 	eslintPluginPrettier
 ];
