@@ -65,6 +65,7 @@
 
 - angular19 -> angular 19 version compatible
 - v19/ui-kit -> angular 19 ui kit in development
+- angular21 -> angular 20 version compatible
 
 # Customization
 
