@@ -19,7 +19,7 @@
 		"paths": {
 			"@environment": ["./src/environments/environment.ts"],
 			"@shared": ["./src/app/shared/index.ts"],
-			"@packages/ui": ["./packages/kraken-ui/index.ts"]
+			"@kraken-ui": ["./src/app/kraken-ui/index.ts"]
 		}
 	},
 	"angularCompilerOptions": {
