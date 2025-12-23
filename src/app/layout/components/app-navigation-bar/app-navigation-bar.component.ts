@@ -20,10 +20,5 @@ export class AppNavigationBarComponent {
 			route: '/about',
 			icon: 'ℹ️'
 		},
-		{
-			label: 'Sign In',
-			route: '/auth/sign-in',
-			icon: '🔐'
-		}
 	]);
 }

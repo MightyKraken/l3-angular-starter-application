@@ -8,4 +8,6 @@ import { COMMON_IMPORTS, KRAKEN_UI, SHARED_COMPONENTS } from '@shared';
 	styleUrl: './app-home.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppHomeComponent {}
+export class AppHomeComponent {
+
+}
