@@ -1,7 +1,7 @@
 import { A11yModule } from '@angular/cdk/a11y';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { BaseButtonComponent, IconButtonComponent } from '@packages/ui';
+import { BaseButtonComponent, IconButtonComponent } from '@kraken-ui';
 
 import { LoadingDotsComponent } from '../components/loading-dots/loading-dots.component';
 
