@@ -1,7 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 
 import { ScreenBreakPoints } from '../../constants/screen-break-points.const';
 import { BreakPointDetectorService } from './break-point-detector.service';
@@ -66,10 +66,10 @@ describe('BreakPointDetectorService', () => {
 	});
 
 	it('should have initial value of false for all breakpoints', () => {
-		expect(service.isMobile()).toBe(false);
-		expect(service.isSmall()).toBe(false);
-		expect(service.isMedium()).toBe(false);
-		expect(service.isLarge()).toBe(false);
-		expect(service.isExtraLarge()).toBe(false);
+		expect(service.isMobile()).toBeFalsy();
+		expect(service.isSmall()).toBeFalsy();
+		expect(service.isMedium()).toBeFalsy();
+		expect(service.isLarge()).toBeFalsy();
+		expect(service.isExtraLarge()).toBeFalsy();
 	});
 });

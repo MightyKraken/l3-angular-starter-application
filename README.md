@@ -1,15 +1,19 @@
-# Prerequisite installations
+# Angular Code Snippets
 
-1. Nodejs(Optional) : https://nodejs.org/en/download
-2. Deno(Optional) : https://deno.com/
-3. Bun(Optional): https://bun.sh/
-4. Docker (Required): https://www.docker.com/
-5. Git (Required): https://git-scm.com/downloads
-6. VScode (Optional): https://code.visualstudio.com/
+A repository to show how common code can be reused
 
-# Starter Guide.
+## Prerequisite installations
 
-1. clone: git clone https://github.com/MightyKraken/l3-angular-starter-application.git (must have git installed)
+1. Nodejs(Optional) : <https://nodejs.org/en/download>
+2. Deno(Optional) : <https://deno.com/>
+3. Bun(Optional): <https://bun.sh/>
+4. Docker (Required): <https://www.docker.com/>
+5. Git (Required): <https://git-scm.com/downloads>
+6. VScode (Optional): <https://code.visualstudio.com/>
+
+## Starter Guide
+
+1. clone: git clone <https://github.com/MightyKraken/l3-angular-starter-application.git> (must have git installed)
 2. install: `npm install`
 3. run: `npm run start`
 4. test: `npm run test`
@@ -23,7 +27,7 @@
 12. delete-docker-container: `npm run docker-container-remove` or `docker rm -f l3-angular-starter-application`
 13. delete-docker-image: `npm run docker-image-remove` or `docker rmi -f l3-angular-starter-application`
 
-# Features With Starter Repo
+## Features With Starter Repo
 
 - Angular with Docker file ✔
 - Prettier eslint setup ✔
@@ -41,7 +45,7 @@
 - Logo Support ✔
 - Color support
 
-# Common Features For Frontend
+## Common Features For Frontend
 
 - Toast Component
 - Toolbar
@@ -61,20 +65,20 @@
 - Breadcrumbs design
 -
 
-# Important Branches
+## Important Branches
 
 - angular19 -> angular 19 version compatible
 - v19/ui-kit -> angular 19 ui kit in development
 - angular21 -> angular 20 version compatible
 
-# Customization
+## Customization
 
 - To change logo change the brand.ico file in public folder
 - To change font apply the fonts in styles/fonts.scss. Currently gantari is used
 - You can use material
 -
 
-# Technologies or Libraries used
+## Technologies or Libraries used
 
 - Angular
 - Typescript
@@ -88,3 +92,8 @@
 - Jest
 - Tailwind
 - Angular Material
+
+## Code Examples
+
+1. Screen Resize event handling -> break-point-detector.service.ts
+2.
