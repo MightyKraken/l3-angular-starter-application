@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {
 	email,
-	Field,
+	FormField,
 	form,
 	maxLength,
 	minLength,
@@ -19,7 +19,7 @@ import { AuthService } from '../../services';
 
 @Component({
 	selector: 'sign-up',
-	imports: [Field],
+	imports: [FormField],
 	templateUrl: './sign-up.component.html',
 	styleUrl: './sign-up.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
