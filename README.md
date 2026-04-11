@@ -63,7 +63,11 @@ A repository to show how common code can be reused
 - Not found page design
 - Home page design
 - Breadcrumbs design
--
+- LoadingUntilDirective -> will show a certain loader in place until condition becomes true. Great for reusability of loader
+- RoleBasedDirectiveRender -> Without using if condition and checking roles in multiple places the role checking is in a directive and that is then used across application
+- Breakpoint detector service -> A service that has multiple properties that becomes true or false based on screensize. useful for different screen size logics
+- ConfirmationModalDirective -> A reusable directive on buttons so that a confirmation dialog will popup before executing the buttons actual work
+- virtual Scroll Container -> A reusable component or directive that will render certain content in performance mode with virtual scroll or infinite scroll
 
 ## Important Branches
 
