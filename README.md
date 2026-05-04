@@ -2,6 +2,12 @@
 
 A repository to show how common code can be reused
 
+# Todo After cloning
+1. Replace l3-angular-starter-application with new application name
+2. Replace brand.ico to a new ico file 
+3. Replace Angular Starter with Application portal title
+4. 
+
 ## Prerequisite installations
 
 1. Nodejs(Optional) : <https://nodejs.org/en/download>
