@@ -1,8 +1,8 @@
 <!-- Content With Navigation And Toolbar-->
 @if (showNavigation() && showToolbar()) {
-<div class="flex">
+<div>
 	<ng-container *ngTemplateOutlet="navigationbar" />
-	<div class="grow flex-col">
+	<div>
 		<ng-container *ngTemplateOutlet="toolbar" />
 		<ng-container *ngTemplateOutlet="content" />
 	</div>
@@ -11,7 +11,7 @@
 
 <!-- Content With Navigation -->
 @if (showNavigation() && !showToolbar()) {
-<div class="flex">
+<div>
 	<ng-container *ngTemplateOutlet="navigationbar" />
 	<ng-container *ngTemplateOutlet="content" />
 </div>
@@ -19,7 +19,7 @@
 
 <!-- Content With Toolbar-->
 @if (!showNavigation() && showToolbar()) {
-<div class="flex-col">
+<div>
 	<ng-container *ngTemplateOutlet="toolbar" />
 	<ng-container *ngTemplateOutlet="content" />
 </div>
