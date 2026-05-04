@@ -1,6 +1,7 @@
 {
 	"name": "l3-angular-starter-application",
 	"version": "0.0.0",
+	"packageManager": "npm@10.9.2",
 	"scripts": {
 		"start": "ng serve --port 4203",
 		"start:dev": "ng serve --port 4203 --inspect",
