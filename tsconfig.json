@@ -15,11 +15,10 @@
 		"target": "ES2022",
 		"module": "preserve",
 		"moduleResolution": "bundler",
-        "baseUrl": ".",
+		"baseUrl": ".",
 		"paths": {
 			"@environment": ["./src/environments/environment.ts"],
-			"@shared": ["./src/app/shared/index.ts"],
-			"@kraken-ui": ["./src/app/kraken-ui/index.ts"]
+			"@shared": ["./src/app/shared/index.ts"]
 		}
 	},
 	"angularCompilerOptions": {
