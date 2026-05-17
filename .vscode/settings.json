@@ -219,7 +219,7 @@
     "editor.lineHeight": 24,
     "gitlens.launchpad.indicator.enabled": false,
     "window.title": "${dirty}${rootName}",
-    "workbench.iconTheme": "catppuccin-frappe",
+    "workbench.iconTheme": "material-icon-theme",
     "git.replaceTagsWhenPull": true,
 
     "github.copilot.advanced": {

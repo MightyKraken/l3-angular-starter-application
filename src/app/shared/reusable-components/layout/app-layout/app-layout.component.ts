@@ -12,9 +12,9 @@ import {
 	Router,
 	RouterOutlet
 } from '@angular/router';
-import { COMMON_IMPORTS, ILayoutData, SHARED_COMPONENTS } from '@shared';
 import { filter } from 'rxjs';
 
+import { COMMON_IMPORTS, ILayoutData } from '@core';
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 
@@ -24,7 +24,6 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 		RouterOutlet,
 		AppNavigationBarComponent,
 		AppToolBarComponent,
-		...SHARED_COMPONENTS,
 		...COMMON_IMPORTS
 	],
 	templateUrl: './app-layout.component.html',
