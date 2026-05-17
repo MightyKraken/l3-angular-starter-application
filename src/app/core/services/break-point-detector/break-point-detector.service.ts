@@ -2,18 +2,18 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
-    fromEvent,
-    map,
-    Observable,
-    shareReplay,
-    startWith,
-    throttleTime
+	fromEvent,
+	map,
+	Observable,
+	shareReplay,
+	startWith,
+	throttleTime
 } from 'rxjs';
 import { ScreenBreakPoints } from '../../constants/screen-break-points.const';
 import {
-    IScreenSizeObserver,
-    ScreenSize
-} from '../../interfaces/IScreenSizeObserver.interface';
+	IScreenSizeObserver,
+	ScreenSize
+} from '../../models/interfaces/IScreenSizeObserver.interface';
 
 @Injectable()
 export class BreakPointDetectorService implements IScreenSizeObserver {

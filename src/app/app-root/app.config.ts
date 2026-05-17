@@ -1,16 +1,20 @@
 import { provideHttpClient } from '@angular/common/http';
 import {
-    ApplicationConfig,
-    provideAppInitializer,
-    provideZonelessChangeDetection
+	ApplicationConfig,
+	provideAppInitializer,
+	provideZonelessChangeDetection
 } from '@angular/core';
 import {
-    TitleStrategy,
-    provideRouter,
-    withComponentInputBinding
+	TitleStrategy,
+	provideRouter,
+	withComponentInputBinding
 } from '@angular/router';
 
-import { AppTitleStrategyService, BreakPointDetectorService, ScreenSizeObserver } from '../shared';
+import {
+	AppTitleStrategyService,
+	BreakPointDetectorService,
+	ScreenSizeObserver
+} from '@core';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

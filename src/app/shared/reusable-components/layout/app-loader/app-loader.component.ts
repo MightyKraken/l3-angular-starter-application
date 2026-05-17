@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { COMMON_IMPORTS, SHARED_COMPONENTS } from '@shared';
 
-import { AppLoaderService } from '../../services/app-loader.service';
+import { AppLoaderService, COMMON_IMPORTS } from '@core';
+import { LoadingDotsComponent } from '../../loading-dots/loading-dots.component';
 
 @Component({
 	selector: 'app-loader',
-	imports: [SHARED_COMPONENTS, COMMON_IMPORTS],
+	imports: [LoadingDotsComponent, COMMON_IMPORTS],
 	templateUrl: './app-loader.component.html',
 	styleUrl: './app-loader.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush

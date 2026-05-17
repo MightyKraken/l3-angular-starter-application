@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ILayoutData } from '@shared';
 
-import { AppHomeComponent } from '../app-home/app-home.component';
-import { AppPageNotFoundComponent } from '../app-page-not-found/app-page-not-found.component';
-import { AppLayoutComponent } from '../layout';
+import { ILayoutData } from '@core';
+import { AppLayoutComponent } from '@shared';
+import { AppHomeComponent } from '../features/app-home/app-home.component';
+import { AppPageNotFoundComponent } from '../features/app-page-not-found/app-page-not-found.component';
 
 export const routes: Routes = [
 	{

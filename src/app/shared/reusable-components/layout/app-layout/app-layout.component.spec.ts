@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { activatedRouteMock, routerMock } from '../../../../tests';
+import { activatedRouteMock, routerMock } from '../../../../../tests';
 import { AppLayoutComponent } from './app-layout.component';
 
 describe('AppLayoutComponent', () => {
