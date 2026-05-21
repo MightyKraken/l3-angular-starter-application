@@ -14,11 +14,6 @@ export class AppNavigationBarComponent {
 			label: 'Home',
 			route: '/',
 			icon: '🏠'
-		},
-		{
-			label: 'About',
-			route: '/about',
-			icon: 'ℹ️'
-		},
+		}
 	]);
 }
