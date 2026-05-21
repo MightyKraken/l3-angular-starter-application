@@ -1,11 +1,9 @@
 <!-- Content With Navigation And Toolbar-->
 @if (showNavigation() && showToolbar()) {
-<div>
-	<ng-container *ngTemplateOutlet="navigationbar" />
-	<div>
-		<ng-container *ngTemplateOutlet="toolbar" />
-		<ng-container *ngTemplateOutlet="content" />
-	</div>
+<div class="grid" [attr.data-layout]="layoutMode()" [class.toolbar-collapsed]="isToolbarHidden()">
+	<div class="nav"><ng-container *ngTemplateOutlet="navigationbar" /></div>
+	<div class="toolbar" [class.toolbar-hidden]="isToolbarHidden()"><ng-container *ngTemplateOutlet="toolbar" /></div>
+	<div #scrollContent class="content"><ng-container *ngTemplateOutlet="content" /></div>
 </div>
 }
 
@@ -19,9 +17,9 @@
 
 <!-- Content With Toolbar-->
 @if (!showNavigation() && showToolbar()) {
-<div>
-	<ng-container *ngTemplateOutlet="toolbar" />
-	<ng-container *ngTemplateOutlet="content" />
+<div class="toolbar-only-layout" [class.toolbar-collapsed]="isToolbarHidden()">
+	<div class="toolbar" [class.toolbar-hidden]="isToolbarHidden()"><ng-container *ngTemplateOutlet="toolbar" /></div>
+	<div #scrollContent class="content"><ng-container *ngTemplateOutlet="content" /></div>
 </div>
 }
 

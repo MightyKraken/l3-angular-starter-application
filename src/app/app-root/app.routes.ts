@@ -12,16 +12,12 @@ export const routes: Routes = [
 		children: [
 			{
 				path: '',
-				component: AppHomeComponent,
-				data: <ILayoutData>{
-					showToolbar: true,
-					showNavigation: true
-				}
+				component: AppHomeComponent
 			}
 		],
 		data: <ILayoutData>{
-			showToolbar: false,
-			showNavigation: false
+			showToolbar: true,
+			showNavigation: true
 		}
 	},
 	{ path: '**', component: AppPageNotFoundComponent }
