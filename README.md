@@ -1,3 +1,9 @@
+# Clone
+## Angular 21
+```npx degit MightyKraken/l3-angular-starter-application#v21 --cache=false```
+## Angular 20
+```npx degit MightyKraken/l3-angular-starter-application#v20 --cache=false```
+
 # Angular Code Snippets
 
 A repository to show how common code can be reused
@@ -11,7 +17,7 @@ A repository to show how common code can be reused
 
 ## Prerequisite installations
 
-1. Nodejs(Optional) : <https://nodejs.org/en/download>
+1. Nodejs(Required) : <https://nodejs.org/en/download>
 2. Deno(Optional) : <https://deno.com/>
 3. Bun(Optional): <https://bun.sh/>
 4. Docker (Required): <https://www.docker.com/>
@@ -20,7 +26,7 @@ A repository to show how common code can be reused
 
 ## Starter Guide
 
-1. clone: git clone <https://github.com/MightyKraken/l3-angular-starter-application.git> (must have git installed)
+1. clone: npx degit MightyKraken/l3-angular-starter-application#v21 --cache=false
 2. install: `npm install`
 3. run: `npm run start`
 4. test: `npm run test`
@@ -38,7 +44,6 @@ A repository to show how common code can be reused
 
 - Angular with Docker file ✔
 - Prettier eslint setup ✔
-- Tailwind support ✔
 - stylelint htmlhint support ✔
 - commitlint husky lint-staged support ✔
 - Tsconfig configured ✔
@@ -76,11 +81,6 @@ A repository to show how common code can be reused
 - ConfirmationModalDirective -> A reusable directive on buttons so that a confirmation dialog will popup before executing the buttons actual work
 - virtual Scroll Container -> A reusable component or directive that will render certain content in performance mode with virtual scroll or infinite scroll
 
-## Important Branches
-
-- angular19 -> angular 19 version compatible
-- v19/ui-kit -> angular 19 ui kit in development
-- angular21 -> angular 20 version compatible
 
 ## Customization
 
@@ -100,11 +100,5 @@ A repository to show how common code can be reused
 - Stylelint
 - Eslint
 - Huksy
-- Jest
-- Tailwind
+- Vitest/Karma
 - Angular Material
-
-## Code Examples
-
-1. Screen Resize event handling -> break-point-detector.service.ts
-2.
