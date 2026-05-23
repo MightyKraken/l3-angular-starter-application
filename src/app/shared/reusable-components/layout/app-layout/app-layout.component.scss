@@ -20,6 +20,7 @@
 	overflow: hidden;
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto 1fr;
+
 	&[data-layout='sidebar-left'] {
 		grid-template-areas:
 			'nav toolbar'
@@ -41,6 +42,7 @@
 		overflow: auto;
 		min-height: 0;
 	}
+
 	> .toolbar {
 		grid-area: toolbar;
 		position: sticky;
@@ -54,6 +56,7 @@
 			transform: translateY(calc(-100% - 4px));
 		}
 	}
+
 	> .content {
 		grid-area: content;
 		min-width: 0;
