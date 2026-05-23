@@ -1,14 +1,13 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 
 import { ScreenBreakPoints } from '../../constants/screen-break-points.const';
 import { BreakPointDetectorService } from './break-point-detector.service';
 
 describe('BreakPointDetectorService', () => {
 	let service: BreakPointDetectorService;
-	let observeMock: Mock;
+	let observeMock: jasmine.Spy;
 
 	const createBreakpointState = (matches: boolean): BreakpointState => ({
 		matches,
@@ -16,7 +15,9 @@ describe('BreakPointDetectorService', () => {
 	});
 
 	beforeEach(() => {
-		observeMock = vi.fn().mockReturnValue(of(createBreakpointState(false)));
+		observeMock = jasmine
+			.createSpy('observe')
+			.and.returnValue(of(createBreakpointState(false)));
 
 		TestBed.configureTestingModule({
 			providers: [
