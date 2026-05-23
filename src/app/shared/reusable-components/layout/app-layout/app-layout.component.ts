@@ -1,22 +1,18 @@
 import {
-	AfterViewInit,
 	ChangeDetectionStrategy,
 	Component,
 	DestroyRef,
+	effect,
 	ElementRef,
-	NgZone,
+	inject,
 	input,
-	OnDestroy,
-	QueryList,
+	NgZone,
 	signal,
-	ViewChildren,
-	inject
+	viewChildren
 } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
-import { startWith } from 'rxjs';
-
 import { COMMON_IMPORTS } from '@core';
+
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 
@@ -32,14 +28,9 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 	styleUrl: './app-layout.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppLayoutComponent implements AfterViewInit, OnDestroy {
-	@ViewChildren('scrollContent')
-	private readonly contentContainers!: QueryList<ElementRef<HTMLElement>>;
-
-	readonly showToolbar = input<boolean>(false);
-	readonly showNavigation = input<boolean>(false);
-	readonly isToolbarHidden = signal(false);
-
+export class AppLayoutComponent {
+	private readonly contentContainers =
+		viewChildren<ElementRef<HTMLElement>>('scrollContent');
 	private readonly ngZone = inject(NgZone);
 	private readonly destroyRef = inject(DestroyRef);
 	private removeScrollListeners: Array<() => void> = [];
@@ -50,33 +41,35 @@ export class AppLayoutComponent implements AfterViewInit, OnDestroy {
 	private readonly scrollThreshold = 8;
 	private readonly topRevealOffset = 16;
 
-	layoutMode = input('', {
+	readonly showToolbar = input<boolean>(false);
+	readonly showNavigation = input<boolean>(false);
+	readonly isToolbarHidden = signal(false);
+	readonly layoutMode = input('', {
 		transform: (val: string | undefined) => {
 			return val ?? 'toolbar-top';
 		}
 	});
 
-	ngAfterViewInit(): void {
-		this.contentContainers.changes
-			.pipe(startWith(this.contentContainers), takeUntilDestroyed(this.destroyRef))
-			.subscribe(() => {
-				this.bindScrollListeners();
-			});
-	}
+	constructor() {
+		effect(() => {
+			this.contentContainers();
+			this.bindScrollListeners();
+		});
 
-	ngOnDestroy(): void {
-		this.clearScrollListeners();
+		this.destroyRef.onDestroy(() => {
+			this.clearScrollListeners();
 
-		if (this.rafId !== null) {
-			cancelAnimationFrame(this.rafId);
-			this.rafId = null;
-		}
+			if (this.rafId !== null) {
+				cancelAnimationFrame(this.rafId);
+				this.rafId = null;
+			}
+		});
 	}
 
 	private bindScrollListeners(): void {
 		this.clearScrollListeners();
 
-		for (const contentRef of this.contentContainers.toArray()) {
+		for (const contentRef of this.contentContainers()) {
 			const element = contentRef.nativeElement;
 
 			this.ngZone.runOutsideAngular(() => {

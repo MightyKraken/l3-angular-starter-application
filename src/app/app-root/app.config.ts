@@ -5,16 +5,16 @@ import {
 	provideZonelessChangeDetection
 } from '@angular/core';
 import {
-	TitleStrategy,
 	provideRouter,
+	TitleStrategy,
 	withComponentInputBinding
 } from '@angular/router';
-
 import {
 	AppTitleStrategyService,
 	BreakPointDetectorService,
 	ScreenSizeObserver
 } from '@core';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

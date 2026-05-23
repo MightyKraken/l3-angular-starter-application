@@ -9,6 +9,7 @@ import {
 	startWith,
 	throttleTime
 } from 'rxjs';
+
 import { ScreenBreakPoints } from '../../constants/screen-break-points.const';
 import {
 	IScreenSizeObserver,

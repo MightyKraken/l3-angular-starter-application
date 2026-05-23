@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
 import { AppLoaderService, COMMON_IMPORTS } from '@core';
+
 import { LoadingDotsComponent } from '../loading-dots/loading-dots.component';
 
 @Component({

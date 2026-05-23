@@ -143,13 +143,15 @@ export default [
 			'@angular-eslint/template/use-track-by-function': 'error'
 		}
 	},
+	eslintPluginPrettier,
 	{
-		'prettier/prettier': [
-			'error',
-			{
-				endOfLine: 'auto'
-			}
-		]
-	},
-	eslintPluginPrettier
+		rules: {
+			'prettier/prettier': [
+				'error',
+				{
+					endOfLine: 'auto'
+				}
+			]
+		}
+	}
 ];
