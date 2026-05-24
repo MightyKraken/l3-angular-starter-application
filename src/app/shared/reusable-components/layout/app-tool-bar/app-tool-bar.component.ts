@@ -4,7 +4,12 @@ import {
 	computed,
 	inject
 } from '@angular/core';
-import { SidebarLayoutService, ThemeService } from '@core';
+import {
+	ScreenSizeObserver,
+	SidebarLayoutService,
+	SidebarTogglePreferenceService,
+	ThemeService
+} from '@core';
 
 import { AppIconButtonComponent } from '../../app-icon-button/app-icon-button.component';
 import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker.component';
@@ -18,17 +23,47 @@ import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker
 })
 export class AppToolBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
+	private readonly screenSize = inject(ScreenSizeObserver);
+	private readonly sidebarTogglePreference = inject(SidebarTogglePreferenceService);
 	readonly theme = inject(ThemeService);
 
+	private readonly isSidebarOverlay = computed(
+		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
+	);
+
 	readonly toggleAriaLabel = computed(() => {
-		switch (this.sidebarLayout.mode()) {
-			case 'mini':
-				return 'Sidebar showing icons only. Click to hide sidebar.';
-			case 'hidden':
-				return 'Sidebar hidden. Click to expand sidebar.';
-			default:
-				return 'Sidebar expanded. Click to show icons only.';
+		const mode = this.sidebarLayout.mode();
+		const isOverlay = this.isSidebarOverlay();
+
+		if (
+			isOverlay &&
+			this.sidebarTogglePreference.preference() === 'expanded-mini'
+		) {
+			switch (mode) {
+				case 'hidden':
+					return 'Navigation closed. Click to open icons-only menu.';
+				case 'mini':
+					return 'Icons-only menu open. Click for full width menu.';
+				default:
+					return 'Full menu open. Click for icons-only menu.';
+			}
 		}
+
+		if (isOverlay) {
+			return mode === 'hidden'
+				? 'Navigation closed. Click to open menu.'
+				: 'Navigation open. Click to close menu.';
+		}
+
+		if (this.sidebarTogglePreference.preference() === 'expanded-hidden') {
+			return mode === 'hidden'
+				? 'Sidebar hidden. Click to expand sidebar.'
+				: 'Sidebar expanded. Click to hide sidebar.';
+		}
+
+		return mode === 'mini'
+			? 'Sidebar showing icons only. Click to expand sidebar.'
+			: 'Sidebar expanded. Click to show icons only.';
 	});
 
 	readonly schemeToggleAriaLabel = computed(() =>
@@ -42,7 +77,7 @@ export class AppToolBarComponent {
 	);
 
 	onMenuToggle(): void {
-		this.sidebarLayout.toggleMode();
+		this.sidebarLayout.toggleMode(this.isSidebarOverlay());
 	}
 
 	onSchemeToggle(): void {

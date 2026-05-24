@@ -1,0 +1,20 @@
+<div
+	[attr.aria-label]="'Sidebar toggle behavior'"
+	class="sidebar-toggle-picker"
+	role="radiogroup"
+>
+	@for (option of options; track option.id) {
+		<button
+			[attr.aria-checked]="isActive(option.id)"
+			[attr.aria-label]="option.label + '. ' + option.description"
+			[class.sidebar-toggle-option-active]="isActive(option.id)"
+			(click)="select(option.id)"
+			class="sidebar-toggle-option"
+			role="radio"
+			type="button"
+		>
+			<span class="sidebar-toggle-label">{{ option.label }}</span>
+			<span class="sidebar-toggle-description">{{ option.description }}</span>
+		</button>
+	}
+</div>

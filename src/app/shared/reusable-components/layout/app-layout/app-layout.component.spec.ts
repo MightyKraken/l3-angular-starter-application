@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppLayoutModeService, SidebarLayoutService } from '@core';
+import {
+	AppLayoutModeService,
+	BreakPointDetectorService,
+	ScreenSizeObserver,
+	SidebarLayoutService
+} from '@core';
 import {
 	LucideHouse,
 	LucideList,
@@ -26,6 +31,7 @@ describe('AppLayoutComponent', () => {
 			providers: [
 				{ provide: ActivatedRoute, useValue: activatedRouteMock },
 				{ provide: Router, useValue: routerMock },
+				{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService },
 				provideLucideIcons(
 					LucideHouse,
 					LucideSettings,
@@ -64,7 +70,7 @@ describe('AppLayoutComponent', () => {
 		const grid: HTMLElement = fixture.nativeElement.querySelector('.grid');
 		expect(grid.getAttribute('data-sidebar-mode')).toBe('expanded');
 
-		sidebarLayout.toggleMode();
+		sidebarLayout.toggleMode(false);
 		fixture.detectChanges();
 		expect(grid.getAttribute('data-sidebar-mode')).toBe('mini');
 	});

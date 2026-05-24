@@ -8,10 +8,15 @@ import {
 
 import { AppIconComponent } from '../../shared/reusable-components/app-icon/app-icon.component';
 import { AppLayoutModePickerComponent } from '../../shared/reusable-components/app-layout-mode-picker/app-layout-mode-picker.component';
+import { AppSidebarTogglePickerComponent } from '../../shared/reusable-components/app-sidebar-toggle-picker/app-sidebar-toggle-picker.component';
 
 @Component({
 	selector: 'app-settings',
-	imports: [AppIconComponent, AppLayoutModePickerComponent],
+	imports: [
+		AppIconComponent,
+		AppLayoutModePickerComponent,
+		AppSidebarTogglePickerComponent
+	],
 	templateUrl: './app-settings.component.html',
 	styleUrl: './app-settings.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush

@@ -45,6 +45,12 @@ describe('AppSettingsComponent', () => {
 		).toBeTruthy();
 	});
 
+	it('should render sidebar toggle picker', () => {
+		expect(
+			fixture.nativeElement.querySelector('app-sidebar-toggle-picker')
+		).toBeTruthy();
+	});
+
 	it('should set palette from theme cards', () => {
 		const cards: NodeListOf<HTMLButtonElement> =
 			fixture.nativeElement.querySelectorAll('.palette-card');

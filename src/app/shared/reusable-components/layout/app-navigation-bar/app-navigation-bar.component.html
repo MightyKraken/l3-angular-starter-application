@@ -1,10 +1,11 @@
-<aside [class.sidebar-mini]="sidebarMode() === 'mini'" class="sidebar">
+<aside [class.sidebar-mini]="isSidebarMini()" class="sidebar">
 	<nav class="sidebar-nav">
 		@for (item of navigationItems(); track item.route) {
 		<a
 			[routerLink]="item.route"
 			[routerLinkActiveOptions]="{ exact: item.route === '/' }"
 			[title]="item.label"
+			(click)="onNavItemClick()"
 			class="nav-item"
 			routerLinkActive="active"
 		>

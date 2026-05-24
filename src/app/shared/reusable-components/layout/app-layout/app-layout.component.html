@@ -3,9 +3,18 @@
 <div
 	[attr.data-layout]="layoutMode()"
 	[attr.data-sidebar-mode]="sidebarMode()"
+	[attr.data-sidebar-overlay]="isSidebarOverlay() ? '' : null"
 	[class.toolbar-collapsed]="isToolbarHidden()"
 	class="grid"
 >
+	@if (isSidebarOverlay() && sidebarMode() !== 'hidden') {
+		<button
+			(click)="closeSidebar()"
+			aria-label="Close navigation"
+			class="sidebar-backdrop"
+			type="button"
+		></button>
+	}
 	<div class="nav"><ng-container *ngTemplateOutlet="navigationbar" /></div>
 	<div [class.toolbar-hidden]="isToolbarHidden()" class="toolbar">
 		<ng-container *ngTemplateOutlet="toolbar" />

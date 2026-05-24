@@ -1,11 +1,12 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
+	computed,
 	inject,
 	signal
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SidebarLayoutService } from '@core';
+import { ScreenSizeObserver, SidebarLayoutService } from '@core';
 
 import { AppIconComponent } from '../../app-icon/app-icon.component';
 
@@ -18,8 +19,16 @@ import { AppIconComponent } from '../../app-icon/app-icon.component';
 })
 export class AppNavigationBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
+	private readonly screenSize = inject(ScreenSizeObserver);
 
 	readonly sidebarMode = this.sidebarLayout.mode;
+	readonly isSidebarMini = computed(
+		() => this.sidebarLayout.mode() === 'mini'
+	);
+
+	private readonly isSidebarOverlay = computed(
+		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
+	);
 
 	readonly navigationItems = signal([
 		{
@@ -33,4 +42,10 @@ export class AppNavigationBarComponent {
 			icon: 'settings'
 		}
 	]);
+
+	onNavItemClick(): void {
+		if (this.isSidebarOverlay()) {
+			this.sidebarLayout.closeSidebar();
+		}
+	}
 }

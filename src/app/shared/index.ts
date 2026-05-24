@@ -3,6 +3,7 @@ export * from './icons/app-lucide-icons';
 export * from './reusable-components/app-icon/app-icon.component';
 export * from './reusable-components/app-icon/app-icon.types';
 export * from './reusable-components/app-layout-mode-picker/app-layout-mode-picker.component';
+export * from './reusable-components/app-sidebar-toggle-picker/app-sidebar-toggle-picker.component';
 export * from './reusable-components/app-icon-button/app-icon-button.component';
 export * from './reusable-components/app-loader/app-loader.component';
 export * from './reusable-components/app-theme-picker/app-theme-picker.component';

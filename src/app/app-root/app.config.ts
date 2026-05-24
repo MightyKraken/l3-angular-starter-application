@@ -15,6 +15,7 @@ import {
 	AppTitleStrategyService,
 	BreakPointDetectorService,
 	ScreenSizeObserver,
+	SidebarTogglePreferenceService,
 	ThemeService
 } from '@core';
 import { provideLucideIcons } from '@lucide/angular';
@@ -31,6 +32,7 @@ export const appConfig: ApplicationConfig = {
 		provideAppInitializer(() => {
 			inject(ThemeService).initFromStorage();
 			inject(AppLayoutModeService).initFromStorage();
+			inject(SidebarTogglePreferenceService).initFromStorage();
 		}),
 		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
 		{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService }

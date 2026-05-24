@@ -1,6 +1,7 @@
 // @index(['./**/*.ts', '!./**/*.spec.ts'], f => `export * from '${f.path}';`)
 export * from './constants/imports.const';
 export * from './constants/layout.const';
+export * from './constants/sidebar-toggle.const';
 export * from './constants/screen-break-points.const';
 export * from './constants/theme.const';
 export * from './models/interfaces/ILayoutData.interface';
@@ -11,4 +12,5 @@ export * from './services/app-title-strategy/app-title-strategy.service';
 export * from './services/break-point-detector/break-point-detector.service';
 export * from './services/cookie-storage/cookie-storage.service';
 export * from './services/sidebar-layout/sidebar-layout.service';
+export * from './services/sidebar-toggle-preference/sidebar-toggle-preference.service';
 export * from './services/theme/theme.service';
