@@ -1,17 +1,14 @@
-<aside class="sidebar">
-	<div class="sidebar-header">
-		<h2 class="sidebar-title">MightyKraken</h2>
-	</div>
-
+<aside [class.sidebar-mini]="sidebarMode() === 'mini'" class="sidebar">
 	<nav class="sidebar-nav">
 		@for (item of navigationItems(); track item.route) {
 		<a
 			[routerLink]="item.route"
 			[routerLinkActiveOptions]="{ exact: item.route === '/' }"
+			[title]="item.label"
 			class="nav-item"
 			routerLinkActive="active"
 		>
-			<span class="nav-icon">{{ item.icon }}</span>
+			<app-icon [name]="item.icon" class="nav-icon" />
 			<span class="nav-label">{{ item.label }}</span>
 		</a>
 		}

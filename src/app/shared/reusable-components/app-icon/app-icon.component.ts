@@ -1,0 +1,59 @@
+import {
+	ChangeDetectionStrategy,
+	Component,
+	computed,
+	inject,
+	input
+} from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { LucideDynamicIcon } from '@lucide/angular';
+import { of, switchMap } from 'rxjs';
+
+import { IconAssetService } from '../../services/icon-asset.service';
+import type { AppIconSource } from './app-icon.types';
+
+/**
+ * Renders Lucide icons by name or custom SVG files from `public/icons/`.
+ *
+ * @example
+ * ```html
+ * <app-icon name="home" />
+ * <app-icon source="asset" name="brand/logo" ariaLabel="Company logo" />
+ * ```
+ */
+@Component({
+	selector: 'app-icon',
+	imports: [LucideDynamicIcon],
+	templateUrl: './app-icon.component.html',
+	styleUrl: './app-icon.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: {
+		'[style.--icon-size]': 'size()',
+		'[attr.aria-label]': 'ariaLabel()',
+		'[attr.aria-hidden]': 'ariaLabel() ? null : "true"'
+	}
+})
+export class AppIconComponent {
+	private readonly iconAssetService = inject(IconAssetService);
+
+	private readonly assetRequest = computed(() =>
+		this.source() === 'asset' ? this.name() : null
+	);
+
+	readonly name = input.required<string>();
+	readonly source = input<AppIconSource>('lucide');
+	readonly size = input<string>('1.25rem');
+	readonly strokeWidth = input<number>(2);
+	readonly ariaLabel = input<string | undefined>(undefined);
+
+	readonly isLucide = computed(() => this.source() === 'lucide');
+
+	readonly assetSvg = toSignal(
+		toObservable(this.assetRequest).pipe(
+			switchMap((assetName) =>
+				assetName ? this.iconAssetService.load(assetName) : of(null)
+			)
+		),
+		{ initialValue: null }
+	);
+}

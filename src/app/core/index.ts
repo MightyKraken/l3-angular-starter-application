@@ -6,3 +6,4 @@ export * from './models/interfaces/IScreenSizeObserver.interface';
 export * from './services/app-loader/app-loader.service';
 export * from './services/app-title-strategy/app-title-strategy.service';
 export * from './services/break-point-detector/break-point-detector.service';
+export * from './services/sidebar-layout/sidebar-layout.service';

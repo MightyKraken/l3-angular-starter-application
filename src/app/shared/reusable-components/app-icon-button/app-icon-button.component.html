@@ -1,0 +1,11 @@
+<button
+	[attr.aria-label]="ariaLabel()"
+	[attr.type]="type()"
+	[disabled]="disabled()"
+	[matRippleColor]="rippleColor()"
+	(click)="onClick($event)"
+	class="icon-button"
+	matRipple
+>
+	<app-icon [name]="icon()" [size]="iconSize()" />
+</button>

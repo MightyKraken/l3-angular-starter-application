@@ -14,6 +14,8 @@ import {
 	BreakPointDetectorService,
 	ScreenSizeObserver
 } from '@core';
+import { provideLucideIcons } from '@lucide/angular';
+import { appLucideIcons } from '@shared';
 
 import { routes } from './app.routes';
 
@@ -21,6 +23,7 @@ export const appConfig: ApplicationConfig = {
 	providers: [
 		provideRouter(routes, withComponentInputBinding()),
 		provideHttpClient(),
+		provideLucideIcons(...appLucideIcons),
 		provideZonelessChangeDetection(),
 		provideAppInitializer(() => {
 			console.log(

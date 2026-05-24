@@ -13,6 +13,12 @@
 	height: 64px;
 }
 
+app-icon-button {
+	--icon-button-hover-bg: rgb(255 255 255 / 12%);
+	--icon-button-active-bg: rgb(255 255 255 / 20%);
+	--icon-button-ripple-color: rgb(255 255 255 / 25%);
+}
+
 .toolbar-links {
 	display: flex;
 	gap: 2rem;

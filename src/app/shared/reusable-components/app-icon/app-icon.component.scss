@@ -1,0 +1,18 @@
+:host {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	color: currentcolor;
+	inline-size: var(--icon-size, 1.25rem);
+	block-size: var(--icon-size, 1.25rem);
+}
+
+.lucide-icon {
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.icon-asset {
+	display: contents;
+}

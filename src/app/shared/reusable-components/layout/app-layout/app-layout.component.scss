@@ -33,6 +33,30 @@
 			'nav content';
 	}
 
+	&[data-sidebar-mode='mini'] {
+		--sidebar-width: var(--sidebar-width-mini);
+	}
+
+	&[data-sidebar-mode='hidden'] {
+		grid-template-columns: 1fr;
+
+		&[data-layout='sidebar-left'] {
+			grid-template-areas:
+				'toolbar'
+				'content';
+		}
+
+		&[data-layout='toolbar-top'] {
+			grid-template-areas:
+				'toolbar'
+				'content';
+		}
+
+		> .nav {
+			display: none;
+		}
+	}
+
 	&.toolbar-collapsed {
 		grid-template-rows: 0 1fr;
 	}

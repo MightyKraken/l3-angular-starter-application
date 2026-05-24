@@ -1,3 +1,9 @@
 <nav class="toolbar">
-	<div class="toolbar-container"></div>
+	<div class="toolbar-container">
+		<app-icon-button
+			[ariaLabel]="toggleAriaLabel()"
+			(clicked)="onMenuToggle()"
+			icon="list"
+		/>
+	</div>
 </nav>
