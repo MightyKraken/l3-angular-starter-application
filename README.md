@@ -1,8 +1,12 @@
 # Clone
+
 ## Angular 21
-```npx degit MightyKraken/l3-angular-starter-application#v21 --cache=false```
+
+`npx degit MightyKraken/l3-angular-starter-application#v21 --cache=false`
+
 ## Angular 20
-```npx degit MightyKraken/l3-angular-starter-application#v20 --cache=false```
+
+`npx degit MightyKraken/l3-angular-starter-application#v20 --cache=false`
 
 # Angular Code Snippets
 
@@ -56,6 +60,7 @@ A repository to show how common code can be reused
 - Storybook support
 - Logo Support ✔
 - Color support
+- Source map bundle analyzer support ✔
 
 ## Common Features For Frontend
 
@@ -80,7 +85,6 @@ A repository to show how common code can be reused
 - Breakpoint detector service -> A service that has multiple properties that becomes true or false based on screensize. useful for different screen size logics
 - ConfirmationModalDirective -> A reusable directive on buttons so that a confirmation dialog will popup before executing the buttons actual work
 - virtual Scroll Container -> A reusable component or directive that will render certain content in performance mode with virtual scroll or infinite scroll
-
 
 ## Customization
 
