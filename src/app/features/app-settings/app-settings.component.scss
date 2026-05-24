@@ -29,8 +29,8 @@
 .settings-card {
 	padding: 1.25rem;
 	border-radius: 12px;
-	background-color: var(--app-surface);
-	box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+	background-color: var(--app-surface-elevated, var(--app-surface));
+	box-shadow: var(--app-elevation-shadow);
 
 	& + .settings-card {
 		margin-block-start: 1rem;

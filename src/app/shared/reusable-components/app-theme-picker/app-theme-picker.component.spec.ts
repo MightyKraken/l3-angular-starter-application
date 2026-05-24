@@ -1,24 +1,32 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LucidePalette, provideLucideIcons } from '@lucide/angular';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { ThemeService } from '@core';
+import { LucidePalette, provideLucideIcons } from '@lucide/angular';
 
 import { AppThemePickerComponent } from './app-theme-picker.component';
 
 describe('AppThemePickerComponent', () => {
 	let fixture: ComponentFixture<AppThemePickerComponent>;
 	let theme: ThemeService;
+	let overlayContainer: OverlayContainer;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppThemePickerComponent],
-			providers: [provideLucideIcons(LucidePalette)]
+			providers: [provideNoopAnimations(), provideLucideIcons(LucidePalette)]
 		}).compileComponents();
 
 		theme = TestBed.inject(ThemeService);
+		overlayContainer = TestBed.inject(OverlayContainer);
 		theme.initFromStorage();
 
 		fixture = TestBed.createComponent(AppThemePickerComponent);
 		fixture.detectChanges();
+	});
+
+	afterEach(() => {
+		overlayContainer.ngOnDestroy();
 	});
 
 	it('should create', () => {
@@ -31,7 +39,9 @@ describe('AppThemePickerComponent', () => {
 		trigger.click();
 		fixture.detectChanges();
 
-		const options = fixture.nativeElement.querySelectorAll('[role="option"]');
+		const options = overlayContainer
+			.getContainerElement()
+			.querySelectorAll('[role="option"]');
 		expect(options.length).toBe(10);
 	});
 
@@ -44,8 +54,9 @@ describe('AppThemePickerComponent', () => {
 		fixture.detectChanges();
 
 		const options: NodeListOf<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('[role="option"]');
+			overlayContainer.getContainerElement().querySelectorAll('[role="option"]');
 		options[1].click();
+		fixture.detectChanges();
 
 		expect(theme.paletteId()).toBe('ocean');
 		expect(theme.colorScheme()).toBe('light');
