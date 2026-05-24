@@ -11,7 +11,7 @@ import {
 	viewChildren
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { COMMON_IMPORTS, SidebarLayoutService } from '@core';
+import { AppLayoutModeService, COMMON_IMPORTS, SidebarLayoutService } from '@core';
 
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
@@ -30,6 +30,7 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 })
 export class AppLayoutComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
+	private readonly layoutModeService = inject(AppLayoutModeService);
 
 	private readonly contentContainers =
 		viewChildren<ElementRef<HTMLElement>>('scrollContent');
@@ -47,11 +48,7 @@ export class AppLayoutComponent {
 	readonly showNavigation = input<boolean>(false);
 	readonly sidebarMode = this.sidebarLayout.mode;
 	readonly isToolbarHidden = signal(false);
-	readonly layoutMode = input('', {
-		transform: (val: string | undefined) => {
-			return val ?? 'sidebar-left';
-		}
-	});
+	readonly layoutMode = this.layoutModeService.layoutMode;
 
 	constructor() {
 		effect(() => {

@@ -1,0 +1,43 @@
+<div class="theme-picker">
+	<button
+		[attr.aria-controls]="open() ? panelId : null"
+		[attr.aria-expanded]="open()"
+		(click)="togglePanel($event)"
+		aria-haspopup="listbox"
+		aria-label="Choose theme"
+		class="theme-picker-trigger"
+		type="button"
+	>
+		<app-icon name="palette" />
+		<!-- <span
+			[attr.aria-hidden]="true"
+			[style.background-color]="activePreviewColor()"
+			class="theme-picker-trigger-swatch"
+		></span> -->
+	</button>
+
+	@if (open()) {
+	<div
+		[attr.aria-label]="'Theme colors'"
+		[id]="panelId"
+		(click)="$event.stopPropagation()"
+		class="theme-picker-panel"
+		role="listbox"
+	>
+		<div class="theme-picker-options">
+			@for (palette of palettes; track palette.id) {
+			<button
+				[attr.aria-label]="palette.label + ' theme'"
+				[attr.aria-selected]="isActive(palette.id)"
+				[class.theme-picker-swatch-selected]="isActive(palette.id)"
+				[style.background-color]="palette.previewColor"
+				(click)="onSelect(palette.id)"
+				class="theme-picker-swatch"
+				role="option"
+				type="button"
+			></button>
+			}
+		</div>
+	</div>
+	}
+</div>

@@ -1,3 +1,8 @@
+:host {
+	display: block;
+	min-block-size: 100dvh;
+}
+
 .layout-container {
 	display: flex;
 	justify-items: flex-start;
@@ -63,12 +68,16 @@
 
 	> .nav {
 		grid-area: nav;
-		overflow: auto;
-		min-height: 0;
+		display: flex;
+		flex-direction: column;
+		min-block-size: 0;
+		min-inline-size: 0;
+		overflow: hidden;
 	}
 
 	> .toolbar {
 		grid-area: toolbar;
+		min-inline-size: 0;
 		position: sticky;
 		top: 0;
 		z-index: 200;
@@ -90,6 +99,7 @@
 }
 
 .toolbar-only-layout > .toolbar {
+	min-inline-size: 0;
 	position: sticky;
 	top: 0;
 	z-index: 200;

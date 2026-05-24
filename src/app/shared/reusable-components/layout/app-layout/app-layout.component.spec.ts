@@ -1,11 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SidebarLayoutService } from '@core';
+import { AppLayoutModeService, SidebarLayoutService } from '@core';
 import {
-	LucideChartColumn,
 	LucideHouse,
 	LucideList,
+	LucideMoon,
+	LucidePalette,
 	LucideSettings,
+	LucideSun,
 	provideLucideIcons
 } from '@lucide/angular';
 
@@ -16,6 +18,7 @@ describe('AppLayoutComponent', () => {
 	let component: AppLayoutComponent;
 	let fixture: ComponentFixture<AppLayoutComponent>;
 	let sidebarLayout: SidebarLayoutService;
+	let layoutMode: AppLayoutModeService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -25,14 +28,18 @@ describe('AppLayoutComponent', () => {
 				{ provide: Router, useValue: routerMock },
 				provideLucideIcons(
 					LucideHouse,
-					LucideChartColumn,
 					LucideSettings,
-					LucideList
+					LucideList,
+					LucidePalette,
+					LucideSun,
+					LucideMoon
 				)
 			]
 		}).compileComponents();
 
 		sidebarLayout = TestBed.inject(SidebarLayoutService);
+		layoutMode = TestBed.inject(AppLayoutModeService);
+		layoutMode.initFromStorage();
 		fixture = TestBed.createComponent(AppLayoutComponent);
 		component = fixture.componentInstance;
 		fixture.componentRef.setInput('showNavigation', true);
@@ -42,6 +49,15 @@ describe('AppLayoutComponent', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should reflect layout mode on grid data attribute', () => {
+		const grid: HTMLElement = fixture.nativeElement.querySelector('.grid');
+		expect(grid.getAttribute('data-layout')).toBe('sidebar-left');
+
+		layoutMode.setLayoutMode('toolbar-top');
+		fixture.detectChanges();
+		expect(grid.getAttribute('data-layout')).toBe('toolbar-top');
 	});
 
 	it('should reflect sidebar mode on grid data attribute', () => {

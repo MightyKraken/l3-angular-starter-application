@@ -1,0 +1,82 @@
+<section class="settings">
+	<header class="settings-header">
+		<h1 class="settings-title">Settings</h1>
+		<p class="settings-subtitle">
+			Customize appearance. Quick controls stay in the toolbar.
+		</p>
+	</header>
+
+	<section aria-labelledby="appearance-heading" class="settings-card">
+		<h2 class="settings-card-title" id="appearance-heading">Appearance</h2>
+
+		<div class="settings-field">
+			<span class="settings-field-label" id="color-mode-label">Color mode</span>
+			<div
+				[attr.aria-labelledby]="'color-mode-label'"
+				class="scheme-toggle"
+				role="radiogroup"
+			>
+				<button
+					[attr.aria-checked]="colorScheme() === 'light'"
+					[class.scheme-toggle-option-active]="colorScheme() === 'light'"
+					(click)="setColorScheme('light')"
+					class="scheme-toggle-option"
+					role="radio"
+					type="button"
+				>
+					<app-icon name="sun" size="1.125rem" />
+					<span>Light</span>
+				</button>
+				<button
+					[attr.aria-checked]="colorScheme() === 'dark'"
+					[class.scheme-toggle-option-active]="colorScheme() === 'dark'"
+					(click)="setColorScheme('dark')"
+					class="scheme-toggle-option"
+					role="radio"
+					type="button"
+				>
+					<app-icon name="moon" size="1.125rem" />
+					<span>Dark</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="settings-field">
+			<span class="settings-field-label" id="theme-label">Theme</span>
+			<div
+				[attr.aria-labelledby]="'theme-label'"
+				class="palette-grid"
+				role="listbox"
+			>
+				@for (palette of palettes; track palette.id) {
+					<button
+						[attr.aria-label]="palette.label + ' theme'"
+						[attr.aria-selected]="isPaletteActive(palette.id)"
+						[class.palette-card-selected]="isPaletteActive(palette.id)"
+						(click)="setPalette(palette.id)"
+						class="palette-card"
+						role="option"
+						type="button"
+					>
+						<span
+							[style.background-color]="palette.previewColor"
+							class="palette-card-swatch"
+						></span>
+						<span class="palette-card-label">{{ palette.label }}</span>
+					</button>
+				}
+			</div>
+		</div>
+	</section>
+
+	<section aria-labelledby="layout-heading" class="settings-card">
+		<h2 class="settings-card-title" id="layout-heading">Layout</h2>
+
+		<div class="settings-field settings-field-first">
+			<span class="settings-field-label" id="layout-mode-label">Shell layout</span>
+			<app-layout-mode-picker
+				[attr.aria-labelledby]="'layout-mode-label'"
+			/>
+		</div>
+	</section>
+</section>

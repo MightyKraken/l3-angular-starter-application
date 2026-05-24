@@ -28,11 +28,6 @@ export class AppNavigationBarComponent {
 			icon: 'house'
 		},
 		{
-			label: 'Reports',
-			route: '/reports',
-			icon: 'chart-column'
-		},
-		{
 			label: 'Settings',
 			route: '/settings',
 			icon: 'settings'

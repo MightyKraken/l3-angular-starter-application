@@ -1,12 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SidebarLayoutService } from '@core';
-import {
-	LucideChartColumn,
-	LucideHouse,
-	LucideSettings,
-	provideLucideIcons
-} from '@lucide/angular';
+import { LucideHouse, LucideSettings, provideLucideIcons } from '@lucide/angular';
 
 import { AppNavigationBarComponent } from './app-navigation-bar.component';
 
@@ -21,7 +16,7 @@ describe('AppNavigationBarComponent', () => {
 			imports: [AppNavigationBarComponent],
 			providers: [
 				provideRouter([]),
-				provideLucideIcons(LucideHouse, LucideChartColumn, LucideSettings)
+				provideLucideIcons(LucideHouse, LucideSettings)
 			]
 		}).compileComponents();
 

@@ -5,5 +5,14 @@
 			(clicked)="onMenuToggle()"
 			icon="list"
 		/>
+		<span class="toolbar-title">Sabik Abtahee</span>
+		<div class="toolbar-actions">
+			<app-theme-picker />
+			<app-icon-button
+				[ariaLabel]="schemeToggleAriaLabel()"
+				[icon]="schemeIcon()"
+				(clicked)="onSchemeToggle()"
+			/>
+		</div>
 	</div>
 </nav>

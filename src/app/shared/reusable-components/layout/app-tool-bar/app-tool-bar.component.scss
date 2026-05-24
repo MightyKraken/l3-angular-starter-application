@@ -1,21 +1,52 @@
+:host {
+	display: block;
+	inline-size: 100%;
+}
+
 .toolbar {
-	background-color: #1976d2;
-	color: white;
+	box-sizing: border-box;
+	max-inline-size: 100%;
+	inline-size: 100%;
+	background-color: var(--app-toolbar-bg);
+	color: var(--app-toolbar-on);
 	padding: 0 1rem;
-	box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+	box-shadow: 0 2px 4px var(--app-toolbar-shadow);
 }
 
 .toolbar-container {
-	max-width: 1200px;
+	box-sizing: border-box;
+	max-inline-size: 100%;
+	min-inline-size: 0;
+	inline-size: 100%;
 	display: flex;
 	align-items: center;
-	height: 64px;
+	height: var(--toolbar-height);
+	gap: 1rem;
+}
+
+.toolbar-title {
+	flex: 1;
+	min-inline-size: 0;
+	overflow: hidden;
+	font-size: 1rem;
+	font-weight: 500;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--app-toolbar-on);
+}
+
+.toolbar-actions {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	gap: 0.5rem;
+	margin-inline-start: auto;
 }
 
 app-icon-button {
-	--icon-button-hover-bg: rgb(255 255 255 / 12%);
-	--icon-button-active-bg: rgb(255 255 255 / 20%);
-	--icon-button-ripple-color: rgb(255 255 255 / 25%);
+	--icon-button-hover-bg: var(--app-icon-button-hover-bg);
+	--icon-button-active-bg: var(--app-icon-button-active-bg);
+	--icon-button-ripple-color: var(--app-icon-button-ripple-color);
 }
 
 .toolbar-links {
@@ -25,7 +56,7 @@ app-icon-button {
 }
 
 .toolbar-link {
-	color: white;
+	color: var(--app-toolbar-on);
 	text-decoration: none;
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
@@ -33,10 +64,10 @@ app-icon-button {
 	font-weight: 500;
 
 	&:hover {
-		background-color: rgb(255 255 255 / 10%);
+		background-color: var(--app-icon-button-hover-bg);
 	}
 
 	&.active {
-		background-color: rgb(255 255 255 / 20%);
+		background-color: var(--app-icon-button-active-bg);
 	}
 }

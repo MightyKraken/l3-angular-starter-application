@@ -1,15 +1,19 @@
 import {
-	LucideChartColumn,
 	LucideHouse,
 	LucideList,
 	LucideMenu,
-	LucideSettings
+	LucideMoon,
+	LucidePalette,
+	LucideSettings,
+	LucideSun
 } from '@lucide/angular';
 
 export const appLucideIcons = [
 	LucideMenu,
 	LucideSettings,
-	LucideChartColumn,
 	LucideList,
-	LucideHouse
+	LucideHouse,
+	LucidePalette,
+	LucideSun,
+	LucideMoon
 ] as const;

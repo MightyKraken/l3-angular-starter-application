@@ -1,0 +1,39 @@
+<div
+	[attr.aria-label]="'Application layout'"
+	class="layout-mode-picker"
+	role="radiogroup"
+>
+	@for (option of options; track option.id) {
+		<button
+			[attr.aria-checked]="isActive(option.id)"
+			[attr.aria-label]="option.label + '. ' + option.description"
+			[class.layout-mode-option-active]="isActive(option.id)"
+			(click)="select(option.id)"
+			class="layout-mode-option"
+			role="radio"
+			type="button"
+		>
+			@if (option.id === 'toolbar-top') {
+				<span aria-hidden="true" class="layout-preview layout-preview-toolbar-top">
+					<span class="layout-preview-toolbar"></span>
+					<span class="layout-preview-body">
+						<span class="layout-preview-nav"></span>
+						<span class="layout-preview-content"></span>
+					</span>
+				</span>
+			} @else {
+				<span
+					aria-hidden="true"
+					class="layout-preview layout-preview-sidebar-left"
+				>
+					<span class="layout-preview-nav"></span>
+					<span class="layout-preview-main">
+						<span class="layout-preview-toolbar"></span>
+						<span class="layout-preview-content"></span>
+					</span>
+				</span>
+			}
+			<span class="layout-mode-label">{{ option.label }}</span>
+		</button>
+	}
+</div>

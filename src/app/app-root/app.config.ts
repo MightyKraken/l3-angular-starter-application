@@ -1,6 +1,7 @@
 import { provideHttpClient } from '@angular/common/http';
 import {
 	ApplicationConfig,
+	inject,
 	provideAppInitializer,
 	provideZonelessChangeDetection
 } from '@angular/core';
@@ -10,9 +11,11 @@ import {
 	withComponentInputBinding
 } from '@angular/router';
 import {
+	AppLayoutModeService,
 	AppTitleStrategyService,
 	BreakPointDetectorService,
-	ScreenSizeObserver
+	ScreenSizeObserver,
+	ThemeService
 } from '@core';
 import { provideLucideIcons } from '@lucide/angular';
 import { appLucideIcons } from '@shared';
@@ -26,9 +29,8 @@ export const appConfig: ApplicationConfig = {
 		provideLucideIcons(...appLucideIcons),
 		provideZonelessChangeDetection(),
 		provideAppInitializer(() => {
-			console.log(
-				'Loads Before app bootstraps and blocks bootstrap until work is done'
-			);
+			inject(ThemeService).initFromStorage();
+			inject(AppLayoutModeService).initFromStorage();
 		}),
 		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
 		{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService }
