@@ -4,7 +4,8 @@ import {
 	AppLayoutModeService,
 	BreakPointDetectorService,
 	ScreenSizeObserver,
-	SidebarLayoutService
+	SidebarLayoutService,
+	SidebarTogglePreferenceService
 } from '@core';
 import {
 	LucideHouse,
@@ -73,5 +74,22 @@ describe('AppLayoutComponent', () => {
 		sidebarLayout.toggleMode(false);
 		fixture.detectChanges();
 		expect(grid.getAttribute('data-sidebar-mode')).toBe('mini');
+	});
+
+	it('should keep nav in DOM and collapse width when hidden on desktop', () => {
+		const preference = TestBed.inject(SidebarTogglePreferenceService);
+		preference.setPreference('expanded-hidden');
+		sidebarLayout.setMode('expanded');
+		fixture.detectChanges();
+
+		sidebarLayout.toggleMode(false);
+		fixture.detectChanges();
+
+		const grid: HTMLElement = fixture.nativeElement.querySelector('.grid');
+		const nav = fixture.nativeElement.querySelector('.nav') as HTMLElement;
+
+		expect(grid.getAttribute('data-sidebar-mode')).toBe('hidden');
+		expect(nav).toBeTruthy();
+		expect(getComputedStyle(nav).display).not.toBe('none');
 	});
 });

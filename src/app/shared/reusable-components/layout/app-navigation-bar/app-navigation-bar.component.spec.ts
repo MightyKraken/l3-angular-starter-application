@@ -36,7 +36,7 @@ describe('AppNavigationBarComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should apply sidebar-mini class and hide labels in mini mode', () => {
+	it('should apply sidebar-mini class and collapse labels in mini mode', () => {
 		sidebarLayout.toggleMode(false);
 		fixture.detectChanges();
 
@@ -44,7 +44,10 @@ describe('AppNavigationBarComponent', () => {
 
 		const labels = hostElement.querySelectorAll<HTMLElement>('.nav-label');
 		labels.forEach((label) => {
-			expect(getComputedStyle(label).display).toBe('none');
+			const style = getComputedStyle(label);
+			expect(style.opacity).toBe('0');
+			expect(style.maxInlineSize).toBe('0px');
+			expect(style.visibility).toBe('hidden');
 		});
 	});
 });

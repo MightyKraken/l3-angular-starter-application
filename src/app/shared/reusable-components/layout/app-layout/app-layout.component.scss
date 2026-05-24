@@ -75,12 +75,21 @@
 		}
 
 		&[data-sidebar-mode='hidden'] > .nav {
-			display: flex;
 			transform: translateX(-100%);
 		}
 	}
 
-	&[data-sidebar-mode='hidden'] {
+	&[data-sidebar-mode='hidden']:not([data-sidebar-overlay]) {
+		--sidebar-width: 0;
+
+		> .nav {
+			pointer-events: none;
+			visibility: hidden;
+			transition: visibility 0s linear 220ms;
+		}
+	}
+
+	&[data-sidebar-mode='hidden'][data-sidebar-overlay] {
 		grid-template-columns: 1fr;
 
 		&[data-layout='sidebar-left'] {
@@ -93,10 +102,6 @@
 			grid-template-areas:
 				'toolbar'
 				'content';
-		}
-
-		&:not([data-sidebar-overlay]) > .nav {
-			display: none;
 		}
 	}
 
@@ -111,6 +116,8 @@
 		min-block-size: 0;
 		min-inline-size: 0;
 		overflow: hidden;
+		visibility: visible;
+		transition: visibility 0s linear 0s;
 	}
 
 	> .toolbar {
@@ -163,5 +170,13 @@
 	padding: 0;
 	cursor: pointer;
 	inset: 0;
+	opacity: 0;
+	pointer-events: none;
 	background-color: rgb(0 0 0 / 40%);
+	transition: opacity 220ms ease;
+
+	&.sidebar-backdrop-visible {
+		opacity: 1;
+		pointer-events: auto;
+	}
 }

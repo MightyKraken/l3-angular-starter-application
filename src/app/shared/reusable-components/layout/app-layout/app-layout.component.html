@@ -7,10 +7,12 @@
 	[class.toolbar-collapsed]="isToolbarHidden()"
 	class="grid"
 >
-	@if (isSidebarOverlay() && sidebarMode() !== 'hidden') {
+	@if (isSidebarOverlay()) {
 		<button
+			[class.sidebar-backdrop-visible]="sidebarMode() !== 'hidden'"
 			(click)="closeSidebar()"
 			aria-label="Close navigation"
+			[attr.aria-hidden]="sidebarMode() === 'hidden'"
 			class="sidebar-backdrop"
 			type="button"
 		></button>

@@ -43,10 +43,11 @@
 }
 
 .nav-item {
-	display: flex;
+	display: grid;
+	grid-template-columns: var(--sidebar-width-mini) 1fr;
 	align-items: center;
-	gap: 0.5rem;
-	padding: 0.875rem 1.5rem;
+	padding-block: 0.875rem;
+	padding-inline: 0;
 	color: var(--app-nav-item);
 	text-decoration: none;
 	transition: color 0.2s ease;
@@ -61,21 +62,30 @@
 }
 
 .nav-icon {
-	flex-shrink: 0;
+	justify-self: center;
 }
 
 .nav-label {
+	overflow: hidden;
+	white-space: nowrap;
 	font-size: 1rem;
 	font-weight: 500;
+	opacity: 1;
+	max-inline-size: 12rem;
+	transition:
+		opacity 220ms ease,
+		max-inline-size 220ms ease,
+		visibility 0s linear 0s;
 }
 
 .sidebar-mini {
-	.nav-item {
-		justify-content: center;
-		padding-inline: 0.5rem;
-	}
-
 	.nav-label {
-		display: none;
+		opacity: 0;
+		max-inline-size: 0;
+		visibility: hidden;
+		transition:
+			opacity 220ms ease,
+			max-inline-size 220ms ease,
+			visibility 0s linear 220ms;
 	}
 }
