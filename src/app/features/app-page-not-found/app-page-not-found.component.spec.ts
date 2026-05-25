@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
+import {
+	LucideArrowLeft,
+	LucideHouse,
+	LucideSearchX,
+	provideLucideIcons
+} from '@lucide/angular';
 
 import { AppPageNotFoundComponent } from './app-page-not-found.component';
 
@@ -11,7 +17,10 @@ describe('AppPageNotFoundComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppPageNotFoundComponent],
-			providers: [provideRouter([])]
+			providers: [
+				provideRouter([]),
+				provideLucideIcons(LucideSearchX, LucideHouse, LucideArrowLeft)
+			]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(AppPageNotFoundComponent);

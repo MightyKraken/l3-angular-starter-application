@@ -1,19 +1,29 @@
-<div data-testid="page-container">
-	<div>
-		<h1>404</h1>
+<section class="not-found" data-testid="page-container">
+	<div class="not-found-card">
+		<p aria-hidden="true" class="not-found-code">404</p>
+
+		<app-icon class="p-12" name="search-x" size="2.5rem" />
+
+		<h1 class="not-found-title">Page Not Found</h1>
+
+		<p class="not-found-message">
+			The page you are looking for does not exist or may have been moved. Use
+			the actions below to continue.
+		</p>
+
+		<div class="not-found-actions">
+			<a class="not-found-action not-found-action-primary" routerLink="/">
+				<app-icon name="house" />
+				<span>Go Home</span>
+			</a>
+			<button
+				(click)="goBack()"
+				class="not-found-action not-found-action-secondary"
+				type="button"
+			>
+				<app-icon name="arrow-left" />
+				<span>Go Back</span>
+			</button>
+		</div>
 	</div>
-
-	<div>🔍</div>
-
-	<h2>Page Not Found</h2>
-
-	<p>
-		Oops! The page you're looking for seems to have wandered off. Let's get you
-		back on track.
-	</p>
-
-	<div>
-		<a routerLink="/"> Go Home </a>
-		<button (click)="goBack()" type="submit">Go Back</button>
-	</div>
-</div>
+</section>
