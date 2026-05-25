@@ -6,6 +6,7 @@ import {
 	SidebarTogglePreferenceService
 } from '@core';
 import {
+	LucideFlaskConical,
 	LucideHouse,
 	LucideList,
 	LucideMoon,
@@ -36,7 +37,8 @@ describe('AppLayoutComponent', () => {
 					LucideList,
 					LucidePalette,
 					LucideSun,
-					LucideMoon
+					LucideMoon,
+					LucideFlaskConical
 				)
 			]
 		}).compileComponents();
