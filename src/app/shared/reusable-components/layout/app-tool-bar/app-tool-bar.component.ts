@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {
-	ScreenSizeObserver,
 	SidebarLayoutService,
 	SidebarTogglePreferenceService,
 	ThemeService
@@ -32,41 +31,15 @@ import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker
 })
 export class AppToolBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
-	private readonly screenSize = inject(ScreenSizeObserver);
 	private readonly sidebarTogglePreference = inject(
 		SidebarTogglePreferenceService
 	);
 	private readonly theme = inject(ThemeService);
 
-	private readonly isSidebarOverlay = computed(
-		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
-	);
-
 	protected readonly appTitle = signal(environment.PortalTitle);
 
 	readonly toggleAriaLabel = computed(() => {
 		const mode = this.sidebarLayout.mode();
-		const isOverlay = this.isSidebarOverlay();
-
-		if (
-			isOverlay &&
-			this.sidebarTogglePreference.preference() === 'expanded-mini'
-		) {
-			switch (mode) {
-				case 'hidden':
-					return 'Navigation closed. Click to open icons-only menu.';
-				case 'mini':
-					return 'Icons-only menu open. Click for full width menu.';
-				default:
-					return 'Full menu open. Click for icons-only menu.';
-			}
-		}
-
-		if (isOverlay) {
-			return mode === 'hidden'
-				? 'Navigation closed. Click to open menu.'
-				: 'Navigation open. Click to close menu.';
-		}
 
 		if (this.sidebarTogglePreference.preference() === 'expanded-hidden') {
 			return mode === 'hidden'
@@ -90,7 +63,7 @@ export class AppToolBarComponent {
 	);
 
 	onMenuToggle(): void {
-		this.sidebarLayout.toggleMode(this.isSidebarOverlay());
+		this.sidebarLayout.toggleMode();
 	}
 
 	onSchemeToggle(): void {

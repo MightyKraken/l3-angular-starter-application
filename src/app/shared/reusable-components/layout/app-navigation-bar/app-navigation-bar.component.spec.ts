@@ -1,10 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import {
-	BreakPointDetectorService,
-	ScreenSizeObserver,
-	SidebarLayoutService
-} from '@core';
+import { SidebarLayoutService } from '@core';
 import {
 	LucideHouse,
 	LucideSettings,
@@ -24,7 +20,6 @@ describe('AppNavigationBarComponent', () => {
 			imports: [AppNavigationBarComponent],
 			providers: [
 				provideRouter([]),
-				{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService },
 				provideLucideIcons(LucideHouse, LucideSettings)
 			]
 		}).compileComponents();
@@ -41,7 +36,7 @@ describe('AppNavigationBarComponent', () => {
 	});
 
 	it('should apply sidebar-mini class and collapse labels in mini mode', () => {
-		sidebarLayout.toggleMode(false);
+		sidebarLayout.toggleMode();
 		fixture.detectChanges();
 
 		expect(hostElement.querySelector('.sidebar-mini')).toBeTruthy();

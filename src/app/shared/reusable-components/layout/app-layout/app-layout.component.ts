@@ -1,7 +1,6 @@
 import {
 	ChangeDetectionStrategy,
 	Component,
-	computed,
 	DestroyRef,
 	effect,
 	ElementRef,
@@ -15,7 +14,6 @@ import { RouterOutlet } from '@angular/router';
 import {
 	AppLayoutModeService,
 	COMMON_IMPORTS,
-	ScreenSizeObserver,
 	SidebarLayoutService
 } from '@core';
 
@@ -37,7 +35,6 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 export class AppLayoutComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
 	private readonly layoutModeService = inject(AppLayoutModeService);
-	private readonly screenSize = inject(ScreenSizeObserver);
 
 	private readonly contentContainers =
 		viewChildren<ElementRef<HTMLElement>>('scrollContent');
@@ -50,7 +47,6 @@ export class AppLayoutComponent {
 	private lastScrollTop = 0;
 	private readonly scrollThreshold = 8;
 	private readonly topRevealOffset = 16;
-	private wasSidebarOverlay = false;
 
 	readonly showToolbar = input<boolean>(false);
 	readonly showNavigation = input<boolean>(false);
@@ -58,25 +54,7 @@ export class AppLayoutComponent {
 	readonly isToolbarHidden = signal(false);
 	readonly layoutMode = this.layoutModeService.layoutMode;
 
-	readonly isSidebarOverlay = computed(
-		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
-	);
-
 	constructor() {
-		effect(() => {
-			const isOverlay = this.isSidebarOverlay();
-
-			if (isOverlay && !this.wasSidebarOverlay) {
-				const mode = this.sidebarLayout.mode();
-
-				if (mode === 'expanded' || mode === 'mini') {
-					this.sidebarLayout.setMode('hidden');
-				}
-			}
-
-			this.wasSidebarOverlay = isOverlay;
-		});
-
 		effect(() => {
 			this.contentContainers();
 			this.bindScrollListeners();
@@ -90,10 +68,6 @@ export class AppLayoutComponent {
 				this.rafId = null;
 			}
 		});
-	}
-
-	closeSidebar(): void {
-		this.sidebarLayout.closeSidebar();
 	}
 
 	private bindScrollListeners(): void {

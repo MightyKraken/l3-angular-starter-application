@@ -13,23 +13,12 @@ export class SidebarLayoutService {
 
 	readonly mode = this._mode.asReadonly();
 
-	getToggleCycle(isOverlayViewport: boolean): Array<SidebarMode> {
-		return getCycleForPreference(
-			this.togglePreference.preference(),
-			isOverlayViewport
-		);
+	getToggleCycle(): Array<SidebarMode> {
+		return getCycleForPreference(this.togglePreference.preference());
 	}
 
-	toggleMode(isOverlayViewport: boolean): void {
-		if (
-			isOverlayViewport &&
-			this.togglePreference.preference() === 'expanded-mini'
-		) {
-			this.toggleExpandedMiniOverlay();
-			return;
-		}
-
-		const cycle = this.getToggleCycle(isOverlayViewport);
+	toggleMode(): void {
+		const cycle = this.getToggleCycle();
 		const current = this._mode();
 		const currentIndex = cycle.indexOf(current);
 
@@ -50,41 +39,17 @@ export class SidebarLayoutService {
 	}
 
 	normalizeModeForPreference(): void {
-		const desktopCycle = getCycleForPreference(
-			this.togglePreference.preference(),
-			false
-		);
+		const cycle = getCycleForPreference(this.togglePreference.preference());
 
-		if (!desktopCycle.includes(this._mode())) {
+		if (!cycle.includes(this._mode())) {
 			this._mode.set('expanded');
-		}
-	}
-
-	private toggleExpandedMiniOverlay(): void {
-		switch (this._mode()) {
-			case 'hidden':
-				this._mode.set('mini');
-				break;
-			case 'mini':
-				this._mode.set('expanded');
-				break;
-			case 'expanded':
-				this._mode.set('mini');
-				break;
 		}
 	}
 }
 
 function getCycleForPreference(
-	preference: SidebarTogglePreference,
-	isOverlayViewport: boolean
+	preference: SidebarTogglePreference
 ): Array<SidebarMode> {
-	if (isOverlayViewport) {
-		return preference === 'expanded-mini'
-			? ['hidden', 'mini', 'expanded'] // hidden via backdrop; menu toggles mini <-> expanded
-			: ['hidden', 'expanded'];
-	}
-
 	return preference === 'expanded-mini'
 		? ['expanded', 'mini']
 		: ['expanded', 'hidden'];

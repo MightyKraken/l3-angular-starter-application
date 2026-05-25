@@ -1,11 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import {
-	BreakPointDetectorService,
-	ScreenSizeObserver,
-	SidebarLayoutService,
-	ThemeService
-} from '@core';
+import { SidebarLayoutService, ThemeService } from '@core';
 import {
 	LucideList,
 	LucideMoon,
@@ -26,7 +21,6 @@ describe('AppToolBarComponent', () => {
 			imports: [AppToolBarComponent],
 			providers: [
 				provideRouter([]),
-				{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService },
 				provideLucideIcons(LucideList, LucidePalette, LucideSun, LucideMoon)
 			]
 		}).compileComponents();

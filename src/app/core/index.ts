@@ -1,6 +1,7 @@
 // @index(['./**/*.ts', '!./**/*.spec.ts'], f => `export * from '${f.path}';`)
 export * from './constants/imports.const';
 export * from './constants/layout.const';
+export * from './constants/navigation-items.const';
 export * from './constants/screen-break-points.const';
 export * from './constants/sidebar-toggle.const';
 export * from './constants/theme.const';
