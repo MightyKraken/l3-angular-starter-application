@@ -1,0 +1,50 @@
+.flex {
+	display: flex;
+}
+.flex-row {
+	flex-direction: row;
+}
+
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.justify-end-safe {
+	justify-content: safe flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-center-safe {
+	justify-content: safe center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
+.justify-stretch {
+	justify-content: stretch;
+}
+
+.justify-baseline {
+	justify-content: baseline;
+}
+
+.justify-normal {
+	justify-content: normal;
+}

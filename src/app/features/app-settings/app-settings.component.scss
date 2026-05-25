@@ -53,7 +53,8 @@
 .settings-field + .settings-field {
 	margin-block-start: 1.5rem;
 	padding-block-start: 1.5rem;
-	border-top: 1px solid color-mix(in srgb, var(--app-on-surface) 12%, transparent);
+	border-top: 1px solid
+		color-mix(in srgb, var(--app-on-surface) 12%, transparent);
 }
 
 .settings-field-label {
@@ -97,13 +98,18 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid color-mix(in srgb, var(--app-on-surface) 35%, transparent);
+		outline: 2px solid
+			color-mix(in srgb, var(--app-on-surface) 35%, transparent);
 		outline-offset: 2px;
 	}
 
 	&.scheme-toggle-option-active {
 		border-color: var(--app-on-surface);
-		background-color: color-mix(in srgb, var(--app-on-surface) 10%, transparent);
+		background-color: color-mix(
+			in srgb,
+			var(--app-on-surface) 10%,
+			transparent
+		);
 		box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
 	}
 }
@@ -136,13 +142,18 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid color-mix(in srgb, var(--app-on-surface) 35%, transparent);
+		outline: 2px solid
+			color-mix(in srgb, var(--app-on-surface) 35%, transparent);
 		outline-offset: 2px;
 	}
 
 	&.palette-card-selected {
 		border-color: var(--app-on-surface);
-		background-color: color-mix(in srgb, var(--app-on-surface) 10%, transparent);
+		background-color: color-mix(
+			in srgb,
+			var(--app-on-surface) 10%,
+			transparent
+		);
 	}
 }
 

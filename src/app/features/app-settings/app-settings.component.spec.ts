@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LucideMoon, LucideSun, provideLucideIcons } from '@lucide/angular';
 import { ThemeService } from '@core';
+import { LucideMoon, LucideSun, provideLucideIcons } from '@lucide/angular';
 
 import { AppSettingsComponent } from './app-settings.component';
 

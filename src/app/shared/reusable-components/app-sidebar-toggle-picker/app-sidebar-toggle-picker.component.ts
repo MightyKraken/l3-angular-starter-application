@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
 	APP_SIDEBAR_TOGGLE_OPTIONS,
-	type SidebarTogglePreference,
 	SidebarLayoutService,
+	type SidebarTogglePreference,
 	SidebarTogglePreferenceService
 } from '@core';
 

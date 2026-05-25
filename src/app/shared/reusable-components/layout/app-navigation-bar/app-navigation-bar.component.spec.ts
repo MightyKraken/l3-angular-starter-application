@@ -5,7 +5,11 @@ import {
 	ScreenSizeObserver,
 	SidebarLayoutService
 } from '@core';
-import { LucideHouse, LucideSettings, provideLucideIcons } from '@lucide/angular';
+import {
+	LucideHouse,
+	LucideSettings,
+	provideLucideIcons
+} from '@lucide/angular';
 
 import { AppNavigationBarComponent } from './app-navigation-bar.component';
 

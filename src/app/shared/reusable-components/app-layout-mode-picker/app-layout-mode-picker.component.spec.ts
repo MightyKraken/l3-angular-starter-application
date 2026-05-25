@@ -24,7 +24,9 @@ describe('AppLayoutModePickerComponent', () => {
 	});
 
 	it('should render layout preview options', () => {
-		const options = fixture.nativeElement.querySelectorAll('.layout-mode-option');
+		const options = fixture.nativeElement.querySelectorAll(
+			'.layout-mode-option'
+		);
 		expect(options.length).toBe(2);
 		expect(
 			fixture.nativeElement.querySelector('.layout-preview-toolbar-top')

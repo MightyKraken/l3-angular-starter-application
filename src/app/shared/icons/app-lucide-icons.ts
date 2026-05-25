@@ -1,4 +1,5 @@
 import {
+	LucideFlaskConical,
 	LucideHouse,
 	LucideList,
 	LucideMenu,
@@ -15,5 +16,6 @@ export const appLucideIcons = [
 	LucideHouse,
 	LucidePalette,
 	LucideSun,
-	LucideMoon
+	LucideMoon,
+	LucideFlaskConical
 ] as const;

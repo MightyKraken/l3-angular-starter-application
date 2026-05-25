@@ -9,7 +9,6 @@
 	width: var(--dot-size, 16px);
 	height: var(--dot-size, 16px);
 	border-radius: 50%;
-	background-color: #333;
 	animation: bounce-sequence var(--dot-speed, 1.8s) ease-out infinite;
 }
 
@@ -27,20 +26,20 @@
 
 .dot:nth-child(1) {
 	animation-delay: calc(var(--dot-speed, 1.8s) * 0);
-	background-color: rgb(233 45 24);
+	background-color: var(--loading-dot-color-1);
 }
 
 .dot:nth-child(2) {
 	animation-delay: calc(var(--dot-speed, 1.8s) * 0.166);
-	background-color: rgb(49 116 241);
+	background-color: var(--loading-dot-color-2);
 }
 
 .dot:nth-child(3) {
 	animation-delay: calc(var(--dot-speed, 1.8s) * 0.333);
-	background-color: rgb(246 173 1);
+	background-color: var(--loading-dot-color-3);
 }
 
 .dot:nth-child(4) {
 	animation-delay: calc(var(--dot-speed, 1.8s) * 0.5);
-	background-color: rgb(36 154 65);
+	background-color: var(--loading-dot-color-4);
 }

@@ -2,15 +2,18 @@
 	<div class="toolbar-container">
 		<app-icon-button
 			[ariaLabel]="toggleAriaLabel()"
+			[matTooltip]="toggleAriaLabel()"
 			(clicked)="onMenuToggle()"
 			icon="list"
 		/>
-		<span class="toolbar-title">Sabik Abtahee</span>
+		<app-icon ariaLabel="Company logo" name="angular" source="asset" />
+		<span class="toolbar-title">{{appTitle()}}</span>
 		<div class="toolbar-actions">
 			<app-theme-picker />
 			<app-icon-button
 				[ariaLabel]="schemeToggleAriaLabel()"
 				[icon]="schemeIcon()"
+				[matTooltip]="schemeToggleAriaLabel()"
 				(clicked)="onSchemeToggle()"
 			/>
 		</div>

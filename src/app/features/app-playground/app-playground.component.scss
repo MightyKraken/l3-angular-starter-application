@@ -1,0 +1,28 @@
+.test {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+
+.test:nth-child(1) {
+	background-color: var(--app-nav-on);
+}
+
+.test:nth-child(2) {
+	background-color: var(--app-nav-border);
+}
+.test:nth-child(3) {
+	background-color: var(--app-nav-item);
+}
+.test:nth-child(4) {
+	background-color: var(--app-nav-item-hover);
+}
+.test:nth-child(5) {
+	background-color: var(--app-nav-item-active);
+}
+
+.card-test {
+	width: 40px;
+	height: 40px;
+	box-shadow: 0 0 2px var(--app-toolbar-shadow);
+}

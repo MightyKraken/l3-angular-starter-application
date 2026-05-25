@@ -34,8 +34,9 @@ describe('AppThemePickerComponent', () => {
 	});
 
 	it('should render ten palette swatches in a grid', () => {
-		const trigger: HTMLButtonElement =
-			fixture.nativeElement.querySelector('.theme-picker-trigger');
+		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
+			'.theme-picker-trigger'
+		);
 		trigger.click();
 		fixture.detectChanges();
 
@@ -48,13 +49,15 @@ describe('AppThemePickerComponent', () => {
 	it('should change palette without changing color scheme', () => {
 		expect(theme.colorScheme()).toBe('light');
 
-		const trigger: HTMLButtonElement =
-			fixture.nativeElement.querySelector('.theme-picker-trigger');
+		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
+			'.theme-picker-trigger'
+		);
 		trigger.click();
 		fixture.detectChanges();
 
-		const options: NodeListOf<HTMLButtonElement> =
-			overlayContainer.getContainerElement().querySelectorAll('[role="option"]');
+		const options: NodeListOf<HTMLButtonElement> = overlayContainer
+			.getContainerElement()
+			.querySelectorAll('[role="option"]');
 		options[1].click();
 		fixture.detectChanges();
 

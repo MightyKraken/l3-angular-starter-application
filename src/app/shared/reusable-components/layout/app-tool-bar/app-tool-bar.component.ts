@@ -2,21 +2,30 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	computed,
-	inject
+	inject,
+	signal
 } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {
 	ScreenSizeObserver,
 	SidebarLayoutService,
 	SidebarTogglePreferenceService,
 	ThemeService
 } from '@core';
+import { environment } from '@environment';
 
+import { AppIconComponent } from '../../app-icon/app-icon.component';
 import { AppIconButtonComponent } from '../../app-icon-button/app-icon-button.component';
 import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker.component';
 
 @Component({
 	selector: 'app-tool-bar',
-	imports: [AppIconButtonComponent, AppThemePickerComponent],
+	imports: [
+		AppIconButtonComponent,
+		AppThemePickerComponent,
+		AppIconComponent,
+		MatTooltipModule
+	],
 	templateUrl: './app-tool-bar.component.html',
 	styleUrl: './app-tool-bar.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,12 +33,16 @@ import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker
 export class AppToolBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
 	private readonly screenSize = inject(ScreenSizeObserver);
-	private readonly sidebarTogglePreference = inject(SidebarTogglePreferenceService);
-	readonly theme = inject(ThemeService);
+	private readonly sidebarTogglePreference = inject(
+		SidebarTogglePreferenceService
+	);
+	private readonly theme = inject(ThemeService);
 
 	private readonly isSidebarOverlay = computed(
 		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
 	);
+
+	protected readonly appTitle = signal(environment.PortalTitle);
 
 	readonly toggleAriaLabel = computed(() => {
 		const mode = this.sidebarLayout.mode();

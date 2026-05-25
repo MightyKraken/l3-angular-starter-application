@@ -1,5 +1,14 @@
+@use 'variables';
+@use 'colors';
+@use 'fonts';
+@use 'icons';
+@use 'animations';
+@use 'mixins';
+@use 'common';
+
 @use '@angular/material' as mat;
 
+// TODO: check if mat.theme is needed
 html {
 	@include mat.theme(
 		(
@@ -7,7 +16,7 @@ html {
 				primary: mat.$azure-palette,
 				tertiary: mat.$blue-palette
 			),
-			typography: Roboto,
+			typography: var(--font-family),
 			density: 0
 		)
 	);
@@ -21,7 +30,7 @@ body {
 	background-color: var(--mat-sys-surface);
 	color: var(--mat-sys-on-surface);
 	font: var(--mat-sys-body-medium);
-	font-family: Roboto, 'Helvetica Neue', sans-serif;
+	font-family: var(--font-family);
 	min-block-size: 100%;
 	margin: 0;
 }
@@ -31,6 +40,7 @@ app-root {
 	min-block-size: 100dvh;
 }
 
+// TODO: Find a way to remove this
 .mat-mdc-menu-content {
-    padding: 16px !important;
+	padding: 16px !important;
 }

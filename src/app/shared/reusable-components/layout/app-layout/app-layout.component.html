@@ -8,14 +8,14 @@
 	class="grid"
 >
 	@if (isSidebarOverlay()) {
-		<button
-			[class.sidebar-backdrop-visible]="sidebarMode() !== 'hidden'"
-			(click)="closeSidebar()"
-			aria-label="Close navigation"
-			[attr.aria-hidden]="sidebarMode() === 'hidden'"
-			class="sidebar-backdrop"
-			type="button"
-		></button>
+	<button
+		[attr.aria-hidden]="sidebarMode() === 'hidden'"
+		[class.sidebar-backdrop-visible]="sidebarMode() !== 'hidden'"
+		(click)="closeSidebar()"
+		aria-label="Close navigation"
+		class="sidebar-backdrop"
+		type="button"
+	></button>
 	}
 	<div class="nav"><ng-container *ngTemplateOutlet="navigationbar" /></div>
 	<div [class.toolbar-hidden]="isToolbarHidden()" class="toolbar">

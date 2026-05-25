@@ -21,7 +21,9 @@ export class SidebarTogglePreferenceService {
 	initFromStorage(): void {
 		const stored = this.cookies.get(APP_SIDEBAR_TOGGLE_COOKIE);
 		this._preference.set(
-			isSidebarTogglePreference(stored) ? stored : DEFAULT_SIDEBAR_TOGGLE_PREFERENCE
+			isSidebarTogglePreference(stored)
+				? stored
+				: DEFAULT_SIDEBAR_TOGGLE_PREFERENCE
 		);
 	}
 

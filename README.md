@@ -106,3 +106,15 @@ A repository to show how common code can be reused
 - Huksy
 - Vitest/Karma
 - Angular Material
+
+## TODO
+
+1. Make css mixins for reuse
+2. Learn about extract-i18n
+3. Make resuable animation and make a feature component that will have examples of all these animations
+4. Understand how colors are done in app and make a component explaing it
+5. Make a component that renders code with tabs init
+6. Make a nested Sidebar menu dropdown
+7. ShareReplay -> https://dev.to/softheartengineer/how-does-sharereplay-works-in-rxjsangular-1moo
+8. Make an interface or service to get environment values it will be easier and type safe
+9. Make a footer and add dynamic layout for that

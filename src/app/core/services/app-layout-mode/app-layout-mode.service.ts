@@ -18,7 +18,9 @@ export class AppLayoutModeService {
 
 	initFromStorage(): void {
 		const stored = this.cookies.get(APP_LAYOUT_MODE_COOKIE);
-		this._layoutMode.set(isAppLayoutMode(stored) ? stored : DEFAULT_LAYOUT_MODE);
+		this._layoutMode.set(
+			isAppLayoutMode(stored) ? stored : DEFAULT_LAYOUT_MODE
+		);
 	}
 
 	setLayoutMode(mode: AppLayoutMode): void {

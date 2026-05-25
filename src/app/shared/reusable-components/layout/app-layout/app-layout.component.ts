@@ -50,6 +50,7 @@ export class AppLayoutComponent {
 	private lastScrollTop = 0;
 	private readonly scrollThreshold = 8;
 	private readonly topRevealOffset = 16;
+	private wasSidebarOverlay = false;
 
 	readonly showToolbar = input<boolean>(false);
 	readonly showNavigation = input<boolean>(false);
@@ -60,8 +61,6 @@ export class AppLayoutComponent {
 	readonly isSidebarOverlay = computed(
 		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
 	);
-
-	private wasSidebarOverlay = false;
 
 	constructor() {
 		effect(() => {
@@ -91,6 +90,10 @@ export class AppLayoutComponent {
 				this.rafId = null;
 			}
 		});
+	}
+
+	closeSidebar(): void {
+		this.sidebarLayout.closeSidebar();
 	}
 
 	private bindScrollListeners(): void {
@@ -154,10 +157,6 @@ export class AppLayoutComponent {
 		}
 
 		this.lastScrollTop = currentScrollTop;
-	}
-
-	closeSidebar(): void {
-		this.sidebarLayout.closeSidebar();
 	}
 
 	private updateToolbarHidden(hidden: boolean): void {

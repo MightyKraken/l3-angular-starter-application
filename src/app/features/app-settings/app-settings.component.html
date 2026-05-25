@@ -49,21 +49,21 @@
 				role="listbox"
 			>
 				@for (palette of palettes; track palette.id) {
-					<button
-						[attr.aria-label]="palette.label + ' theme'"
-						[attr.aria-selected]="isPaletteActive(palette.id)"
-						[class.palette-card-selected]="isPaletteActive(palette.id)"
-						(click)="setPalette(palette.id)"
-						class="palette-card"
-						role="option"
-						type="button"
-					>
-						<span
-							[style.background-color]="palette.previewColor"
-							class="palette-card-swatch"
-						></span>
-						<span class="palette-card-label">{{ palette.label }}</span>
-					</button>
+				<button
+					[attr.aria-label]="palette.label + ' theme'"
+					[attr.aria-selected]="isPaletteActive(palette.id)"
+					[class.palette-card-selected]="isPaletteActive(palette.id)"
+					(click)="setPalette(palette.id)"
+					class="palette-card"
+					role="option"
+					type="button"
+				>
+					<span
+						[style.background-color]="palette.previewColor"
+						class="palette-card-swatch"
+					></span>
+					<span class="palette-card-label">{{ palette.label }}</span>
+				</button>
 				}
 			</div>
 		</div>
@@ -73,14 +73,16 @@
 		<h2 class="settings-card-title" id="layout-heading">Layout</h2>
 
 		<div class="settings-field settings-field-first">
-			<span class="settings-field-label" id="layout-mode-label">Shell layout</span>
-			<app-layout-mode-picker
-				[attr.aria-labelledby]="'layout-mode-label'"
-			/>
+			<span class="settings-field-label" id="layout-mode-label"
+				>Shell layout</span
+			>
+			<app-layout-mode-picker [attr.aria-labelledby]="'layout-mode-label'" />
 		</div>
 
 		<div class="settings-field">
-			<span class="settings-field-label" id="sidebar-toggle-label">Sidebar toggle</span>
+			<span class="settings-field-label" id="sidebar-toggle-label"
+				>Sidebar toggle</span
+			>
 			<app-sidebar-toggle-picker
 				[attr.aria-labelledby]="'sidebar-toggle-label'"
 			/>

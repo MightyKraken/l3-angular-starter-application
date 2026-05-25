@@ -5,66 +5,6 @@
 		<base href="/" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<link href="brand.ico" rel="icon" type="image/x-icon" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-			rel="stylesheet"
-		/>
-
-		<link
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-			rel="stylesheet"
-		/>
-
-		<link
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<script>
-			(function () {
-				var root = document.documentElement;
-				var validSchemes = { light: true, dark: true };
-				var validPalettes = {
-					default: true,
-					ocean: true,
-					forest: true,
-					violet: true,
-					sunset: true,
-					rose: true,
-					slate: true,
-					amber: true,
-					mint: true,
-					monochrome: true
-				};
-
-				function readCookie(name) {
-					var encoded = encodeURIComponent(name) + '=';
-					var parts = document.cookie.split('; ');
-
-					for (var i = 0; i < parts.length; i++) {
-						if (parts[i].indexOf(encoded) === 0) {
-							return decodeURIComponent(parts[i].slice(encoded.length));
-						}
-					}
-
-					return null;
-				}
-
-				var scheme = readCookie('app.colorScheme');
-				var palette = readCookie('app.palette');
-
-				root.dataset.colorScheme = validSchemes[scheme] ? scheme : 'light';
-				root.dataset.palette = validPalettes[palette] ? palette : 'default';
-				root.style.colorScheme = root.dataset.colorScheme;
-			})();
-		</script>
 	</head>
 	<body>
 		<app-root></app-root>

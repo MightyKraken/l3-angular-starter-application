@@ -60,8 +60,7 @@
 		> .nav {
 			position: fixed;
 			z-index: 300;
-			inset-block-start: var(--toolbar-height);
-			inset-block-end: 0;
+			inset-block: var(--toolbar-height) 0;
 			inset-inline-start: 0;
 			inline-size: var(--sidebar-width);
 			min-inline-size: var(--sidebar-width);

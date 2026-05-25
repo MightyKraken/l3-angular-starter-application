@@ -15,8 +15,8 @@ import { AppIconComponent } from '../app-icon/app-icon.component';
 	imports: [AppIconComponent, MatMenu, MatMenuTrigger],
 	templateUrl: './app-theme-picker.component.html',
 	styleUrl: './app-theme-picker.component.scss',
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	encapsulation: ViewEncapsulation.None
 })
 export class AppThemePickerComponent {
 	private readonly theme = inject(ThemeService);

@@ -20,21 +20,22 @@ import { AppIconComponent } from '../../app-icon/app-icon.component';
 export class AppNavigationBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
 	private readonly screenSize = inject(ScreenSizeObserver);
-
-	readonly sidebarMode = this.sidebarLayout.mode;
-	readonly isSidebarMini = computed(
-		() => this.sidebarLayout.mode() === 'mini'
-	);
-
 	private readonly isSidebarOverlay = computed(
 		() => !!this.screenSize.isMobile() || !!this.screenSize.isSmall()
 	);
+	readonly sidebarMode = this.sidebarLayout.mode;
+	readonly isSidebarMini = computed(() => this.sidebarLayout.mode() === 'mini');
 
 	readonly navigationItems = signal([
 		{
 			label: 'Home',
 			route: '/',
 			icon: 'house'
+		},
+		{
+			label: 'Playground',
+			route: '/playground',
+			icon: 'flask-conical'
 		},
 		{
 			label: 'Settings',

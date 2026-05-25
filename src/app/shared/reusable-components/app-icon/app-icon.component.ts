@@ -9,7 +9,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { LucideDynamicIcon } from '@lucide/angular';
 import { of, switchMap } from 'rxjs';
 
-import { IconAssetService } from '../../services/icon-asset.service';
+import { IconAssetService } from '../../services/icon-asset/icon-asset.service';
 import type { AppIconSource } from './app-icon.types';
 
 /**
