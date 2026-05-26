@@ -37,30 +37,8 @@ export const NAVIGATION_TREE: ReadonlyArray<NavigationNode> = [
 	{
 		id: 'playground',
 		label: 'Playground',
-		icon: 'flask-conical',
-		children: [
-			{
-				id: 'playground-ui',
-				label: 'UI',
-				children: [
-					{
-						id: 'playground-ui-components',
-						label: 'Components',
-						route: '/playground/ui/components'
-					},
-					{
-						id: 'playground-ui-layout',
-						label: 'Layout',
-						route: '/playground/ui/layout'
-					}
-				]
-			},
-			{
-				id: 'playground-tools',
-				label: 'Tools',
-				route: '/playground/tools'
-			}
-		]
+		route: '/playground',
+		icon: 'flask-conical'
 	},
 	{
 		id: 'settings',

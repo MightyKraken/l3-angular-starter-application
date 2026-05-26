@@ -118,3 +118,5 @@ A repository to show how common code can be reused
 7. ShareReplay -> https://dev.to/softheartengineer/how-does-sharereplay-works-in-rxjsangular-1moo
 8. Make an interface or service to get environment values it will be easier and type safe
 9. Make a footer and add dynamic layout for that
+10. Figure out a way to use routes for navigation items. Also a way to add values to it so that we can manually configure which route to show and hide
+11. ANgular profiler idea continue on it
