@@ -12,6 +12,7 @@ export * from './services/app-loader/app-loader.service';
 export * from './services/app-title-strategy/app-title-strategy.service';
 export * from './services/break-point-detector/break-point-detector.service';
 export * from './services/cookie-storage/cookie-storage.service';
+export * from './services/navigation-tree-state/navigation-tree-state.service';
 export * from './services/sidebar-layout/sidebar-layout.service';
 export * from './services/sidebar-toggle-preference/sidebar-toggle-preference.service';
 export * from './services/theme/theme.service';

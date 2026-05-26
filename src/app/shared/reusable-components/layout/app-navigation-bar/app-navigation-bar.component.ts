@@ -4,14 +4,13 @@ import {
 	computed,
 	inject
 } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NAVIGATION_ITEMS, SidebarLayoutService } from '@core';
+import { NAVIGATION_TREE, SidebarLayoutService } from '@core';
 
-import { AppIconComponent } from '../../app-icon/app-icon.component';
+import { AppNavTreeItemComponent } from '../app-nav-tree-item/app-nav-tree-item.component';
 
 @Component({
 	selector: 'app-navigation-bar',
-	imports: [AppIconComponent, RouterLink, RouterLinkActive],
+	imports: [AppNavTreeItemComponent],
 	templateUrl: './app-navigation-bar.component.html',
 	styleUrl: './app-navigation-bar.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,5 +20,5 @@ export class AppNavigationBarComponent {
 	readonly sidebarMode = this.sidebarLayout.mode;
 	readonly isSidebarMini = computed(() => this.sidebarLayout.mode() === 'mini');
 
-	readonly navigationItems = NAVIGATION_ITEMS;
+	readonly navigationTree = NAVIGATION_TREE;
 }

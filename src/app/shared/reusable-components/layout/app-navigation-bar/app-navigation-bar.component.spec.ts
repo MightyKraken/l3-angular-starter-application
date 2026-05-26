@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SidebarLayoutService } from '@core';
 import {
+	LucideChevronDown,
+	LucideChevronRight,
 	LucideFlaskConical,
 	LucideHouse,
 	LucideSettings,
@@ -21,7 +23,13 @@ describe('AppNavigationBarComponent', () => {
 			imports: [AppNavigationBarComponent],
 			providers: [
 				provideRouter([]),
-				provideLucideIcons(LucideHouse, LucideSettings, LucideFlaskConical)
+				provideLucideIcons(
+					LucideHouse,
+					LucideSettings,
+					LucideFlaskConical,
+					LucideChevronRight,
+					LucideChevronDown
+				)
 			]
 		}).compileComponents();
 
@@ -34,6 +42,11 @@ describe('AppNavigationBarComponent', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should render tree root items', () => {
+		const rootItems = hostElement.querySelectorAll('li.nav-tree-item-depth-0');
+		expect(rootItems.length).toBe(3);
 	});
 
 	it('should apply sidebar-mini class and collapse labels in mini mode', () => {

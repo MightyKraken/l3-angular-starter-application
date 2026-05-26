@@ -5,16 +5,8 @@ import {
 	SidebarLayoutService,
 	SidebarTogglePreferenceService
 } from '@core';
-import {
-	LucideFlaskConical,
-	LucideHouse,
-	LucideList,
-	LucideMoon,
-	LucidePalette,
-	LucideSettings,
-	LucideSun,
-	provideLucideIcons
-} from '@lucide/angular';
+import { provideLucideIcons } from '@lucide/angular';
+import { appLucideIcons } from '@shared';
 
 import { activatedRouteMock, routerMock } from '../../../../../tests';
 import { AppLayoutComponent } from './app-layout.component';
@@ -31,15 +23,7 @@ describe('AppLayoutComponent', () => {
 			providers: [
 				{ provide: ActivatedRoute, useValue: activatedRouteMock },
 				{ provide: Router, useValue: routerMock },
-				provideLucideIcons(
-					LucideHouse,
-					LucideSettings,
-					LucideList,
-					LucidePalette,
-					LucideSun,
-					LucideMoon,
-					LucideFlaskConical
-				)
+				provideLucideIcons(...appLucideIcons)
 			]
 		}).compileComponents();
 

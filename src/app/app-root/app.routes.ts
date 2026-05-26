@@ -16,10 +16,34 @@ export const routes: Routes = [
 			},
 			{
 				path: 'playground',
-				loadComponent: () =>
-					import('../features/app-playground/app-playground.component').then(
-						(c) => c.AppPlaygroundComponent
-					)
+				children: [
+					{
+						path: '',
+						pathMatch: 'full',
+						redirectTo: 'ui/components'
+					},
+					{
+						path: 'ui/components',
+						loadComponent: () =>
+							import('../features/app-playground/pages/app-playground-ui-components/app-playground-ui-components.component').then(
+								(c) => c.AppPlaygroundUiComponentsComponent
+							)
+					},
+					{
+						path: 'ui/layout',
+						loadComponent: () =>
+							import('../features/app-playground/pages/app-playground-ui-layout/app-playground-ui-layout.component').then(
+								(c) => c.AppPlaygroundUiLayoutComponent
+							)
+					},
+					{
+						path: 'tools',
+						loadComponent: () =>
+							import('../features/app-playground/pages/app-playground-tools/app-playground-tools.component').then(
+								(c) => c.AppPlaygroundToolsComponent
+							)
+					}
+				]
 			},
 			{
 				path: 'settings',

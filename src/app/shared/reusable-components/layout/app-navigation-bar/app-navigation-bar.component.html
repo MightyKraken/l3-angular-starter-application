@@ -1,16 +1,14 @@
 <aside [class.sidebar-mini]="isSidebarMini()" class="sidebar">
 	<nav class="sidebar-nav">
-		@for (item of navigationItems; track item.route) {
-		<a
-			[routerLink]="item.route"
-			[routerLinkActiveOptions]="{ exact: item.route === '/' }"
-			[title]="item.label"
-			class="nav-item"
-			routerLinkActive="active"
-		>
-			<app-icon [name]="item.icon" class="nav-icon" />
-			<span class="nav-label">{{ item.label }}</span>
-		</a>
-		}
+		<ul class="nav-tree">
+			@for (item of navigationTree; track item.id) {
+			<li
+				[collapsedLabels]="isSidebarMini()"
+				[depth]="0"
+				[node]="item"
+				app-nav-tree-item
+			></li>
+			}
+		</ul>
 	</nav>
 </aside>

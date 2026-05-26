@@ -1,23 +1,73 @@
-export interface NavigationItem {
+export interface NavigationNode {
+	id: string;
 	label: string;
-	route: string;
-	icon: string;
+	icon?: string;
+	route?: string;
+	children?: ReadonlyArray<NavigationNode>;
 }
 
-export const NAVIGATION_ITEMS: ReadonlyArray<NavigationItem> = [
+function validateNavigationTree(nodes: ReadonlyArray<NavigationNode>): void {
+	for (const node of nodes) {
+		if (node.children?.length) {
+			if (node.route !== undefined) {
+				console.warn(
+					`[NAVIGATION_TREE] Node "${node.id}" has children and must not define route.`
+				);
+			}
+
+			validateNavigationTree(node.children);
+			continue;
+		}
+
+		if (node.route === undefined) {
+			console.warn(
+				`[NAVIGATION_TREE] Leaf node "${node.id}" must define route.`
+			);
+		}
+	}
+}
+
+export const NAVIGATION_TREE: ReadonlyArray<NavigationNode> = [
 	{
+		id: 'home',
 		label: 'Home',
 		route: '/',
 		icon: 'house'
 	},
 	{
+		id: 'playground',
 		label: 'Playground',
-		route: '/playground',
-		icon: 'flask-conical'
+		icon: 'flask-conical',
+		children: [
+			{
+				id: 'playground-ui',
+				label: 'UI',
+				children: [
+					{
+						id: 'playground-ui-components',
+						label: 'Components',
+						route: '/playground/ui/components'
+					},
+					{
+						id: 'playground-ui-layout',
+						label: 'Layout',
+						route: '/playground/ui/layout'
+					}
+				]
+			},
+			{
+				id: 'playground-tools',
+				label: 'Tools',
+				route: '/playground/tools'
+			}
+		]
 	},
 	{
+		id: 'settings',
 		label: 'Settings',
 		route: '/settings',
 		icon: 'settings'
 	}
 ];
+
+validateNavigationTree(NAVIGATION_TREE);

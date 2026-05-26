@@ -22,70 +22,17 @@
 	box-shadow: 2px 0 5px var(--app-toolbar-shadow);
 }
 
-.sidebar-header {
-	padding: 1.5rem 1rem;
-	border-bottom: 1px solid var(--app-nav-border);
-}
-
-.sidebar-title {
-	margin: 0;
-	font-size: 1.5rem;
-	font-weight: 600;
-	color: var(--app-nav-on);
-}
-
 .sidebar-nav {
 	flex: 1;
 	padding: 1rem 0;
+	overflow: hidden auto;
+}
+
+.nav-tree {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
-}
-
-.nav-item {
-	display: grid;
-	grid-template-columns: var(--sidebar-width-mini) 1fr;
-	align-items: center;
-	padding-block: 0.875rem;
-	padding-inline: 0;
-	color: var(--app-nav-item);
-	text-decoration: none;
-	transition: color 0.2s ease;
-
-	&:hover {
-		color: var(--app-nav-item-hover);
-	}
-
-	&.active {
-		color: var(--app-nav-item-active);
-	}
-}
-
-.nav-icon {
-	justify-self: center;
-}
-
-.nav-label {
-	overflow: hidden;
-	white-space: nowrap;
-	font-size: 1rem;
-	font-weight: 500;
-	opacity: 1;
-	max-inline-size: 12rem;
-	transition:
-		opacity 220ms ease,
-		max-inline-size 220ms ease,
-		visibility 0s linear 0s;
-}
-
-.sidebar-mini {
-	.nav-label {
-		opacity: 0;
-		max-inline-size: 0;
-		visibility: hidden;
-		transition:
-			opacity 220ms ease,
-			max-inline-size 220ms ease,
-			visibility 0s linear 220ms;
-	}
 }

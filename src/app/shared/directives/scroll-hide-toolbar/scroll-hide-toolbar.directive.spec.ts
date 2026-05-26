@@ -7,8 +7,8 @@ import { ScrollHideToolbarRegionDirective } from './scroll-hide-toolbar-region.d
 @Component({
 	selector: 'app-scroll-hide-toolbar-host',
 	imports: [ScrollHideToolbarRegionDirective],
-	hostDirectives: [ScrollHideToolbarDirective],
-	template: `<div appScrollHideToolbarRegion class="scroll-region"></div>`
+	template: `<div appScrollHideToolbarRegion class="scroll-region"></div>`,
+	hostDirectives: [ScrollHideToolbarDirective]
 })
 class ScrollHideToolbarHostComponent {
 	readonly scrollHideToolbar = inject(ScrollHideToolbarDirective);
