@@ -5,6 +5,8 @@
 @use 'animations';
 @use 'mixins';
 @use 'common';
+@use 'tailwindcss';
+
 @use '@angular/material' as mat;
 
 // TODO: check if mat.theme is needed
