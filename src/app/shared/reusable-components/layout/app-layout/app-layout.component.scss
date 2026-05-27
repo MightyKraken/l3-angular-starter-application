@@ -25,7 +25,7 @@
 	overflow: hidden;
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto 1fr;
-
+	timeline-scope: --main-contentx;
 	&[data-layout='sidebar-left'] {
 		grid-template-areas:
 			'nav toolbar'
@@ -75,14 +75,18 @@
 		z-index: 200;
 		align-self: start;
 		transform: translateY(0);
-		transition: transform 220ms ease;
-
+		// transition: transform 220ms ease;
+		animation: shouldHideOnScroll linear both;
+		animation-timeline: --main-contentx;
+		animation-range: 0px 80px; // tune
 		&.toolbar-hidden {
 			transform: translateY(calc(-100% - 4px));
 		}
 	}
 
 	> .content {
+		scroll-timeline-name: --main-contentx;
+		scroll-timeline-axis: block;
 		grid-area: content;
 		min-width: 0;
 		min-height: 0;
@@ -97,7 +101,7 @@
 	z-index: 200;
 	align-self: start;
 	transform: translateY(0);
-	transition: transform 220ms ease;
+	// transition: transform 220ms ease;
 
 	&.toolbar-hidden {
 		transform: translateY(calc(-100% - 4px));
@@ -107,4 +111,10 @@
 .toolbar-only-layout > .content {
 	min-height: 0;
 	overflow: auto;
+}
+@keyframes shouldHideOnScroll {
+	to {
+		transform: translateY(-20px);
+		display: none;
+	}
 }

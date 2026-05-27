@@ -11,7 +11,6 @@ import {
 	SidebarLayoutService
 } from '@core';
 
-import { ScrollHideToolbarDirective } from '../../../directives/scroll-hide-toolbar/scroll-hide-toolbar.directive';
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 
@@ -25,8 +24,7 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 	],
 	templateUrl: './app-layout.component.html',
 	styleUrl: './app-layout.component.scss',
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	hostDirectives: [ScrollHideToolbarDirective]
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppLayoutComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
