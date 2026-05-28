@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { SidebarLayoutService, ThemeService } from '@core';
+import { SidebarLayoutService } from '@core';
 import {
+	LucideCheck,
 	LucideList,
-	LucideMoon,
 	LucidePalette,
-	LucideSun,
 	provideLucideIcons
 } from '@lucide/angular';
 
@@ -14,20 +13,17 @@ import { AppToolBarComponent } from './app-tool-bar.component';
 describe('AppToolBarComponent', () => {
 	let fixture: ComponentFixture<AppToolBarComponent>;
 	let sidebarLayout: SidebarLayoutService;
-	let theme: ThemeService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppToolBarComponent],
 			providers: [
 				provideRouter([]),
-				provideLucideIcons(LucideList, LucidePalette, LucideSun, LucideMoon)
+				provideLucideIcons(LucideList, LucidePalette, LucideCheck)
 			]
 		}).compileComponents();
 
 		sidebarLayout = TestBed.inject(SidebarLayoutService);
-		theme = TestBed.inject(ThemeService);
-		theme.initFromStorage();
 
 		fixture = TestBed.createComponent(AppToolBarComponent);
 		fixture.detectChanges();
@@ -49,7 +45,7 @@ describe('AppToolBarComponent', () => {
 		expect(sidebarLayout.mode()).toBe('mini');
 	});
 
-	it('should render theme picker and scheme toggle', () => {
+	it('should render theme picker without scheme toggle', () => {
 		expect(
 			fixture.nativeElement.querySelector('app-theme-picker')
 		).toBeTruthy();
@@ -57,19 +53,6 @@ describe('AppToolBarComponent', () => {
 		const iconButtons: Array<HTMLButtonElement> = Array.from(
 			fixture.nativeElement.querySelectorAll('app-icon-button button')
 		);
-		expect(iconButtons.length).toBe(2);
-	});
-
-	it('should toggle color scheme when scheme button is clicked', () => {
-		expect(theme.colorScheme()).toBe('light');
-
-		const iconButtons: Array<HTMLButtonElement> = Array.from(
-			fixture.nativeElement.querySelectorAll('app-icon-button button')
-		);
-		iconButtons[1].click();
-		fixture.detectChanges();
-
-		expect(theme.colorScheme()).toBe('dark');
-		expect(theme.paletteId()).toBe('default');
+		expect(iconButtons.length).toBe(1);
 	});
 });

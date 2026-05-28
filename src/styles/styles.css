@@ -1,7 +1,11 @@
 @import 'tailwindcss';
+
+@plugin "daisyui" {
+	themes: all;
+}
+
 @source '../**/*.{html,ts}';
 @import './variables.css';
-@import './colors.css';
 @import './fonts.css';
 @import './animations.css';
 
@@ -10,8 +14,8 @@ html {
 }
 
 body {
-	background-color: var(--app-surface);
-	color: var(--app-on-surface);
+	@apply bg-base-100 text-base-content;
+
 	font-family: var(--font-family);
 	font-weight: 500;
 	font-style: normal;
@@ -25,35 +29,35 @@ app-root {
 }
 
 .mat-mdc-menu-panel.theme-picker-panel {
-	--mat-menu-container-color: var(--app-surface);
+	--mat-menu-container-color: var(--color-base-100);
 	--mat-menu-container-shape: 8px;
 
-	background-color: var(--app-surface);
-	color: var(--app-on-surface);
+	min-inline-size: 12.5rem;
+	background-color: var(--color-base-100);
+	color: var(--color-base-content);
 	border-radius: 8px;
-	box-shadow: var(
-		--app-elevation-shadow,
-		0 4px 6px rgb(0 0 0 / 10%),
-		0 10px 24px rgb(0 0 0 / 12%)
-	);
+	box-shadow:
+		0 4px 6px color-mix(in oklch, var(--color-base-content) 10%, transparent),
+		0 10px 24px color-mix(in oklch, var(--color-base-content) 12%, transparent);
 }
 
 .mat-mdc-menu-panel.theme-picker-panel .mat-mdc-menu-content {
-	background-color: var(--app-surface);
-	padding: 16px;
+	background-color: var(--color-base-100);
+	padding: 8px;
 }
 
 .mat-mdc-tooltip {
-	background-color: var(--app-on-surface);
-	color: var(--app-surface);
+	background-color: var(--color-base-content);
+	color: var(--color-base-100);
 }
 
 @layer components {
 	.app-selectable-option {
-		border: 2px solid color-mix(in srgb, var(--app-on-surface) 14%, transparent);
+		border: 2px solid
+			color-mix(in oklch, var(--color-base-content) 14%, transparent);
 		border-radius: 10px;
-		background: color-mix(in srgb, var(--app-on-surface) 4%, transparent);
-		color: var(--app-on-surface);
+		background: color-mix(in oklch, var(--color-base-content) 4%, transparent);
+		color: var(--color-base-content);
 		font: inherit;
 		cursor: pointer;
 		transition:
@@ -63,29 +67,36 @@ app-root {
 	}
 
 	.app-selectable-option:hover {
-		background-color: color-mix(in srgb, var(--app-on-surface) 8%, transparent);
+		background-color: color-mix(
+			in oklch,
+			var(--color-base-content) 8%,
+			transparent
+		);
 	}
 
 	.app-selectable-option:focus-visible {
 		outline: 2px solid
-			color-mix(in srgb, var(--app-on-surface) 35%, transparent);
+			color-mix(in oklch, var(--color-base-content) 35%, transparent);
 		outline-offset: 2px;
 	}
 
 	.app-selectable-option-active {
-		border-color: var(--app-on-surface);
+		border-color: var(--color-base-content);
 		background-color: color-mix(
-			in srgb,
-			var(--app-on-surface) 10%,
+			in oklch,
+			var(--color-base-content) 10%,
 			transparent
 		);
-		box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+		box-shadow: 0 2px 8px
+			color-mix(in oklch, var(--color-base-content) 8%, transparent);
 	}
 
 	.app-settings-card {
 		padding: 1.25rem;
 		border-radius: 12px;
-		background-color: var(--app-surface-elevated, var(--app-surface));
-		box-shadow: var(--app-elevation-shadow);
+		background-color: var(--color-base-200);
+		box-shadow:
+			0 1px 3px color-mix(in oklch, var(--color-base-content) 8%, transparent),
+			0 2px 8px color-mix(in oklch, var(--color-base-content) 6%, transparent);
 	}
 }

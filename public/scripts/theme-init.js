@@ -1,18 +1,42 @@
 /* eslint-disable no-undef */
 (function () {
 	var root = document.documentElement;
-	var validSchemes = { light: true, dark: true };
-	var validPalettes = {
-		default: true,
-		ocean: true,
+	var validThemes = {
+		light: true,
+		dark: true,
+		cupcake: true,
+		bumblebee: true,
+		emerald: true,
+		corporate: true,
+		synthwave: true,
+		retro: true,
+		cyberpunk: true,
+		valentine: true,
+		halloween: true,
+		garden: true,
 		forest: true,
-		violet: true,
+		aqua: true,
+		lofi: true,
+		pastel: true,
+		fantasy: true,
+		wireframe: true,
+		black: true,
+		luxury: true,
+		dracula: true,
+		cmyk: true,
+		autumn: true,
+		business: true,
+		acid: true,
+		lemonade: true,
+		night: true,
+		coffee: true,
+		winter: true,
+		dim: true,
+		nord: true,
 		sunset: true,
-		rose: true,
-		slate: true,
-		amber: true,
-		mint: true,
-		monochrome: true
+		caramellatte: true,
+		abyss: true,
+		silk: true
 	};
 
 	function readCookie(name) {
@@ -28,10 +52,6 @@
 		return null;
 	}
 
-	var scheme = readCookie('app.colorScheme');
-	var palette = readCookie('app.palette');
-
-	root.dataset.colorScheme = validSchemes[scheme] ? scheme : 'light';
-	root.dataset.palette = validPalettes[palette] ? palette : 'default';
-	root.style.colorScheme = root.dataset.colorScheme;
+	var theme = readCookie('app.theme');
+	root.setAttribute('data-theme', validThemes[theme] ? theme : 'nord');
 })();

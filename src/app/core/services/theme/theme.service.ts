@@ -1,14 +1,12 @@
 import { inject, Injectable, signal } from '@angular/core';
 
 import {
-	APP_COLOR_SCHEME_COOKIE,
-	APP_PALETTE_COOKIE,
-	type AppColorScheme,
-	type AppPaletteId,
-	DEFAULT_COLOR_SCHEME,
-	DEFAULT_PALETTE_ID,
-	isAppColorScheme,
-	isAppPaletteId
+	APP_THEME_COOKIE,
+	type DaisyThemeId,
+	DEFAULT_DAISY_THEME,
+	isDaisyThemeId,
+	LEGACY_COLOR_SCHEME_COOKIE,
+	LEGACY_PALETTE_COOKIE
 } from '../../constants/theme.const';
 import { CookieStorageService } from '../cookie-storage/cookie-storage.service';
 
@@ -16,56 +14,27 @@ import { CookieStorageService } from '../cookie-storage/cookie-storage.service';
 export class ThemeService {
 	private readonly cookies = inject(CookieStorageService);
 
-	private readonly _colorScheme = signal<AppColorScheme>(DEFAULT_COLOR_SCHEME);
-	private readonly _paletteId = signal<AppPaletteId>(DEFAULT_PALETTE_ID);
+	private readonly _themeId = signal<DaisyThemeId>(DEFAULT_DAISY_THEME);
 
-	readonly colorScheme = this._colorScheme.asReadonly();
-	readonly paletteId = this._paletteId.asReadonly();
+	readonly themeId = this._themeId.asReadonly();
 
 	initFromStorage(): void {
-		const storedScheme = this.cookies.get(APP_COLOR_SCHEME_COOKIE);
-		const storedPalette = this.cookies.get(APP_PALETTE_COOKIE);
+		const storedTheme = this.cookies.get(APP_THEME_COOKIE);
 
-		this._colorScheme.set(
-			isAppColorScheme(storedScheme) ? storedScheme : DEFAULT_COLOR_SCHEME
-		);
-		this._paletteId.set(
-			isAppPaletteId(storedPalette) ? storedPalette : DEFAULT_PALETTE_ID
+		this._themeId.set(
+			isDaisyThemeId(storedTheme) ? storedTheme : DEFAULT_DAISY_THEME
 		);
 
+		this.clearLegacyCookies();
 		this.applyToDocument();
 	}
 
-	toggleColorScheme(): void {
-		this._colorScheme.update((scheme) =>
-			scheme === 'light' ? 'dark' : 'light'
-		);
-		this.persistAndApply();
-	}
-
-	setColorScheme(colorScheme: AppColorScheme): void {
-		if (this._colorScheme() === colorScheme) {
+	setTheme(themeId: DaisyThemeId): void {
+		if (this._themeId() === themeId) {
 			return;
 		}
 
-		this._colorScheme.set(colorScheme);
-		this.persistAndApply();
-	}
-
-	setPalette(id: AppPaletteId): void {
-		this.setTheme(id, this._colorScheme());
-	}
-
-	setTheme(paletteId: AppPaletteId, colorScheme: AppColorScheme): void {
-		if (
-			this._paletteId() === paletteId &&
-			this._colorScheme() === colorScheme
-		) {
-			return;
-		}
-
-		this._paletteId.set(paletteId);
-		this._colorScheme.set(colorScheme);
+		this._themeId.set(themeId);
 		this.persistAndApply();
 	}
 
@@ -74,15 +43,16 @@ export class ThemeService {
 			return;
 		}
 
-		const root = document.documentElement;
-		root.dataset['colorScheme'] = this._colorScheme();
-		root.dataset['palette'] = this._paletteId();
-		root.style.colorScheme = this._colorScheme();
+		document.documentElement.setAttribute('data-theme', this._themeId());
 	}
 
 	private persistAndApply(): void {
-		this.cookies.set(APP_COLOR_SCHEME_COOKIE, this._colorScheme());
-		this.cookies.set(APP_PALETTE_COOKIE, this._paletteId());
+		this.cookies.set(APP_THEME_COOKIE, this._themeId());
 		this.applyToDocument();
+	}
+
+	private clearLegacyCookies(): void {
+		this.cookies.remove(LEGACY_COLOR_SCHEME_COOKIE);
+		this.cookies.remove(LEGACY_PALETTE_COOKIE);
 	}
 }

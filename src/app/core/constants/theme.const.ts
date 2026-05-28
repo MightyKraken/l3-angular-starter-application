@@ -1,141 +1,62 @@
-export const APP_COLOR_SCHEME_COOKIE = 'app.colorScheme';
-export const APP_PALETTE_COOKIE = 'app.palette';
+export const APP_THEME_COOKIE = 'app.theme';
+export const LEGACY_COLOR_SCHEME_COOKIE = 'app.colorScheme';
+export const LEGACY_PALETTE_COOKIE = 'app.palette';
 
-export const APP_COLOR_SCHEMES = ['light', 'dark'] as const;
-export type AppColorScheme = (typeof APP_COLOR_SCHEMES)[number];
-
-export type ThemeForegroundTone = 'on-dark-bg' | 'on-light-bg';
-
-export interface AppThemeContrast {
-	toolbar: ThemeForegroundTone;
-	nav: ThemeForegroundTone;
-}
-
-export const APP_PALETTE_IDS = [
-	'default',
-	'ocean',
+export const DAISY_THEME_IDS = [
+	'light',
+	'dark',
+	'cupcake',
+	'bumblebee',
+	'emerald',
+	'corporate',
+	'synthwave',
+	'retro',
+	'cyberpunk',
+	'valentine',
+	'halloween',
+	'garden',
 	'forest',
-	'violet',
+	'aqua',
+	'lofi',
+	'pastel',
+	'fantasy',
+	'wireframe',
+	'black',
+	'luxury',
+	'dracula',
+	'cmyk',
+	'autumn',
+	'business',
+	'acid',
+	'lemonade',
+	'night',
+	'coffee',
+	'winter',
+	'dim',
+	'nord',
 	'sunset',
-	'rose',
-	'slate',
-	'amber',
-	'mint',
-	'monochrome'
+	'caramellatte',
+	'abyss',
+	'silk'
 ] as const;
-export type AppPaletteId = (typeof APP_PALETTE_IDS)[number];
 
-export interface AppPaletteOption {
-	id: AppPaletteId;
+export type DaisyThemeId = (typeof DAISY_THEME_IDS)[number];
+
+export interface DaisyThemeOption {
+	id: DaisyThemeId;
 	label: string;
-	previewColor: string;
-	contrast: Record<AppColorScheme, AppThemeContrast>;
 }
 
-export const APP_PALETTE_OPTIONS: ReadonlyArray<AppPaletteOption> = [
-	{
-		id: 'default',
-		label: 'Default',
-		previewColor: '#1976d2',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'ocean',
-		label: 'Ocean',
-		previewColor: '#0077b6',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'forest',
-		label: 'Forest',
-		previewColor: '#2d6a4f',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'violet',
-		label: 'Violet',
-		previewColor: '#7b2cbf',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'sunset',
-		label: 'Sunset',
-		previewColor: '#e85d04',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' },
-			dark: { toolbar: 'on-light-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'rose',
-		label: 'Rose',
-		previewColor: '#db2777',
-		contrast: {
-			light: { toolbar: 'on-dark-bg', nav: 'on-light-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'slate',
-		label: 'Slate',
-		previewColor: '#475569',
-		contrast: {
-			light: { toolbar: 'on-light-bg', nav: 'on-light-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'amber',
-		label: 'Amber',
-		previewColor: '#d97706',
-		contrast: {
-			light: { toolbar: 'on-light-bg', nav: 'on-light-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'mint',
-		label: 'Mint',
-		previewColor: '#059669',
-		contrast: {
-			light: { toolbar: 'on-light-bg', nav: 'on-light-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	},
-	{
-		id: 'monochrome',
-		label: 'Minimal',
-		previewColor: '#ffffff',
-		contrast: {
-			light: { toolbar: 'on-light-bg', nav: 'on-light-bg' },
-			dark: { toolbar: 'on-dark-bg', nav: 'on-dark-bg' }
-		}
-	}
-];
+export const DAISY_THEME_OPTIONS: ReadonlyArray<DaisyThemeOption> =
+	DAISY_THEME_IDS.map((id) => ({
+		id,
+		label: id.charAt(0).toUpperCase() + id.slice(1)
+	}));
 
-export const DEFAULT_COLOR_SCHEME: AppColorScheme = 'light';
-export const DEFAULT_PALETTE_ID: AppPaletteId = 'default';
+export const DEFAULT_DAISY_THEME: DaisyThemeId = 'nord';
 
-export function isAppColorScheme(
-	value: string | null
-): value is AppColorScheme {
-	return value === 'light' || value === 'dark';
-}
-
-export function isAppPaletteId(value: string | null): value is AppPaletteId {
+export function isDaisyThemeId(value: string | null): value is DaisyThemeId {
 	return (
-		value !== null && (APP_PALETTE_IDS as ReadonlyArray<string>).includes(value)
+		value !== null && (DAISY_THEME_IDS as ReadonlyArray<string>).includes(value)
 	);
 }

@@ -6,13 +6,19 @@ import {
 	ViewEncapsulation
 } from '@angular/core';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
-import { APP_PALETTE_OPTIONS, type AppPaletteId, ThemeService } from '@core';
+import { DAISY_THEME_OPTIONS, type DaisyThemeId, ThemeService } from '@core';
 
 import { AppIconComponent } from '../app-icon/app-icon.component';
+import { AppThemePreviewComponent } from '../app-theme-preview/app-theme-preview.component';
 
 @Component({
 	selector: 'app-theme-picker',
-	imports: [AppIconComponent, MatMenu, MatMenuTrigger],
+	imports: [
+		AppIconComponent,
+		AppThemePreviewComponent,
+		MatMenu,
+		MatMenuTrigger
+	],
 	templateUrl: './app-theme-picker.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	encapsulation: ViewEncapsulation.None
@@ -21,15 +27,15 @@ export class AppThemePickerComponent {
 	private readonly theme = inject(ThemeService);
 	private readonly menuTrigger = viewChild.required(MatMenuTrigger);
 
-	readonly palettes = APP_PALETTE_OPTIONS;
-	readonly activePaletteId = this.theme.paletteId;
+	readonly themes = DAISY_THEME_OPTIONS;
+	readonly activeThemeId = this.theme.themeId;
 
-	onSelect(paletteId: AppPaletteId): void {
-		this.theme.setPalette(paletteId);
+	onSelect(themeId: DaisyThemeId): void {
+		this.theme.setTheme(themeId);
 		this.menuTrigger().closeMenu();
 	}
 
-	isActive(paletteId: AppPaletteId): boolean {
-		return this.activePaletteId() === paletteId;
+	isActive(themeId: DaisyThemeId): boolean {
+		return this.activeThemeId() === themeId;
 	}
 }

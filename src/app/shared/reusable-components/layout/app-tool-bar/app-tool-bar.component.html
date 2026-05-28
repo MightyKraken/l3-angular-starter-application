@@ -1,5 +1,5 @@
 <nav
-	class="box-border w-full max-w-full bg-[var(--app-toolbar-bg)] px-4 text-[var(--app-toolbar-on)] shadow-[0_2px_4px_var(--app-toolbar-shadow)]"
+	class="box-border w-full max-w-full bg-primary px-4 text-primary-content shadow-[0_2px_4px_color-mix(in_oklch,var(--color-primary-content)_15%,transparent)]"
 >
 	<div
 		class="box-border flex h-[var(--toolbar-height)] w-full max-w-full min-w-0 items-center gap-4"
@@ -12,19 +12,11 @@
 		/>
 		<app-icon ariaLabel="Company logo" name="angular" source="asset" />
 		<span
-			class="min-w-0 flex-1 overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap text-[var(--app-toolbar-on)]"
+			class="min-w-0 flex-1 overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap"
 			>{{ appTitle() }}</span
 		>
-		<div
-			class="ms-auto flex shrink-0 items-center gap-2 [&_app-icon-button]:[--icon-button-hover-bg:var(--app-icon-button-hover-bg)] [&_app-icon-button]:[--icon-button-active-bg:var(--app-icon-button-active-bg)] [&_app-icon-button]:[--icon-button-ripple-color:var(--app-icon-button-ripple-color)]"
-		>
+		<div class="ms-auto flex shrink-0 items-center gap-2">
 			<app-theme-picker />
-			<app-icon-button
-				[ariaLabel]="schemeToggleAriaLabel()"
-				[icon]="schemeIcon()"
-				[matTooltip]="schemeToggleAriaLabel()"
-				(clicked)="onSchemeToggle()"
-			/>
 		</div>
 	</div>
 </nav>

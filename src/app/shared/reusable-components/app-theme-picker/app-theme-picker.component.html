@@ -2,7 +2,7 @@
 	<button
 		[matMenuTriggerFor]="themeMenu"
 		aria-label="Choose theme"
-		class="inline-flex size-10 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 text-inherit transition-colors duration-200 hover:bg-[var(--icon-button-hover-bg,color-mix(in_srgb,currentcolor_12%,transparent))] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,currentcolor_80%,transparent)]"
+		class="inline-flex size-10 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 text-inherit transition-colors duration-200 hover:bg-primary-content/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-content/80"
 		type="button"
 	>
 		<app-icon name="palette" />
@@ -14,21 +14,29 @@
 		xPosition="before"
 	>
 		<div
-			aria-label="Theme colors"
-			class="grid grid-cols-5 gap-3"
+			aria-label="Themes"
+			class="max-h-80 overflow-y-auto py-1"
 			role="listbox"
 		>
-			@for (palette of palettes; track palette.id) {
+			@for (theme of themes; track theme.id) {
 			<button
-				[attr.aria-label]="palette.label + ' theme'"
-				[attr.aria-selected]="isActive(palette.id)"
-				[class.border-[var(--app-on-surface)]]="isActive(palette.id)"
-				[style.background-color]="palette.previewColor"
-				(click)="onSelect(palette.id)"
-				class="size-6 cursor-pointer rounded-full border-2 border-transparent p-0 shadow-[inset_0_0_0_1px_rgb(0_0_0/12%)] transition-[transform,border-color] duration-150 hover:scale-[1.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--app-on-surface)_40%,transparent)]"
+				[attr.aria-label]="theme.label + ' theme'"
+				[attr.aria-selected]="isActive(theme.id)"
+				(click)="onSelect(theme.id)"
+				class="flex w-full cursor-pointer items-center gap-3 border-0 bg-transparent px-2 py-1.5 text-start text-base-content transition-colors hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content/35"
 				role="option"
 				type="button"
-			></button>
+			>
+				<app-theme-preview [themeId]="theme.id" />
+				<span class="min-w-0 flex-1 truncate text-sm font-medium"
+					>{{ theme.label }}</span
+				>
+				<app-icon
+					[class.invisible]="!isActive(theme.id)"
+					class="size-3 shrink-0"
+					name="check"
+				/>
+			</button>
 			}
 		</div>
 	</mat-menu>

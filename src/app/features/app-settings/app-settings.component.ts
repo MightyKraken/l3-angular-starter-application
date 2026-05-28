@@ -1,21 +1,16 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-	APP_PALETTE_OPTIONS,
-	type AppColorScheme,
-	type AppPaletteId,
-	ThemeService
-} from '@core';
+import { DAISY_THEME_OPTIONS, type DaisyThemeId, ThemeService } from '@core';
 
-import { AppIconComponent } from '../../shared/reusable-components/app-icon/app-icon.component';
 import { AppLayoutModePickerComponent } from '../../shared/reusable-components/app-layout-mode-picker/app-layout-mode-picker.component';
 import { AppSidebarTogglePickerComponent } from '../../shared/reusable-components/app-sidebar-toggle-picker/app-sidebar-toggle-picker.component';
+import { AppThemePreviewComponent } from '../../shared/reusable-components/app-theme-preview/app-theme-preview.component';
 
 @Component({
 	selector: 'app-settings',
 	imports: [
-		AppIconComponent,
 		AppLayoutModePickerComponent,
-		AppSidebarTogglePickerComponent
+		AppSidebarTogglePickerComponent,
+		AppThemePreviewComponent
 	],
 	templateUrl: './app-settings.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -23,19 +18,14 @@ import { AppSidebarTogglePickerComponent } from '../../shared/reusable-component
 export class AppSettingsComponent {
 	private readonly theme = inject(ThemeService);
 
-	readonly palettes = APP_PALETTE_OPTIONS;
-	readonly colorScheme = this.theme.colorScheme;
-	readonly paletteId = this.theme.paletteId;
+	readonly themes = DAISY_THEME_OPTIONS;
+	readonly themeId = this.theme.themeId;
 
-	setColorScheme(scheme: AppColorScheme): void {
-		this.theme.setColorScheme(scheme);
+	setTheme(id: DaisyThemeId): void {
+		this.theme.setTheme(id);
 	}
 
-	setPalette(id: AppPaletteId): void {
-		this.theme.setPalette(id);
-	}
-
-	isPaletteActive(id: AppPaletteId): boolean {
-		return this.paletteId() === id;
+	isThemeActive(id: DaisyThemeId): boolean {
+		return this.themeId() === id;
 	}
 }

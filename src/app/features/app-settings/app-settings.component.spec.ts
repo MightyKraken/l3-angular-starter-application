@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ThemeService } from '@core';
-import { LucideMoon, LucideSun, provideLucideIcons } from '@lucide/angular';
+import { DAISY_THEME_IDS, ThemeService } from '@core';
 
 import { AppSettingsComponent } from './app-settings.component';
 
@@ -10,8 +9,7 @@ describe('AppSettingsComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [AppSettingsComponent],
-			providers: [provideLucideIcons(LucideSun, LucideMoon)]
+			imports: [AppSettingsComponent]
 		}).compileComponents();
 
 		theme = TestBed.inject(ThemeService);
@@ -23,24 +21,6 @@ describe('AppSettingsComponent', () => {
 
 	it('should create', () => {
 		expect(fixture.componentInstance).toBeTruthy();
-	});
-
-	it('should set color scheme from segmented control', () => {
-		const darkButton: HTMLButtonElement =
-			fixture.nativeElement.querySelectorAll(
-				'[role="radiogroup"] [role="radio"]'
-			)[1];
-		darkButton.click();
-
-		expect(theme.colorScheme()).toBe('dark');
-
-		const lightButton: HTMLButtonElement =
-			fixture.nativeElement.querySelectorAll(
-				'[role="radiogroup"] [role="radio"]'
-			)[0];
-		lightButton.click();
-
-		expect(theme.colorScheme()).toBe('light');
 	});
 
 	it('should render layout mode picker', () => {
@@ -55,14 +35,14 @@ describe('AppSettingsComponent', () => {
 		).toBeTruthy();
 	});
 
-	it('should set palette from theme cards', () => {
+	it('should set theme from theme cards', () => {
 		const cards: NodeListOf<HTMLButtonElement> =
 			fixture.nativeElement.querySelectorAll(
 				'[role="listbox"] [role="option"]'
 			);
-		expect(cards.length).toBe(10);
+		expect(cards.length).toBe(DAISY_THEME_IDS.length);
 
 		cards[2].click();
-		expect(theme.paletteId()).toBe('forest');
+		expect(theme.themeId()).toBe('cupcake');
 	});
 });

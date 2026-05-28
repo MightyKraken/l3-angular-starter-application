@@ -1,5 +1,6 @@
 import {
 	LucideArrowLeft,
+	LucideCheck,
 	LucideChevronDown,
 	LucideChevronRight,
 	LucideFlaskConical,
@@ -24,6 +25,7 @@ export const appLucideIcons = [
 	LucideFlaskConical,
 	LucideSearchX,
 	LucideArrowLeft,
+	LucideCheck,
 	LucideChevronRight,
 	LucideChevronDown
 ] as const;

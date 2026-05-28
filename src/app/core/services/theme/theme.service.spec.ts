@@ -8,101 +8,59 @@ describe('ThemeService', () => {
 	let cookies: CookieStorageService;
 
 	beforeEach(() => {
-		document.documentElement.removeAttribute('data-color-scheme');
-		document.documentElement.removeAttribute('data-palette');
-		document.documentElement.style.colorScheme = '';
+		document.documentElement.removeAttribute('data-theme');
 
 		TestBed.configureTestingModule({});
 		service = TestBed.inject(ThemeService);
 		cookies = TestBed.inject(CookieStorageService);
+		cookies.remove('app.theme');
 		cookies.remove('app.colorScheme');
 		cookies.remove('app.palette');
 	});
 
-	it('should default to light and default palette', () => {
+	it('should default to nord theme', () => {
 		service.initFromStorage();
 
-		expect(service.colorScheme()).toBe('light');
-		expect(service.paletteId()).toBe('default');
-		expect(document.documentElement.dataset['colorScheme']).toBe('light');
-		expect(document.documentElement.dataset['palette']).toBe('default');
+		expect(service.themeId()).toBe('nord');
+		expect(document.documentElement.getAttribute('data-theme')).toBe('nord');
 	});
 
-	it('should load scheme and palette from cookies', () => {
+	it('should load theme from cookie', () => {
+		cookies.set('app.theme', 'dracula');
+
+		service.initFromStorage();
+
+		expect(service.themeId()).toBe('dracula');
+		expect(document.documentElement.getAttribute('data-theme')).toBe('dracula');
+	});
+
+	it('should set theme and persist', () => {
+		service.initFromStorage();
+		service.setTheme('cupcake');
+
+		expect(service.themeId()).toBe('cupcake');
+		expect(cookies.get('app.theme')).toBe('cupcake');
+		expect(document.documentElement.getAttribute('data-theme')).toBe('cupcake');
+	});
+
+	it('should ignore setting the same theme', () => {
+		service.initFromStorage();
+		const setSpy = vi.spyOn(cookies, 'set');
+
+		service.setTheme('nord');
+
+		expect(setSpy).not.toHaveBeenCalled();
+		setSpy.mockRestore();
+	});
+
+	it('should clear legacy cookies on init', () => {
 		cookies.set('app.colorScheme', 'dark');
 		cookies.set('app.palette', 'ocean');
 
 		service.initFromStorage();
 
-		expect(service.colorScheme()).toBe('dark');
-		expect(service.paletteId()).toBe('ocean');
-	});
-
-	it('should set color scheme and persist', () => {
-		service.initFromStorage();
-		service.setColorScheme('dark');
-
-		expect(service.colorScheme()).toBe('dark');
-		expect(cookies.get('app.colorScheme')).toBe('dark');
-	});
-
-	it('should ignore setting the same color scheme', () => {
-		service.initFromStorage();
-		const setSpy = vi.spyOn(cookies, 'set');
-
-		service.setColorScheme('light');
-
-		expect(setSpy).not.toHaveBeenCalled();
-		setSpy.mockRestore();
-	});
-
-	it('should toggle color scheme and persist', () => {
-		service.initFromStorage();
-		service.toggleColorScheme();
-
-		expect(service.colorScheme()).toBe('dark');
-		expect(cookies.get('app.colorScheme')).toBe('dark');
-		expect(document.documentElement.dataset['colorScheme']).toBe('dark');
-
-		service.toggleColorScheme();
-		expect(service.colorScheme()).toBe('light');
-	});
-
-	it('should set palette and persist', () => {
-		service.initFromStorage();
-		service.setPalette('forest');
-
-		expect(service.paletteId()).toBe('forest');
-		expect(cookies.get('app.palette')).toBe('forest');
-		expect(document.documentElement.dataset['palette']).toBe('forest');
-	});
-
-	it('should ignore setting the same palette', () => {
-		service.initFromStorage();
-		const setSpy = vi.spyOn(cookies, 'set');
-
-		service.setPalette('default');
-
-		expect(setSpy).not.toHaveBeenCalled();
-		setSpy.mockRestore();
-	});
-
-	it('should set palette and scheme together', () => {
-		service.initFromStorage();
-		service.setTheme('mint', 'dark');
-
-		expect(service.paletteId()).toBe('mint');
-		expect(service.colorScheme()).toBe('dark');
-		expect(cookies.get('app.palette')).toBe('mint');
-		expect(cookies.get('app.colorScheme')).toBe('dark');
-	});
-
-	it('should set palette without changing color scheme', () => {
-		service.initFromStorage();
-		service.setPalette('ocean');
-
-		expect(service.paletteId()).toBe('ocean');
-		expect(service.colorScheme()).toBe('light');
-		expect(cookies.get('app.colorScheme')).toBe('light');
+		expect(cookies.get('app.colorScheme')).toBeNull();
+		expect(cookies.get('app.palette')).toBeNull();
+		expect(service.themeId()).toBe('nord');
 	});
 });

@@ -3,23 +3,23 @@
 	data-testid="page-container"
 >
 	<div
-		class="flex w-full max-w-md flex-col items-center rounded-xl px-7 py-8 text-center bg-[var(--app-surface-elevated,var(--app-surface))] shadow-[var(--app-elevation-shadow)]"
+		class="flex w-full max-w-md flex-col items-center rounded-xl bg-base-200 px-7 py-8 text-center shadow-[0_1px_3px_color-mix(in_oklch,var(--color-base-content)_8%,transparent),0_2px_8px_color-mix(in_oklch,var(--color-base-content)_6%,transparent)]"
 	>
 		<p
 			aria-hidden="true"
-			class="m-0 text-[clamp(3.5rem,12vw,4.5rem)] leading-none font-bold tracking-tight text-[var(--app-on-surface)]"
+			class="m-0 text-[clamp(3.5rem,12vw,4.5rem)] leading-none font-bold tracking-tight text-base-content"
 		>
 			404
 		</p>
 
 		<app-icon class="mt-2" name="search-x" size="2.5rem" />
 
-		<h1 class="mt-4 mb-0 text-2xl font-semibold text-[var(--app-on-surface)]">
+		<h1 class="mt-4 mb-0 text-2xl font-semibold text-base-content">
 			Page Not Found
 		</h1>
 
 		<p
-			class="mt-3 mb-0 max-w-[22rem] text-[0.9375rem] leading-relaxed text-[color-mix(in_srgb,var(--app-on-surface)_65%,transparent)]"
+			class="mt-3 mb-0 max-w-[22rem] text-[0.9375rem] leading-relaxed text-base-content/65"
 		>
 			The page you are looking for does not exist or may have been moved. Use
 			the actions below to continue.
@@ -27,7 +27,7 @@
 
 		<div class="mt-7 flex flex-wrap justify-center gap-3">
 			<a
-				class="app-selectable-option inline-flex items-center gap-2 px-[1.125rem] py-2.5 text-[0.9375rem] font-medium no-underline app-selectable-option-active border-[var(--app-on-surface)] bg-[var(--app-on-surface)] text-[var(--app-surface)] shadow-[0_2px_8px_rgb(0_0_0/10%)] hover:bg-[color-mix(in_srgb,var(--app-on-surface)_88%,transparent)] hover:border-[color-mix(in_srgb,var(--app-on-surface)_88%,transparent)]"
+				class="app-selectable-option app-selectable-option-active inline-flex items-center gap-2 border-base-content bg-base-content px-[1.125rem] py-2.5 text-[0.9375rem] font-medium text-base-100 no-underline shadow-[0_2px_8px_color-mix(in_oklch,var(--color-base-content)_10%,transparent)] hover:border-base-content/88 hover:bg-base-content/88"
 				routerLink="/"
 			>
 				<app-icon name="house" />

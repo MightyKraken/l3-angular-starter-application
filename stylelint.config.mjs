@@ -13,7 +13,8 @@ export default {
 					'layer',
 					'apply',
 					'tailwind',
-					'import'
+					'import',
+					'plugin'
 				]
 			}
 		],
@@ -29,7 +30,8 @@ export default {
 					'layer',
 					'apply',
 					'tailwind',
-					'import'
+					'import',
+					'plugin'
 				]
 			}
 		]

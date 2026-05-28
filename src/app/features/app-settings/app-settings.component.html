@@ -1,18 +1,14 @@
 <section class="box-border mx-auto max-w-[40rem] px-6 pt-8 pb-12">
 	<header class="mb-6">
-		<h1 class="m-0 text-[1.75rem] font-semibold text-[var(--app-on-surface)]">
-			Settings
-		</h1>
-		<p
-			class="mt-2 mb-0 text-[0.9375rem] text-[color-mix(in_srgb,var(--app-on-surface)_65%,transparent)]"
-		>
+		<h1 class="m-0 text-[1.75rem] font-semibold text-base-content">Settings</h1>
+		<p class="mt-2 mb-0 text-[0.9375rem] text-base-content/65">
 			Customize appearance. Quick controls stay in the toolbar.
 		</p>
 	</header>
 
 	<section aria-labelledby="appearance-heading" class="app-settings-card">
 		<h2
-			class="m-0 mb-5 text-base font-semibold text-[var(--app-on-surface)]"
+			class="m-0 mb-5 text-base font-semibold text-base-content"
 			id="appearance-heading"
 		>
 			Appearance
@@ -20,69 +16,28 @@
 
 		<div>
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-[color-mix(in_srgb,var(--app-on-surface)_70%,transparent)]"
-				id="color-mode-label"
-				>Color mode</span
-			>
-			<div
-				[attr.aria-labelledby]="'color-mode-label'"
-				class="flex flex-wrap gap-3"
-				role="radiogroup"
-			>
-				<button
-					[attr.aria-checked]="colorScheme() === 'light'"
-					[class.app-selectable-option-active]="colorScheme() === 'light'"
-					(click)="setColorScheme('light')"
-					class="app-selectable-option inline-flex min-w-[7.5rem] items-center justify-center gap-2 px-4 py-3 text-[0.9375rem] font-medium"
-					role="radio"
-					type="button"
-				>
-					<app-icon name="sun" size="1.125rem" />
-					<span>Light</span>
-				</button>
-				<button
-					[attr.aria-checked]="colorScheme() === 'dark'"
-					[class.app-selectable-option-active]="colorScheme() === 'dark'"
-					(click)="setColorScheme('dark')"
-					class="app-selectable-option inline-flex min-w-[7.5rem] items-center justify-center gap-2 px-4 py-3 text-[0.9375rem] font-medium"
-					role="radio"
-					type="button"
-				>
-					<app-icon name="moon" size="1.125rem" />
-					<span>Dark</span>
-				</button>
-			</div>
-		</div>
-
-		<div
-			class="mt-6 border-t border-[color-mix(in_srgb,var(--app-on-surface)_12%,transparent)] pt-6"
-		>
-			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-[color-mix(in_srgb,var(--app-on-surface)_70%,transparent)]"
+				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
 				id="theme-label"
 				>Theme</span
 			>
 			<div
 				[attr.aria-labelledby]="'theme-label'"
-				class="grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] gap-2.5"
+				class="grid grid-cols-[repeat(auto-fill,minmax(5.5rem,1fr))] gap-2.5"
 				role="listbox"
 			>
-				@for (palette of palettes; track palette.id) {
+				@for (theme of themes; track theme.id) {
 				<button
-					[attr.aria-label]="palette.label + ' theme'"
-					[attr.aria-selected]="isPaletteActive(palette.id)"
-					[class.app-selectable-option-active]="isPaletteActive(palette.id)"
-					(click)="setPalette(palette.id)"
+					[attr.aria-label]="theme.label + ' theme'"
+					[attr.aria-selected]="isThemeActive(theme.id)"
+					[class.app-selectable-option-active]="isThemeActive(theme.id)"
+					(click)="setTheme(theme.id)"
 					class="app-selectable-option flex flex-col items-center gap-2 border-transparent px-2 py-3"
 					role="option"
 					type="button"
 				>
-					<span
-						[style.background-color]="palette.previewColor"
-						class="size-8 rounded-full shadow-[inset_0_0_0_1px_rgb(0_0_0/12%)]"
-					></span>
+					<app-theme-preview [themeId]="theme.id" swatchSize="md" />
 					<span class="text-center text-[0.8125rem] leading-tight font-medium"
-						>{{ palette.label }}</span
+						>{{ theme.label }}</span
 					>
 				</button>
 				}
@@ -92,7 +47,7 @@
 
 	<section aria-labelledby="layout-heading" class="app-settings-card mt-4">
 		<h2
-			class="m-0 mb-5 text-base font-semibold text-[var(--app-on-surface)]"
+			class="m-0 mb-5 text-base font-semibold text-base-content"
 			id="layout-heading"
 		>
 			Layout
@@ -100,18 +55,16 @@
 
 		<div>
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-[color-mix(in_srgb,var(--app-on-surface)_70%,transparent)]"
+				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
 				id="layout-mode-label"
 				>Shell layout</span
 			>
 			<app-layout-mode-picker [attr.aria-labelledby]="'layout-mode-label'" />
 		</div>
 
-		<div
-			class="mt-6 border-t border-[color-mix(in_srgb,var(--app-on-surface)_12%,transparent)] pt-6"
-		>
+		<div class="mt-6 border-t border-base-content/12 pt-6">
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-[color-mix(in_srgb,var(--app-on-surface)_70%,transparent)]"
+				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
 				id="sidebar-toggle-label"
 				>Sidebar toggle</span
 			>

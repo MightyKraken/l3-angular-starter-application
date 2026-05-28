@@ -1,8 +1,12 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
-import { ThemeService } from '@core';
-import { LucidePalette, provideLucideIcons } from '@lucide/angular';
+import { DAISY_THEME_IDS, ThemeService } from '@core';
+import {
+	LucideCheck,
+	LucidePalette,
+	provideLucideIcons
+} from '@lucide/angular';
 
 import { AppThemePickerComponent } from './app-theme-picker.component';
 
@@ -14,7 +18,10 @@ describe('AppThemePickerComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppThemePickerComponent],
-			providers: [provideNoopAnimations(), provideLucideIcons(LucidePalette)]
+			providers: [
+				provideNoopAnimations(),
+				provideLucideIcons(LucidePalette, LucideCheck)
+			]
 		}).compileComponents();
 
 		theme = TestBed.inject(ThemeService);
@@ -33,7 +40,7 @@ describe('AppThemePickerComponent', () => {
 		expect(fixture.componentInstance).toBeTruthy();
 	});
 
-	it('should render ten palette swatches in a grid', () => {
+	it('should render all daisy themes in the menu', () => {
 		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
 			'button[aria-label="Choose theme"]'
 		)!;
@@ -43,12 +50,10 @@ describe('AppThemePickerComponent', () => {
 		const options = overlayContainer
 			.getContainerElement()
 			.querySelectorAll('[role="option"]');
-		expect(options.length).toBe(10);
+		expect(options.length).toBe(DAISY_THEME_IDS.length);
 	});
 
-	it('should change palette without changing color scheme', () => {
-		expect(theme.colorScheme()).toBe('light');
-
+	it('should change theme when an option is selected', () => {
 		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
 			'button[aria-label="Choose theme"]'
 		)!;
@@ -61,7 +66,6 @@ describe('AppThemePickerComponent', () => {
 		options[1].click();
 		fixture.detectChanges();
 
-		expect(theme.paletteId()).toBe('ocean');
-		expect(theme.colorScheme()).toBe('light');
+		expect(theme.themeId()).toBe('dark');
 	});
 });

@@ -6,11 +6,7 @@ import {
 	signal
 } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {
-	SidebarLayoutService,
-	SidebarTogglePreferenceService,
-	ThemeService
-} from '@core';
+import { SidebarLayoutService, SidebarTogglePreferenceService } from '@core';
 import { environment } from '@environment';
 
 import { AppIconComponent } from '../../app-icon/app-icon.component';
@@ -33,7 +29,6 @@ export class AppToolBarComponent {
 	private readonly sidebarTogglePreference = inject(
 		SidebarTogglePreferenceService
 	);
-	private readonly theme = inject(ThemeService);
 
 	protected readonly appTitle = signal(environment.PortalTitle);
 
@@ -51,21 +46,7 @@ export class AppToolBarComponent {
 			: 'Sidebar expanded. Click to show icons only.';
 	});
 
-	readonly schemeToggleAriaLabel = computed(() =>
-		this.theme.colorScheme() === 'light'
-			? 'Switch to dark mode'
-			: 'Switch to light mode'
-	);
-
-	readonly schemeIcon = computed(() =>
-		this.theme.colorScheme() === 'light' ? 'sun' : 'moon'
-	);
-
 	onMenuToggle(): void {
 		this.sidebarLayout.toggleMode();
-	}
-
-	onSchemeToggle(): void {
-		this.theme.toggleColorScheme();
 	}
 }
