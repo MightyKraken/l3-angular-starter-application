@@ -21,7 +21,6 @@
 	padding-inline-start: var(--nav-indent-step);
 }
 
-// Align first nested level with icon + label gap column (32px at default tokens)
 :host(.nav-tree-item-depth-0) > .nav-tree {
 	padding-inline-start: calc(var(--nav-icon-size) + var(--nav-icon-gap));
 }

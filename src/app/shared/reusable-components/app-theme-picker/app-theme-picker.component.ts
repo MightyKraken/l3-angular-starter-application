@@ -14,7 +14,6 @@ import { AppIconComponent } from '../app-icon/app-icon.component';
 	selector: 'app-theme-picker',
 	imports: [AppIconComponent, MatMenu, MatMenuTrigger],
 	templateUrl: './app-theme-picker.component.html',
-	styleUrl: './app-theme-picker.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	encapsulation: ViewEncapsulation.None
 })

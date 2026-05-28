@@ -27,13 +27,17 @@ describe('AppSettingsComponent', () => {
 
 	it('should set color scheme from segmented control', () => {
 		const darkButton: HTMLButtonElement =
-			fixture.nativeElement.querySelectorAll('.scheme-toggle-option')[1];
+			fixture.nativeElement.querySelectorAll(
+				'[role="radiogroup"] [role="radio"]'
+			)[1];
 		darkButton.click();
 
 		expect(theme.colorScheme()).toBe('dark');
 
 		const lightButton: HTMLButtonElement =
-			fixture.nativeElement.querySelectorAll('.scheme-toggle-option')[0];
+			fixture.nativeElement.querySelectorAll(
+				'[role="radiogroup"] [role="radio"]'
+			)[0];
 		lightButton.click();
 
 		expect(theme.colorScheme()).toBe('light');
@@ -53,7 +57,9 @@ describe('AppSettingsComponent', () => {
 
 	it('should set palette from theme cards', () => {
 		const cards: NodeListOf<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('.palette-card');
+			fixture.nativeElement.querySelectorAll(
+				'[role="listbox"] [role="option"]'
+			);
 		expect(cards.length).toBe(10);
 
 		cards[2].click();

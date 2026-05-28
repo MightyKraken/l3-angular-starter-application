@@ -19,7 +19,7 @@ import { AppIconComponent } from '../../app-icon/app-icon.component';
 		AppNavTreeItemComponent
 	],
 	templateUrl: './app-nav-tree-item.component.html',
-	styleUrl: './app-nav-tree-item.component.scss',
+	styleUrl: './app-nav-tree-item.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: {
 		'class': 'nav-tree-item',

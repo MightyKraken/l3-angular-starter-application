@@ -5,7 +5,6 @@ import { LoadingDotsComponent } from '@shared';
 	selector: 'app-playground',
 	imports: [LoadingDotsComponent],
 	templateUrl: './app-playground.component.html',
-	styleUrl: './app-playground.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppPlaygroundComponent {}

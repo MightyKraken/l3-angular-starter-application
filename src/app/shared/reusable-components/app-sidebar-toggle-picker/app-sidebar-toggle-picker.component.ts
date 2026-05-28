@@ -9,7 +9,6 @@ import {
 @Component({
 	selector: 'app-sidebar-toggle-picker',
 	templateUrl: './app-sidebar-toggle-picker.component.html',
-	styleUrl: './app-sidebar-toggle-picker.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppSidebarTogglePickerComponent {

@@ -25,9 +25,10 @@ import type { AppIconSource } from './app-icon.types';
 	selector: 'app-icon',
 	imports: [LucideDynamicIcon],
 	templateUrl: './app-icon.component.html',
-	styleUrl: './app-icon.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: {
+		'class':
+			'inline-flex size-[var(--icon-size,1.25rem)] shrink-0 items-center justify-center text-current',
 		'[style.--icon-size]': 'size()',
 		'[attr.aria-label]': 'ariaLabel()',
 		'[attr.aria-hidden]': 'ariaLabel() ? null : "true"'

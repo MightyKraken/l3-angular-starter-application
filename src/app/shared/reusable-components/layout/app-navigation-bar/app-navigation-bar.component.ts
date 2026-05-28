@@ -12,8 +12,10 @@ import { AppNavTreeItemComponent } from '../app-nav-tree-item/app-nav-tree-item.
 	selector: 'app-navigation-bar',
 	imports: [AppNavTreeItemComponent],
 	templateUrl: './app-navigation-bar.component.html',
-	styleUrl: './app-navigation-bar.component.scss',
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: {
+		class: 'flex min-h-0 min-w-0 flex-1 self-stretch'
+	}
 })
 export class AppNavigationBarComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);

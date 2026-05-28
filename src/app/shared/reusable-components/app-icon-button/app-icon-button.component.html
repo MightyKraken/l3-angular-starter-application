@@ -4,7 +4,7 @@
 	[disabled]="disabled()"
 	[matRippleColor]="rippleColor()"
 	(click)="onClick($event)"
-	class="icon-button"
+	class="inline-flex size-[var(--icon-button-size,2.5rem)] cursor-pointer items-center justify-center overflow-hidden rounded-full border-0 bg-transparent p-0 text-inherit transition-colors duration-200 hover:bg-[var(--icon-button-hover-bg,color-mix(in_srgb,currentColor_12%,transparent))] active:bg-[var(--icon-button-active-bg,color-mix(in_srgb,currentColor_20%,transparent))] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,currentcolor_80%,transparent)] disabled:cursor-not-allowed disabled:opacity-[0.38]"
 	matRipple
 >
 	<app-icon [name]="icon()" [size]="iconSize()" />

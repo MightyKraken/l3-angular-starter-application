@@ -18,7 +18,6 @@ import { AppSidebarTogglePickerComponent } from '../../shared/reusable-component
 		AppSidebarTogglePickerComponent
 	],
 	templateUrl: './app-settings.component.html',
-	styleUrl: './app-settings.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppSettingsComponent {

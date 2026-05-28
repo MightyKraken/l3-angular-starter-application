@@ -4,8 +4,8 @@
 	[size]="size()"
 	[strokeWidth]="strokeWidth()"
 	[title]="ariaLabel() ?? null"
-	class="lucide-icon"
+	class="size-full"
 ></svg>
 } @else if (assetSvg(); as svg) {
-<span [innerHTML]="svg" class="icon-asset"></span>
+<span [innerHTML]="svg" class="contents"></span>
 }

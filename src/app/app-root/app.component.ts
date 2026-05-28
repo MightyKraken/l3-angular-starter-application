@@ -6,7 +6,6 @@ import { AppLoaderComponent } from '@shared';
 	selector: 'app-root',
 	imports: [RouterOutlet, AppLoaderComponent],
 	templateUrl: './app.component.html',
-	styleUrl: './app.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {}

@@ -22,7 +22,6 @@ import { AppIconComponent } from '../app-icon/app-icon.component';
 	selector: 'app-icon-button',
 	imports: [AppIconComponent, MatRipple],
 	templateUrl: './app-icon-button.component.html',
-	styleUrl: './app-icon-button.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: {
 		'class': 'app-icon-button',

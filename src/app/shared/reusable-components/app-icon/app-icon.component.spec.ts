@@ -43,7 +43,7 @@ describe('AppIconComponent', () => {
 			fixture.componentRef.setInput('name', 'house');
 			fixture.detectChanges();
 
-			const svg = hostElement.querySelector('svg.lucide-icon');
+			const svg = hostElement.querySelector('svg');
 			expect(svg).toBeTruthy();
 		});
 
@@ -76,7 +76,7 @@ describe('AppIconComponent', () => {
 			);
 			fixture.detectChanges();
 
-			const asset = hostElement.querySelector('.icon-asset svg');
+			const asset = hostElement.querySelector('span.contents svg');
 			expect(asset).toBeTruthy();
 		});
 
@@ -86,7 +86,7 @@ describe('AppIconComponent', () => {
 			fixture.detectChanges();
 
 			httpMock.expectNone('/icons/../secret.svg');
-			expect(hostElement.querySelector('.icon-asset')).toBeNull();
+			expect(hostElement.querySelector('span.contents')).toBeNull();
 		});
 	});
 });

@@ -23,7 +23,7 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 		...COMMON_IMPORTS
 	],
 	templateUrl: './app-layout.component.html',
-	styleUrl: './app-layout.component.scss',
+	styleUrl: './app-layout.component.css',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppLayoutComponent {

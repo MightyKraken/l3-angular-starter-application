@@ -11,8 +11,8 @@
 		"test": "ng test",
 		"test:ci": "ng test --run",
 		"test:once": "ng test --watch=false",
-		"lint": "eslint && stylelint \"src/**/*.{css,scss}\" && htmlhint \"src/**/*.html\"",
-		"lint:fix": "eslint --fix && stylelint \"src/**/*.{css,scss}\" --fix",
+		"lint": "eslint && stylelint \"src/**/*.css\" && htmlhint \"src/**/*.html\"",
+		"lint:fix": "eslint --fix && stylelint \"src/**/*.css\" --fix",
 		"bundle-report": "ng build --configuration production --source-map && source-map-explorer dist/l3-angular-starter-application/**/*.js --no-border-checks",
 		"prepare": "husky install",
 		"prettier": "prettier . --write",
@@ -31,10 +31,10 @@
 		"src/**/*.{ts,js}": [
 			"eslint --fix"
 		],
-		"src/**/*.{css,scss}": [
+		"src/**/*.css": [
 			"stylelint --fix"
 		],
-		"src/**/*.{ts,js,css,scss,html}": [
+		"src/**/*.{ts,js,css,html}": [
 			"prettier --write"
 		]
 	},

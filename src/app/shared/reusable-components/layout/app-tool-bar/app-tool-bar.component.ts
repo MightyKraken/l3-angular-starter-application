@@ -26,7 +26,6 @@ import { AppThemePickerComponent } from '../../app-theme-picker/app-theme-picker
 		MatTooltipModule
 	],
 	templateUrl: './app-tool-bar.component.html',
-	styleUrl: './app-tool-bar.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppToolBarComponent {

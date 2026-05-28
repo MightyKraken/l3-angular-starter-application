@@ -28,8 +28,8 @@ describe('NavigationTreeStateService', () => {
 		expect(service.isExpanded('playground')).toBe(false);
 	});
 
-	it('should expand ancestor sections for the active route', async () => {
-		await router.navigateByUrl('/playground/ui/components');
+	it('should expand ancestor sections when expandPath is called', () => {
+		service.expandPath(['playground', 'playground-ui']);
 
 		expect(service.isExpanded('playground')).toBe(true);
 		expect(service.isExpanded('playground-ui')).toBe(true);

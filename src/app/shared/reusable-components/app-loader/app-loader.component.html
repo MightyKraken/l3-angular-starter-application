@@ -1,6 +1,12 @@
 @if (appLoaderService.isAppLoading()) {
-<div cdkTrapFocus class="global-loader" tabindex="0">
-	<div class="backdrop"></div>
+<div
+	cdkTrapFocus
+	class="fixed inset-0 z-[9999] flex items-center justify-center"
+	tabindex="0"
+>
+	<div
+		class="absolute inset-0 bg-[var(--app-loader-overlay)] backdrop-blur-[3px]"
+	></div>
 	<loading-dots />
 </div>
 }

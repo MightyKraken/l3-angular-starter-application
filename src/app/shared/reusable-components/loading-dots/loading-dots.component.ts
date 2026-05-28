@@ -4,7 +4,7 @@ import { Component, input } from '@angular/core';
 	selector: 'loading-dots',
 	imports: [],
 	templateUrl: './loading-dots.component.html',
-	styleUrl: './loading-dots.component.scss',
+	styleUrl: './loading-dots.component.css',
 	host: {
 		'[style.--dot-size]': 'size()',
 		'[style.--dot-gap]': 'gap()',

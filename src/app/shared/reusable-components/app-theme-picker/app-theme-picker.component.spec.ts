@@ -35,8 +35,8 @@ describe('AppThemePickerComponent', () => {
 
 	it('should render ten palette swatches in a grid', () => {
 		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
-			'.theme-picker-trigger'
-		);
+			'button[aria-label="Choose theme"]'
+		)!;
 		trigger.click();
 		fixture.detectChanges();
 
@@ -50,8 +50,8 @@ describe('AppThemePickerComponent', () => {
 		expect(theme.colorScheme()).toBe('light');
 
 		const trigger: HTMLButtonElement = fixture.nativeElement.querySelector(
-			'.theme-picker-trigger'
-		);
+			'button[aria-label="Choose theme"]'
+		)!;
 		trigger.click();
 		fixture.detectChanges();
 

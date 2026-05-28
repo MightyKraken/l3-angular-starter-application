@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import type { NavigationNode } from '@core';
 import { NAVIGATION_TREE, NavigationTreeStateService } from '@core';
 import {
 	LucideChevronDown,
@@ -11,6 +12,25 @@ import {
 } from '@lucide/angular';
 
 import { AppNavTreeItemComponent } from './app-nav-tree-item.component';
+
+const PLAYGROUND_SECTION: NavigationNode = {
+	id: 'playground',
+	label: 'Playground',
+	icon: 'flask-conical',
+	children: [
+		{
+			id: 'playground-ui',
+			label: 'UI',
+			children: [
+				{
+					id: 'playground-components',
+					label: 'Components',
+					route: '/playground/ui/components'
+				}
+			]
+		}
+	]
+};
 
 describe('AppNavTreeItemComponent', () => {
 	let fixture: ComponentFixture<AppNavTreeItemComponent>;
@@ -49,7 +69,7 @@ describe('AppNavTreeItemComponent', () => {
 	});
 
 	it('should toggle section expansion on button click', () => {
-		fixture.componentRef.setInput('node', NAVIGATION_TREE[1]);
+		fixture.componentRef.setInput('node', PLAYGROUND_SECTION);
 		fixture.componentRef.setInput('depth', 0);
 		fixture.detectChanges();
 
@@ -65,7 +85,7 @@ describe('AppNavTreeItemComponent', () => {
 	});
 
 	it('should indent nested child lists under the parent label column', () => {
-		fixture.componentRef.setInput('node', NAVIGATION_TREE[1]);
+		fixture.componentRef.setInput('node', PLAYGROUND_SECTION);
 		fixture.componentRef.setInput('depth', 0);
 		treeState.expand('playground');
 		fixture.detectChanges();
@@ -76,8 +96,7 @@ describe('AppNavTreeItemComponent', () => {
 	});
 
 	it('should not render icons for nested leaves', () => {
-		const uiSection = NAVIGATION_TREE[1].children![0];
-		const componentsLeaf = uiSection.children![0];
+		const componentsLeaf = PLAYGROUND_SECTION.children![0].children![0];
 
 		fixture.componentRef.setInput('node', componentsLeaf);
 		fixture.componentRef.setInput('depth', 2);
@@ -90,7 +109,7 @@ describe('AppNavTreeItemComponent', () => {
 	});
 
 	it('should hide children when collapsedLabels is true', () => {
-		fixture.componentRef.setInput('node', NAVIGATION_TREE[1]);
+		fixture.componentRef.setInput('node', PLAYGROUND_SECTION);
 		fixture.componentRef.setInput('depth', 0);
 		fixture.componentRef.setInput('collapsedLabels', true);
 		treeState.expand('playground');

@@ -40,8 +40,9 @@ describe('AppToolBarComponent', () => {
 	it('should cycle sidebar mode when menu toggle is clicked', () => {
 		expect(sidebarLayout.mode()).toBe('expanded');
 
-		const buttons: Array<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('button.icon-button');
+		const buttons: Array<HTMLButtonElement> = Array.from(
+			fixture.nativeElement.querySelectorAll('app-icon-button button')
+		);
 		buttons[0].click();
 		fixture.detectChanges();
 
@@ -53,16 +54,18 @@ describe('AppToolBarComponent', () => {
 			fixture.nativeElement.querySelector('app-theme-picker')
 		).toBeTruthy();
 
-		const iconButtons: Array<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('button.icon-button');
+		const iconButtons: Array<HTMLButtonElement> = Array.from(
+			fixture.nativeElement.querySelectorAll('app-icon-button button')
+		);
 		expect(iconButtons.length).toBe(2);
 	});
 
 	it('should toggle color scheme when scheme button is clicked', () => {
 		expect(theme.colorScheme()).toBe('light');
 
-		const iconButtons: Array<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('button.icon-button');
+		const iconButtons: Array<HTMLButtonElement> = Array.from(
+			fixture.nativeElement.querySelectorAll('app-icon-button button')
+		);
 		iconButtons[1].click();
 		fixture.detectChanges();
 

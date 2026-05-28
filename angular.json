@@ -26,14 +26,14 @@
 						"index": "src/index.html",
 						"browser": "src/main.ts",
 						"tsConfig": "tsconfig.app.json",
-						"inlineStyleLanguage": "scss",
+						"inlineStyleLanguage": "css",
 						"assets": [
 							{
 								"glob": "**/*",
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles/styles.scss"],
+						"styles": ["src/styles/styles.css"],
 						"scripts": [
 							{
 								"input": "public/scripts/theme-init.js",
@@ -108,7 +108,7 @@
 		"@schematics/angular:component": {
 			"type": "component",
 			"prefix": "",
-			"style": "scss",
+			"style": "none",
 			"changeDetection": "OnPush",
 			"standalone": true
 		},

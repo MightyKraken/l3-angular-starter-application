@@ -5,7 +5,6 @@ import { COMMON_IMPORTS } from '@core';
 	selector: 'app-home',
 	imports: [COMMON_IMPORTS],
 	templateUrl: './app-home.component.html',
-	styleUrl: './app-home.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppHomeComponent {}

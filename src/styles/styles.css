@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+@source '../**/*.{html,ts}';
+@import './variables.css';
+@import './colors.css';
+@import './fonts.css';
+@import './animations.css';
+
+html {
+	block-size: 100%;
+}
+
+body {
+	background-color: var(--app-surface);
+	color: var(--app-on-surface);
+	font-family: var(--font-family);
+	font-weight: 500;
+	font-style: normal;
+	min-block-size: 100%;
+	margin: 0;
+}
+
+app-root {
+	display: block;
+	min-block-size: 100dvh;
+}
+
+.mat-mdc-menu-panel.theme-picker-panel {
+	--mat-menu-container-color: var(--app-surface);
+	--mat-menu-container-shape: 8px;
+
+	background-color: var(--app-surface);
+	color: var(--app-on-surface);
+	border-radius: 8px;
+	box-shadow: var(
+		--app-elevation-shadow,
+		0 4px 6px rgb(0 0 0 / 10%),
+		0 10px 24px rgb(0 0 0 / 12%)
+	);
+}
+
+.mat-mdc-menu-panel.theme-picker-panel .mat-mdc-menu-content {
+	background-color: var(--app-surface);
+	padding: 16px;
+}
+
+.mat-mdc-tooltip {
+	background-color: var(--app-on-surface);
+	color: var(--app-surface);
+}
+
+@layer components {
+	.app-selectable-option {
+		border: 2px solid color-mix(in srgb, var(--app-on-surface) 14%, transparent);
+		border-radius: 10px;
+		background: color-mix(in srgb, var(--app-on-surface) 4%, transparent);
+		color: var(--app-on-surface);
+		font: inherit;
+		cursor: pointer;
+		transition:
+			border-color 0.15s ease,
+			background-color 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+
+	.app-selectable-option:hover {
+		background-color: color-mix(in srgb, var(--app-on-surface) 8%, transparent);
+	}
+
+	.app-selectable-option:focus-visible {
+		outline: 2px solid
+			color-mix(in srgb, var(--app-on-surface) 35%, transparent);
+		outline-offset: 2px;
+	}
+
+	.app-selectable-option-active {
+		border-color: var(--app-on-surface);
+		background-color: color-mix(
+			in srgb,
+			var(--app-on-surface) 10%,
+			transparent
+		);
+		box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+	}
+
+	.app-settings-card {
+		padding: 1.25rem;
+		border-radius: 12px;
+		background-color: var(--app-surface-elevated, var(--app-surface));
+		box-shadow: var(--app-elevation-shadow);
+	}
+}

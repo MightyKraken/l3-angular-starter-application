@@ -8,7 +8,6 @@ import {
 @Component({
 	selector: 'app-layout-mode-picker',
 	templateUrl: './app-layout-mode-picker.component.html',
-	styleUrl: './app-layout-mode-picker.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppLayoutModePickerComponent {

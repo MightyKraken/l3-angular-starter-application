@@ -25,7 +25,7 @@ describe('AppIconButtonComponent', () => {
 	});
 
 	it('should render a circular button with app-icon', () => {
-		const button = hostElement.querySelector('button.icon-button');
+		const button = hostElement.querySelector('button');
 		expect(button).toBeTruthy();
 		expect(button?.getAttribute('aria-label')).toBe('Open menu');
 		expect(hostElement.querySelector('app-icon')).toBeTruthy();
@@ -35,8 +35,7 @@ describe('AppIconButtonComponent', () => {
 		const clicked = vi.fn();
 		fixture.componentInstance.clicked.subscribe(clicked);
 
-		const button: HTMLButtonElement =
-			hostElement.querySelector('button.icon-button')!;
+		const button: HTMLButtonElement = hostElement.querySelector('button')!;
 		button.click();
 
 		expect(clicked).toHaveBeenCalledTimes(1);
@@ -48,8 +47,7 @@ describe('AppIconButtonComponent', () => {
 		fixture.componentRef.setInput('disabled', true);
 		fixture.detectChanges();
 
-		const button: HTMLButtonElement =
-			hostElement.querySelector('button.icon-button')!;
+		const button: HTMLButtonElement = hostElement.querySelector('button')!;
 		button.click();
 
 		expect(clicked).not.toHaveBeenCalled();

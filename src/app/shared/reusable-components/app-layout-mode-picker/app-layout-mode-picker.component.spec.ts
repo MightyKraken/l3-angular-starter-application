@@ -24,21 +24,16 @@ describe('AppLayoutModePickerComponent', () => {
 	});
 
 	it('should render layout preview options', () => {
-		const options = fixture.nativeElement.querySelectorAll(
-			'.layout-mode-option'
-		);
+		const options = fixture.nativeElement.querySelectorAll('[role="radio"]');
 		expect(options.length).toBe(2);
 		expect(
-			fixture.nativeElement.querySelector('.layout-preview-toolbar-top')
-		).toBeTruthy();
-		expect(
-			fixture.nativeElement.querySelector('.layout-preview-sidebar-left')
-		).toBeTruthy();
+			fixture.nativeElement.querySelectorAll('[aria-hidden="true"]').length
+		).toBeGreaterThanOrEqual(2);
 	});
 
 	it('should change layout mode when an option is selected', () => {
 		const options: NodeListOf<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll('.layout-mode-option');
+			fixture.nativeElement.querySelectorAll('[role="radio"]');
 		options[0].click();
 
 		expect(layoutMode.layoutMode()).toBe('toolbar-top');
