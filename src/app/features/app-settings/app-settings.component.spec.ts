@@ -35,6 +35,12 @@ describe('AppSettingsComponent', () => {
 		).toBeTruthy();
 	});
 
+	it('should render toolbar behavior picker', () => {
+		expect(
+			fixture.nativeElement.querySelector('app-toolbar-behavior-picker')
+		).toBeTruthy();
+	});
+
 	it('should set theme from theme cards', () => {
 		const cards: NodeListOf<HTMLButtonElement> =
 			fixture.nativeElement.querySelectorAll(

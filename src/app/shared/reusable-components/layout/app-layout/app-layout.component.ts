@@ -8,7 +8,8 @@ import { RouterOutlet } from '@angular/router';
 import {
 	AppLayoutModeService,
 	COMMON_IMPORTS,
-	SidebarLayoutService
+	SidebarLayoutService,
+	ToolbarBehaviorPreferenceService
 } from '@core';
 
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
@@ -29,9 +30,13 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 export class AppLayoutComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
 	private readonly layoutModeService = inject(AppLayoutModeService);
+	private readonly toolbarBehaviorPreference = inject(
+		ToolbarBehaviorPreferenceService
+	);
 
 	readonly showToolbar = input<boolean>(false);
 	readonly showNavigation = input<boolean>(false);
 	readonly sidebarMode = this.sidebarLayout.mode;
 	readonly layoutMode = this.layoutModeService.layoutMode;
+	readonly toolbarBehavior = this.toolbarBehaviorPreference.behavior;
 }

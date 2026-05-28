@@ -1,11 +1,10 @@
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AppLoaderService, COMMON_IMPORTS } from '@core';
-
-import { LoadingDotsComponent } from '../loading-dots/loading-dots.component';
+import { AppLoaderService } from '@core';
 
 @Component({
 	selector: 'app-loader',
-	imports: [LoadingDotsComponent, COMMON_IMPORTS],
+	imports: [CdkTrapFocus],
 	templateUrl: './app-loader.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })

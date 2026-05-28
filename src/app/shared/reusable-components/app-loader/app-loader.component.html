@@ -1,10 +1,9 @@
 @if (appLoaderService.isAppLoading()) {
-<div
-	cdkTrapFocus
-	class="fixed inset-0 z-[9999] flex items-center justify-center"
-	tabindex="0"
->
-	<div class="absolute inset-0 bg-base-100/50 backdrop-blur-[3px]"></div>
-	<loading-dots />
+<div cdkTrapFocus class="app-loader-overlay" tabindex="0">
+	<div class="app-loader-overlay-backdrop"></div>
+	<span
+		aria-label="Loading"
+		class="loading loading-dots loading-lg text-primary"
+	></span>
 </div>
 }

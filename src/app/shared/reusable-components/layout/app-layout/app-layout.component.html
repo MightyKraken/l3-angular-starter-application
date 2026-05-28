@@ -3,6 +3,7 @@
 <div
 	[attr.data-layout]="layoutMode()"
 	[attr.data-sidebar-mode]="sidebarMode()"
+	[attr.data-toolbar-behavior]="toolbarBehavior()"
 	class="grid"
 >
 	<div class="nav"><ng-container *ngTemplateOutlet="navigationbar" /></div>
@@ -25,7 +26,10 @@
 
 <!-- Content With Toolbar-->
 @if (!showNavigation() && showToolbar()) {
-<div class="toolbar-only-layout">
+<div
+	[attr.data-toolbar-behavior]="toolbarBehavior()"
+	class="toolbar-only-layout"
+>
 	<div class="toolbar">
 		<ng-container *ngTemplateOutlet="toolbar" />
 	</div>

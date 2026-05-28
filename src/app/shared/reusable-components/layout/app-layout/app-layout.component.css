@@ -8,10 +8,6 @@
 	height: 100dvh;
 	overflow: hidden;
 	grid-template-rows: auto 1fr;
-
-	&.toolbar-collapsed {
-		grid-template-rows: 0 1fr;
-	}
 }
 
 .grid {
@@ -48,10 +44,6 @@
 		}
 	}
 
-	&.toolbar-collapsed {
-		grid-template-rows: 0 1fr;
-	}
-
 	> .nav {
 		grid-area: nav;
 		display: flex;
@@ -73,13 +65,12 @@
 		z-index: 200;
 		align-self: start;
 		transform: translateY(0);
+	}
+
+	&[data-toolbar-behavior='scroll-away'] > .toolbar {
 		animation: shouldHideOnScroll linear both;
 		animation-timeline: --main-contentx;
 		animation-range: 0 80px;
-
-		&.toolbar-hidden {
-			transform: translateY(calc(-100% - 4px));
-		}
 	}
 
 	> .content {
@@ -99,15 +90,23 @@
 	z-index: 200;
 	align-self: start;
 	transform: translateY(0);
+}
 
-	&.toolbar-hidden {
-		transform: translateY(calc(-100% - 4px));
-	}
+.toolbar-only-layout[data-toolbar-behavior='scroll-away'] > .toolbar {
+	animation: shouldHideOnScroll linear both;
+	animation-timeline: --main-contentx;
+	animation-range: 0 80px;
 }
 
 .toolbar-only-layout > .content {
+	scroll-timeline-name: --main-contentx;
+	scroll-timeline-axis: block;
 	min-height: 0;
 	overflow: auto;
+}
+
+.toolbar-only-layout[data-toolbar-behavior='scroll-away'] {
+	timeline-scope: --main-contentx;
 }
 
 @keyframes shouldHideOnScroll {

@@ -16,7 +16,8 @@ import {
 	BreakPointDetectorService,
 	ScreenSizeObserver,
 	SidebarTogglePreferenceService,
-	ThemeService
+	ThemeService,
+	ToolbarBehaviorPreferenceService
 } from '@core';
 import { provideLucideIcons } from '@lucide/angular';
 import { appLucideIcons } from '@shared';
@@ -33,6 +34,7 @@ export const appConfig: ApplicationConfig = {
 			inject(ThemeService).initFromStorage();
 			inject(AppLayoutModeService).initFromStorage();
 			inject(SidebarTogglePreferenceService).initFromStorage();
+			inject(ToolbarBehaviorPreferenceService).initFromStorage();
 		}),
 		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
 		{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService }

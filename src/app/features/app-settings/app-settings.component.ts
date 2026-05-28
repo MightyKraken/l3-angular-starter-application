@@ -4,12 +4,14 @@ import { DAISY_THEME_OPTIONS, type DaisyThemeId, ThemeService } from '@core';
 import { AppLayoutModePickerComponent } from '../../shared/reusable-components/app-layout-mode-picker/app-layout-mode-picker.component';
 import { AppSidebarTogglePickerComponent } from '../../shared/reusable-components/app-sidebar-toggle-picker/app-sidebar-toggle-picker.component';
 import { AppThemePreviewComponent } from '../../shared/reusable-components/app-theme-preview/app-theme-preview.component';
+import { AppToolbarBehaviorPickerComponent } from '../../shared/reusable-components/app-toolbar-behavior-picker/app-toolbar-behavior-picker.component';
 
 @Component({
 	selector: 'app-settings',
 	imports: [
 		AppLayoutModePickerComponent,
 		AppSidebarTogglePickerComponent,
+		AppToolbarBehaviorPickerComponent,
 		AppThemePreviewComponent
 	],
 	templateUrl: './app-settings.component.html',

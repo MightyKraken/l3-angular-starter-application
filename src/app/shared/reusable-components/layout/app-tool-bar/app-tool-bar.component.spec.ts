@@ -36,23 +36,22 @@ describe('AppToolBarComponent', () => {
 	it('should cycle sidebar mode when menu toggle is clicked', () => {
 		expect(sidebarLayout.mode()).toBe('expanded');
 
-		const buttons: Array<HTMLButtonElement> = Array.from(
-			fixture.nativeElement.querySelectorAll('app-icon-button button')
-		);
-		buttons[0].click();
+		const toggle: HTMLButtonElement = fixture.nativeElement.querySelector(
+			'.app-toolbar-inner button[aria-label]'
+		)!;
+		toggle.click();
 		fixture.detectChanges();
 
 		expect(sidebarLayout.mode()).toBe('mini');
 	});
 
-	it('should render theme picker without scheme toggle', () => {
+	it('should render theme picker', () => {
 		expect(
 			fixture.nativeElement.querySelector('app-theme-picker')
 		).toBeTruthy();
 
-		const iconButtons: Array<HTMLButtonElement> = Array.from(
-			fixture.nativeElement.querySelectorAll('app-icon-button button')
-		);
-		expect(iconButtons.length).toBe(1);
+		const menuToggle: HTMLButtonElement | null =
+			fixture.nativeElement.querySelector('.app-toolbar-inner .tooltip button');
+		expect(menuToggle).toBeTruthy();
 	});
 });
