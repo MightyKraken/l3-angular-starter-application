@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
+	APP_LAYOUT_MODES,
 	AppLayoutModeService,
 	SidebarLayoutService,
 	SidebarTogglePreferenceService
@@ -43,11 +44,11 @@ describe('AppLayoutComponent', () => {
 
 	it('should reflect layout mode on grid data attribute', () => {
 		const grid: HTMLElement = fixture.nativeElement.querySelector('.grid');
-		expect(grid.getAttribute('data-layout')).toBe('sidebar-left');
+		expect(grid.getAttribute('data-layout')).toBe(APP_LAYOUT_MODES.sidebarLeft);
 
-		layoutMode.setLayoutMode('toolbar-top');
+		layoutMode.setLayoutMode(APP_LAYOUT_MODES.toolbarTop);
 		fixture.detectChanges();
-		expect(grid.getAttribute('data-layout')).toBe('toolbar-top');
+		expect(grid.getAttribute('data-layout')).toBe(APP_LAYOUT_MODES.toolbarTop);
 	});
 
 	it('should reflect sidebar mode on grid data attribute', () => {

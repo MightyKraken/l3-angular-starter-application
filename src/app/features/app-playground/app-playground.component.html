@@ -18,6 +18,26 @@
 	></div>
 </div>
 
-<div class="text-base">Sabik Abtahee in px</div>
+<div>IsMobile: {{screenSizeObserver.isMobile()}}</div>
+<div>isSmall: {{screenSizeObserver.isSmall()}}</div>
+<div>isMedium: {{screenSizeObserver.isMedium()}}</div>
+<div>isLarge: {{screenSizeObserver.isLarge()}}</div>
+<div>isExtraLarge: {{screenSizeObserver.isExtraLarge()}}</div>
+<div>-----------------------------</div>
+<div>isGreaterThanMobile: {{screenSizeObserver.isGreaterThanMobile()}}</div>
+<div>isGreaterThanSmall: {{screenSizeObserver.isGreaterThanSmall()}}</div>
+<div>isGreaterThanMedium: {{screenSizeObserver.isGreaterThanMedium()}}</div>
+<div>isGreaterThanLarge: {{screenSizeObserver.isGreaterThanLarge()}}</div>
+<div>
+	isGreaterThanExtraLarge: {{screenSizeObserver.isGreaterThanExtraLarge()}}
+</div>
+<div>-----------------------------</div>
+<div>isLessThanMobile: {{screenSizeObserver.isLessThanMobile()}}</div>
+<div>isLessThanSmall: {{screenSizeObserver.isLessThanSmall()}}</div>
+<div>isLessThanMedium: {{screenSizeObserver.isLessThanMedium()}}</div>
+<div>isLessThanLarge: {{screenSizeObserver.isLessThanLarge()}}</div>
+<div>isLessThanExtraLarge: {{screenSizeObserver.isLessThanExtraLarge()}}</div>
+<div>-----------------------------</div>
 
-<div class="text-base">Sabik Abtahee in rem</div>
+<div>Height: {{(screenSizeObserver.screenSize$ | async)?.height}}</div>
+<div>Width: {{(screenSizeObserver.screenSize$ | async)?.width}}</div>

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
 	APP_LAYOUT_MODE_OPTIONS,
+	APP_LAYOUT_MODES,
 	type AppLayoutMode,
 	AppLayoutModeService
 } from '@core';
@@ -12,7 +13,7 @@ import {
 })
 export class AppLayoutModePickerComponent {
 	private readonly layoutModeService = inject(AppLayoutModeService);
-
+	protected readonly appLayoutModes = APP_LAYOUT_MODES;
 	readonly options = APP_LAYOUT_MODE_OPTIONS;
 	readonly layoutMode = this.layoutModeService.layoutMode;
 

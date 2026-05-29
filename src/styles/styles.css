@@ -166,6 +166,7 @@ app-root {
 		inline-size: var(--sidebar-width);
 		min-inline-size: var(--sidebar-width);
 		flex: 1 1 auto;
+
 		/* background-color: var(--color-neutral);
 		color: var(--color-neutral-content); */
 		background-color: var(--color-base-200);

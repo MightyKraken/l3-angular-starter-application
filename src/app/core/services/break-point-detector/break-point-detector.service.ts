@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
 	fromEvent,
@@ -65,6 +65,27 @@ export class BreakPointDetectorService implements IScreenSizeObserver {
 			.pipe(map((result) => result.matches)),
 		{ initialValue: false }
 	);
+
+	readonly isGreaterThanMobile = computed(() => !this.isMobile());
+	readonly isLessThanMobile = computed(() => this.isMobile());
+
+	readonly isGreaterThanSmall = computed(
+		() => this.isMedium() || this.isLarge() || this.isExtraLarge()
+	);
+	readonly isLessThanSmall = computed(() => this.isMobile());
+
+	readonly isGreaterThanMedium = computed(
+		() => this.isLarge() || this.isExtraLarge()
+	);
+	readonly isLessThanMedium = computed(() => this.isMobile() || this.isSmall());
+
+	readonly isGreaterThanLarge = computed(() => this.isExtraLarge());
+	readonly isLessThanLarge = computed(
+		() => this.isMobile() || this.isSmall() || this.isMedium()
+	);
+
+	readonly isGreaterThanExtraLarge = computed(() => this.isExtraLarge());
+	readonly isLessThanExtraLarge = computed(() => !this.isExtraLarge());
 
 	readonly screenSize$: Observable<ScreenSize> = fromEvent(
 		window,

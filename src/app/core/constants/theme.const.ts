@@ -1,6 +1,4 @@
 export const APP_THEME_COOKIE = 'app.theme';
-export const LEGACY_COLOR_SCHEME_COOKIE = 'app.colorScheme';
-export const LEGACY_PALETTE_COOKIE = 'app.palette';
 
 export const DAISY_THEME_IDS = [
 	'light',

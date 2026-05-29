@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppLayoutModeService } from '@core';
+import { APP_LAYOUT_MODES, AppLayoutModeService } from '@core';
 
 import { AppLayoutModePickerComponent } from './app-layout-mode-picker.component';
 
@@ -36,6 +36,6 @@ describe('AppLayoutModePickerComponent', () => {
 			fixture.nativeElement.querySelectorAll('[role="radio"]');
 		options[0].click();
 
-		expect(layoutMode.layoutMode()).toBe('toolbar-top');
+		expect(layoutMode.layoutMode()).toBe(APP_LAYOUT_MODES.toolbarTop);
 	});
 });

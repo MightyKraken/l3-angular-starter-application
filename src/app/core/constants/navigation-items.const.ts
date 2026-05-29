@@ -1,31 +1,20 @@
-export interface NavigationNode {
+interface BaseNavigationNode {
 	id: string;
 	label: string;
 	icon?: string;
-	route?: string;
-	children?: ReadonlyArray<NavigationNode>;
 }
 
-function validateNavigationTree(nodes: ReadonlyArray<NavigationNode>): void {
-	for (const node of nodes) {
-		if (node.children?.length) {
-			if (node.route !== undefined) {
-				console.warn(
-					`[NAVIGATION_TREE] Node "${node.id}" has children and must not define route.`
-				);
-			}
-
-			validateNavigationTree(node.children);
-			continue;
-		}
-
-		if (node.route === undefined) {
-			console.warn(
-				`[NAVIGATION_TREE] Leaf node "${node.id}" must define route.`
-			);
-		}
-	}
+interface RouteNode extends BaseNavigationNode {
+	route: string;
+	children?: never;
 }
+
+interface ParentNode extends BaseNavigationNode {
+	children: ReadonlyArray<NavigationNode>;
+	route?: never;
+}
+
+export type NavigationNode = RouteNode | ParentNode;
 
 export const NAVIGATION_TREE: ReadonlyArray<NavigationNode> = [
 	{
@@ -47,5 +36,3 @@ export const NAVIGATION_TREE: ReadonlyArray<NavigationNode> = [
 		icon: 'settings'
 	}
 ];
-
-validateNavigationTree(NAVIGATION_TREE);

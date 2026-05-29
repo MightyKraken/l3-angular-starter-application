@@ -1,5 +1,11 @@
-<div class="dropdown dropdown-end">
+<div
+	[class.dropdown-close]="menuDismissed()"
+	[class.dropdown-open]="isExpanded()"
+	class="dropdown dropdown-end"
+>
 	<div
+		#trigger
+		[attr.aria-expanded]="isExpanded()"
 		aria-haspopup="listbox"
 		aria-label="Choose theme"
 		class="btn btn-circle btn-ghost app-toolbar-icon-btn border-0"

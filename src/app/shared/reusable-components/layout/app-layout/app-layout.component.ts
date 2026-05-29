@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -7,7 +8,6 @@ import {
 import { RouterOutlet } from '@angular/router';
 import {
 	AppLayoutModeService,
-	COMMON_IMPORTS,
 	SidebarLayoutService,
 	ToolbarBehaviorPreferenceService
 } from '@core';
@@ -21,7 +21,7 @@ import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 		RouterOutlet,
 		AppNavigationBarComponent,
 		AppToolBarComponent,
-		...COMMON_IMPORTS
+		NgTemplateOutlet
 	],
 	templateUrl: './app-layout.component.html',
 	styleUrl: './app-layout.component.css',

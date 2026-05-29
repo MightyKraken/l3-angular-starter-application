@@ -4,9 +4,7 @@ import {
 	APP_THEME_COOKIE,
 	type DaisyThemeId,
 	DEFAULT_DAISY_THEME,
-	isDaisyThemeId,
-	LEGACY_COLOR_SCHEME_COOKIE,
-	LEGACY_PALETTE_COOKIE
+	isDaisyThemeId
 } from '../../constants/theme.const';
 import { CookieStorageService } from '../cookie-storage/cookie-storage.service';
 
@@ -25,7 +23,6 @@ export class ThemeService {
 			isDaisyThemeId(storedTheme) ? storedTheme : DEFAULT_DAISY_THEME
 		);
 
-		this.clearLegacyCookies();
 		this.applyToDocument();
 	}
 
@@ -49,10 +46,5 @@ export class ThemeService {
 	private persistAndApply(): void {
 		this.cookies.set(APP_THEME_COOKIE, this._themeId());
 		this.applyToDocument();
-	}
-
-	private clearLegacyCookies(): void {
-		this.cookies.remove(LEGACY_COLOR_SCHEME_COOKIE);
-		this.cookies.remove(LEGACY_PALETTE_COOKIE);
 	}
 }
