@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	MatButtonToggle,
+	MatButtonToggleGroup
+} from '@angular/material/button-toggle';
 
 import { AppLayoutModeService } from './app-layout-mode.service';
 import {
@@ -9,6 +13,7 @@ import {
 
 @Component({
 	selector: 'app-layout-mode-picker',
+	imports: [MatButtonToggle, MatButtonToggleGroup],
 	templateUrl: './app-layout-mode-picker.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -18,11 +23,7 @@ export class AppLayoutModePickerComponent {
 	readonly options = APP_LAYOUT_MODE_OPTIONS;
 	readonly layoutMode = this.layoutModeService.layoutMode;
 
-	select(mode: AppLayoutMode): void {
-		this.layoutModeService.setLayoutMode(mode);
-	}
-
-	isActive(mode: AppLayoutMode): boolean {
-		return this.layoutMode() === mode;
+	select(mode: unknown): void {
+		this.layoutModeService.setLayoutMode(mode as AppLayoutMode);
 	}
 }

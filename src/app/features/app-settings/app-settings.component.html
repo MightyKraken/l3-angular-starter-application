@@ -1,7 +1,7 @@
-<section class="box-border mx-auto max-w-[40rem] px-6 pt-8 pb-12">
+<section class="box-border mx-auto max-w-2xl px-6 pt-8 pb-12">
 	<header class="mb-6">
-		<h1 class="m-0 text-[1.75rem] font-semibold text-base-content">Settings</h1>
-		<p class="mt-2 mb-0 text-[0.9375rem] text-base-content/65">
+		<h1 class="m-0 text-3xl font-semibold text-base-content">Settings</h1>
+		<p class="mt-2 mb-0 text-sm text-base-content/65">
 			Customize appearance. Quick controls stay in the toolbar.
 		</p>
 	</header>
@@ -19,34 +19,32 @@
 
 		<div>
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
+				class="mb-3 block text-xs font-semibold tracking-wide uppercase text-base-content/70"
 				id="theme-label"
 				>Theme</span
 			>
-			<div
+			<mat-button-toggle-group
 				[attr.aria-labelledby]="'theme-label'"
-				class="grid grid-cols-[repeat(auto-fill,minmax(5.5rem,1fr))] gap-2.5"
-				role="listbox"
+				[value]="themeId()"
+				(change)="setTheme($event.value)"
+				aria-label="Theme"
+				class="radio-card-group radio-card-group--grid radio-card-group--align-center"
+				hideSingleSelectionIndicator
 			>
 				@for (theme of themes; track theme.id) {
-				<button
-					[attr.aria-label]="theme.label + ' theme'"
-					[attr.aria-selected]="isThemeActive(theme.id)"
-					[class.bg-base-content/10]="isThemeActive(theme.id)"
-					[class.shadow-base-content/10]="isThemeActive(theme.id)"
-					[class.shadow-sm]="isThemeActive(theme.id)"
-					(click)="setTheme(theme.id)"
-					class="flex cursor-pointer flex-col items-center gap-2 rounded-[10px] border-2 border-base-content/15 bg-base-content/5 px-2 py-3 text-base-content transition-[border-color,background-color,box-shadow] duration-150 hover:bg-base-content/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content/35"
-					role="option"
-					type="button"
+				<mat-button-toggle
+					[aria-label]="theme.label + ' theme'"
+					[value]="theme.id"
+					class="radio-card-option"
+					disableRipple
 				>
 					<app-theme-preview [themeId]="theme.id" swatchSize="md" />
-					<span class="text-center text-[0.8125rem] leading-tight font-medium"
+					<span class="text-center text-xs leading-tight font-medium"
 						>{{ theme.label }}</span
 					>
-				</button>
+				</mat-button-toggle>
 				}
-			</div>
+			</mat-button-toggle-group>
 		</div>
 	</section>
 
@@ -63,7 +61,7 @@
 
 		<div>
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
+				class="mb-3 block text-xs font-semibold tracking-wide uppercase text-base-content/70"
 				id="layout-mode-label"
 				>Shell layout</span
 			>
@@ -72,7 +70,7 @@
 
 		<div class="mt-6 border-t border-base-content/12 pt-6">
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
+				class="mb-3 block text-xs font-semibold tracking-wide uppercase text-base-content/70"
 				id="sidebar-toggle-label"
 				>Sidebar toggle</span
 			>
@@ -83,7 +81,7 @@
 
 		<div class="mt-6 border-t border-base-content/12 pt-6">
 			<span
-				class="mb-3 block text-[0.8125rem] font-semibold tracking-wide uppercase text-base-content/70"
+				class="mb-3 block text-xs font-semibold tracking-wide uppercase text-base-content/70"
 				id="toolbar-behavior-label"
 				>Toolbar on scroll</span
 			>

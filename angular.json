@@ -5,7 +5,7 @@
 			"enabled": true
 		},
 		"analytics": false,
-		"packageManager": "npm",
+		"packageManager": "bun",
 		"warnings": {
 			"versionMismatch": true
 		}

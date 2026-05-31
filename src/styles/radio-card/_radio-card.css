@@ -1,0 +1,161 @@
+/* Radio card styling for mat-button-toggle-group / mat-button-toggle */
+
+.radio-card-group.mat-button-toggle-group {
+	display: grid;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	background: transparent;
+	overflow: visible;
+	gap: 0.75rem;
+	white-space: normal;
+}
+
+.radio-card-group--horizontal.mat-button-toggle-group {
+	grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+}
+
+.radio-card-group--vertical.mat-button-toggle-group {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.radio-card-group--grid.mat-button-toggle-group {
+	grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+	align-items: stretch;
+	gap: 0.625rem;
+}
+
+.radio-card-option.mat-button-toggle {
+	box-sizing: border-box;
+	display: block;
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	min-height: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	border: 2px solid
+		color-mix(in oklch, var(--color-base-content) 15%, transparent);
+	border-radius: 10px;
+	background: color-mix(in oklch, var(--color-base-content) 5%, transparent);
+	color: var(--color-base-content);
+	transition:
+		border-color 150ms,
+		background-color 150ms,
+		box-shadow 150ms;
+}
+
+.radio-card-option .mat-button-toggle-button {
+	box-sizing: border-box;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	border: none;
+	border-radius: inherit;
+	background: transparent;
+	padding: 0;
+	color: inherit;
+}
+
+.radio-card-option .mat-button-toggle-label-content {
+	box-sizing: border-box;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	line-height: inherit;
+}
+
+.radio-card-group--align-center
+	.radio-card-option
+	.mat-button-toggle-label-content {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 0.5rem;
+	padding: 0.75rem 0.5rem;
+}
+
+.radio-card-group--grid.radio-card-group--align-center
+	.radio-card-option
+	.mat-button-toggle-label-content {
+	padding: 0.75rem 0.5rem;
+}
+
+.radio-card-group--horizontal.radio-card-group--align-center
+	.radio-card-option
+	.mat-button-toggle-label-content {
+	gap: 0.625rem;
+	padding: 0.75rem;
+}
+
+.radio-card-group--align-start
+	.radio-card-option
+	.mat-button-toggle-label-content {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	text-align: start;
+	gap: 0.375rem;
+	padding: 0.875rem 1rem;
+	min-width: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.radio-card-option .mat-button-toggle-button:hover {
+	background: color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+.radio-card-option .mat-button-toggle-button:focus-visible {
+	outline: 2px solid
+		color-mix(in oklch, var(--color-base-content) 35%, transparent);
+	outline-offset: 2px;
+}
+
+.radio-card-option.mat-button-toggle-checked {
+	border: 2px solid var(--color-primary);
+	background: color-mix(in oklch, var(--color-base-content) 10%, transparent);
+	box-shadow: 0 1px 2px 0
+		color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+.radio-card-option.mat-button-toggle-checked .mat-button-toggle-button {
+	background: transparent;
+}
+
+.radio-card-option.mat-button-toggle-checked .mat-button-toggle-button:hover {
+	background: color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+/* Material standard appearance fuses toggles with a 1px divider on the left of
+   every non-first item — override so each grid card keeps a full 2px border. */
+.radio-card-group.mat-button-toggle-group-appearance-standard {
+	border: none;
+}
+
+.radio-card-group.mat-button-toggle-group-appearance-standard
+	.radio-card-option.mat-button-toggle-appearance-standard
+	+ .radio-card-option.mat-button-toggle-appearance-standard {
+	border-left: 2px solid
+		color-mix(in oklch, var(--color-base-content) 15%, transparent);
+}
+
+.radio-card-group.mat-button-toggle-group-appearance-standard
+	.radio-card-option.mat-button-toggle-appearance-standard
+	+ .radio-card-option.mat-button-toggle-checked.mat-button-toggle-appearance-standard {
+	border-left-color: var(--color-primary);
+}
+
+.radio-card-group .mat-button-toggle {
+	margin: 0;
+}
+
+.radio-card-group .mat-button-toggle-appearance-standard {
+	--mat-button-toggle-height: auto;
+}

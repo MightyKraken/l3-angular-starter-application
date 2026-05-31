@@ -44,7 +44,7 @@ describe('AppSettingsComponent', () => {
 	it('should set theme from theme cards', () => {
 		const cards: NodeListOf<HTMLButtonElement> =
 			fixture.nativeElement.querySelectorAll(
-				'[role="listbox"] [role="option"]'
+				'[aria-label="Theme"] mat-button-toggle button'
 			);
 		expect(cards.length).toBe(Object.values(DAISY_THEME_IDS).length);
 

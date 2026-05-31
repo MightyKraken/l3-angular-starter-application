@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	MatButtonToggle,
+	MatButtonToggleGroup
+} from '@angular/material/button-toggle';
 
 import {
 	APP_TOOLBAR_BEHAVIOR_OPTIONS,
@@ -8,8 +12,12 @@ import { ToolbarBehaviorPreferenceService } from './toolbar-behavior-preference.
 
 @Component({
 	selector: 'app-toolbar-behavior-picker',
+	imports: [MatButtonToggle, MatButtonToggleGroup],
 	templateUrl: './app-toolbar-behavior-picker.component.html',
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: {
+		class: 'block w-full min-w-0 max-w-full'
+	}
 })
 export class AppToolbarBehaviorPickerComponent {
 	private readonly toolbarBehavior = inject(ToolbarBehaviorPreferenceService);
@@ -17,11 +25,7 @@ export class AppToolbarBehaviorPickerComponent {
 	readonly options = APP_TOOLBAR_BEHAVIOR_OPTIONS;
 	readonly behavior = this.toolbarBehavior.behavior;
 
-	select(behavior: ToolbarBehavior): void {
-		this.toolbarBehavior.setBehavior(behavior);
-	}
-
-	isActive(behavior: ToolbarBehavior): boolean {
-		return this.behavior() === behavior;
+	select(behavior: unknown): void {
+		this.toolbarBehavior.setBehavior(behavior as ToolbarBehavior);
 	}
 }

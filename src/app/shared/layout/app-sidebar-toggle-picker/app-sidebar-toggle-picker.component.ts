@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	MatButtonToggle,
+	MatButtonToggleGroup
+} from '@angular/material/button-toggle';
 
 import { SidebarLayoutService } from '../sidebar-layout/sidebar-layout.service';
 import {
@@ -9,8 +13,12 @@ import { SidebarTogglePreferenceService } from './sidebar-toggle-preference.serv
 
 @Component({
 	selector: 'app-sidebar-toggle-picker',
+	imports: [MatButtonToggle, MatButtonToggleGroup],
 	templateUrl: './app-sidebar-toggle-picker.component.html',
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: {
+		class: 'block w-full min-w-0 max-w-full'
+	}
 })
 export class AppSidebarTogglePickerComponent {
 	private readonly togglePreference = inject(SidebarTogglePreferenceService);
@@ -19,12 +27,8 @@ export class AppSidebarTogglePickerComponent {
 	readonly options = APP_SIDEBAR_TOGGLE_OPTIONS;
 	readonly preference = this.togglePreference.preference;
 
-	select(preference: SidebarTogglePreference): void {
-		this.togglePreference.setPreference(preference);
+	select(preference: unknown): void {
+		this.togglePreference.setPreference(preference as SidebarTogglePreference);
 		this.sidebarLayout.normalizeModeForPreference();
-	}
-
-	isActive(preference: SidebarTogglePreference): boolean {
-		return this.preference() === preference;
 	}
 }
