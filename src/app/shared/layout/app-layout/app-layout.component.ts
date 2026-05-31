@@ -23,7 +23,8 @@ import { SidebarLayoutService } from '../sidebar-layout/sidebar-layout.service';
 	],
 	templateUrl: './app-layout.component.html',
 	styleUrl: './app-layout.component.css',
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	host: { class: 'block min-h-dvh' }
 })
 export class AppLayoutComponent {
 	private readonly sidebarLayout = inject(SidebarLayoutService);
