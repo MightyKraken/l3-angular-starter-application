@@ -1,0 +1,26 @@
+<div
+	[attr.aria-label]="'Toolbar scroll behavior'"
+	class="flex flex-col gap-3"
+	role="radiogroup"
+>
+	@for (option of options; track option.id) {
+	<button
+		[attr.aria-checked]="isActive(option.id)"
+		[attr.aria-label]="option.label + '. ' + option.description"
+		[class.bg-base-content/10]="isActive(option.id)"
+		[class.shadow-base-content/10]="isActive(option.id)"
+		[class.shadow-sm]="isActive(option.id)"
+		(click)="select(option.id)"
+		class="flex cursor-pointer flex-col items-start gap-1.5 rounded-[10px] border-2 border-base-content/15 bg-base-content/5 px-4 py-3.5 text-start text-base-content transition-[border-color,background-color,box-shadow] duration-150 hover:bg-base-content/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content/35"
+		role="radio"
+		type="button"
+	>
+		<span class="text-[0.9375rem] leading-snug font-semibold"
+			>{{ option.label }}</span
+		>
+		<span class="text-[0.8125rem] leading-snug font-normal text-base-content/70"
+			>{{ option.description }}</span
+		>
+	</button>
+	}
+</div>

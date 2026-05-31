@@ -1,0 +1,17 @@
+<aside
+	[class.sidebar-mini]="isSidebarMini()"
+	class="flex h-full min-h-0 w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-1 flex-col bg-base-100 text-base-content transition-[inline-size,min-inline-size] duration-[220ms] ease-in-out border-r-2"
+>
+	<nav class="flex-1 overflow-y-auto py-4">
+		<ul class="m-0 flex list-none flex-col gap-1 p-0">
+			@for (item of navigationTree; track item.id) {
+			<li
+				[collapsedLabels]="isSidebarMini()"
+				[depth]="0"
+				[node]="item"
+				app-nav-tree-item
+			></li>
+			}
+		</ul>
+	</nav>
+</aside>

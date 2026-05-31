@@ -1,8 +1,7 @@
 import { Location } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-import { AppIconComponent } from '../../shared/reusable-components/app-icon/app-icon.component';
+import { AppIconComponent } from '@shared';
 
 @Component({
 	selector: 'app-page-not-found',

@@ -1,0 +1,21 @@
+@if (appLoaderService.isAppLoading()) {
+<div
+	[cdkTrapFocusAutoCapture]="true"
+	aria-busy="true"
+	aria-label="Loading application"
+	aria-modal="true"
+	cdkTrapFocus
+	class="fixed inset-0 z-50 flex items-center justify-center"
+	role="dialog"
+	tabindex="-1"
+>
+	<div
+		aria-hidden="true"
+		class="absolute inset-0 bg-base-100/50 backdrop-blur-sm"
+	></div>
+	<span
+		aria-hidden="true"
+		class="loading loading-ring size-24 text-secondary relative z-10"
+	></span>
+</div>
+}

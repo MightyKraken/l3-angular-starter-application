@@ -1,0 +1,48 @@
+<div
+	[class.dropdown-close]="menuDismissed()"
+	[class.dropdown-open]="isExpanded()"
+	class="dropdown dropdown-end"
+>
+	<div
+		#trigger
+		[attr.aria-expanded]="isExpanded()"
+		aria-haspopup="listbox"
+		aria-label="Choose theme"
+		class="btn btn-circle btn-ghost border-0 text-base-content hover:bg-base-content/10 active:bg-base-content/20"
+		role="button"
+		tabindex="0"
+	>
+		<app-icon name="palette" />
+	</div>
+
+	<ul
+		aria-label="Themes"
+		class="menu dropdown-content z-[1] mt-2 box-border flex max-h-80 w-52 max-w-52 list-none flex-col flex-nowrap gap-0.5 overflow-x-hidden overflow-y-auto overscroll-contain rounded-box bg-base-100 p-2 text-base-content shadow-sm shadow-base-content/10"
+		role="listbox"
+		tabindex="-1"
+	>
+		@for (theme of themes; track theme.id) {
+		<li class="w-full shrink-0">
+			<button
+				[attr.aria-label]="theme.label + ' theme'"
+				[attr.aria-selected]="isActive(theme.id)"
+				[class.btn-active]="isActive(theme.id)"
+				(click)="onSelect(theme.id)"
+				class="btn btn-ghost h-auto min-h-10 w-full justify-start gap-3 border-0 py-2 font-normal"
+				role="option"
+				type="button"
+			>
+				<app-theme-preview [themeId]="theme.id" />
+				<span class="min-w-0 flex-1 truncate text-start text-sm font-medium"
+					>{{ theme.label }}</span
+				>
+				<app-icon
+					[class.invisible]="!isActive(theme.id)"
+					class="size-3 shrink-0"
+					name="check"
+				/>
+			</button>
+		</li>
+		}
+	</ul>
+</div>

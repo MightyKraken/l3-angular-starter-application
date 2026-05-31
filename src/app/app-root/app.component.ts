@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppLoaderComponent } from '@shared';
+import { AppLoaderComponent, AppLoaderService } from '@shared';
 
 @Component({
 	selector: 'app-root',
@@ -8,4 +8,6 @@ import { AppLoaderComponent } from '@shared';
 	templateUrl: './app.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+	protected readonly appLoader = inject(AppLoaderService);
+}

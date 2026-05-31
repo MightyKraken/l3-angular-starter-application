@@ -1,0 +1,45 @@
+@if (isSection()) {
+<button
+	[attr.aria-expanded]="isExpanded()"
+	[title]="collapsedLabels() ? node().label : null"
+	(click)="toggleSection()"
+	class="nav-section bg-base-100 text-base-content hover:text-base-content/90"
+	type="button"
+>
+	@if (showIcon()) {
+	<app-icon [name]="node().icon!" class="nav-icon" />
+	}
+	<span class="nav-label">{{ node().label }}</span>
+	<span aria-hidden="true" class="nav-chevron">
+		<app-icon
+			[name]="isExpanded() ? 'chevron-down' : 'chevron-right'"
+			size="1rem"
+		/>
+	</span>
+</button>
+
+@if (showChildren()) {
+<ul class="nav-tree">
+	@for (child of node().children!; track child.id) {
+	<li
+		[collapsedLabels]="collapsedLabels()"
+		[depth]="depth() + 1"
+		[node]="child"
+		app-nav-tree-item
+	></li>
+	}
+</ul>
+} } @else {
+<a
+	[routerLink]="node().route!"
+	[routerLinkActiveOptions]="{ exact: node().route === '/' }"
+	[title]="collapsedLabels() ? node().label : null"
+	class="nav-leaf bg-base-100 text-base-content hover:text-base-content/90"
+	routerLinkActive="active"
+>
+	@if (showIcon()) {
+	<app-icon [name]="node().icon!" class="nav-icon" />
+	}
+	<span class="nav-label">{{ node().label }}</span>
+</a>
+}

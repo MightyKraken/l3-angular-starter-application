@@ -1,0 +1,123 @@
+:host {
+	display: block;
+	min-block-size: 100dvh;
+}
+
+.content {
+	height: 100dvh;
+}
+
+.toolbar-only-layout {
+	display: grid;
+	height: 100dvh;
+	overflow: hidden;
+	grid-template-rows: auto 1fr;
+}
+
+.grid {
+	display: grid;
+	height: 100dvh;
+	overflow: hidden;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr;
+	timeline-scope: --main-contentx;
+
+	&[data-layout='sidebar-left'] {
+		grid-template-areas:
+			'nav toolbar'
+			'nav content';
+	}
+
+	&[data-layout='toolbar-top'] {
+		grid-template-areas:
+			'toolbar toolbar'
+			'nav content';
+	}
+
+	&[data-sidebar-mode='mini'] {
+		--sidebar-width: var(--sidebar-width-mini);
+	}
+
+	&[data-sidebar-mode='hidden'] {
+		--sidebar-width: 0;
+
+		> .nav {
+			pointer-events: none;
+			visibility: hidden;
+			transition: visibility 0s linear 220ms;
+		}
+	}
+
+	> .nav {
+		grid-area: nav;
+		display: flex;
+		flex-direction: column;
+		min-block-size: 0;
+		min-inline-size: 0;
+		block-size: 100%;
+		align-self: stretch;
+		overflow: hidden;
+		visibility: visible;
+		transition: visibility 0s linear 0s;
+	}
+
+	> .toolbar {
+		grid-area: toolbar;
+		min-inline-size: 0;
+		position: sticky;
+		top: 0;
+		z-index: 40;
+		align-self: start;
+		transform: translateY(0);
+	}
+
+	&[data-toolbar-behavior='scroll-away'] > .toolbar {
+		animation: shouldHideOnScroll linear both;
+		animation-timeline: --main-contentx;
+		animation-range: 0 80px;
+	}
+
+	> .content {
+		animation: shouldHideOnScroll linear both;
+		animation-timeline: --main-contentx;
+		animation-range: 0 80px;
+		scroll-timeline-name: --main-contentx;
+		scroll-timeline-axis: block;
+		grid-area: content;
+		min-width: 0;
+		min-height: 0;
+		overflow: auto;
+	}
+}
+
+.toolbar-only-layout > .toolbar {
+	min-inline-size: 0;
+	position: sticky;
+	top: 0;
+	z-index: 40;
+	align-self: start;
+	transform: translateY(0);
+}
+
+.toolbar-only-layout[data-toolbar-behavior='scroll-away'] > .toolbar {
+	animation: shouldHideOnScroll linear both;
+	animation-timeline: --main-contentx;
+	animation-range: 0 80px;
+}
+
+.toolbar-only-layout > .content {
+	scroll-timeline-name: --main-contentx;
+	scroll-timeline-axis: block;
+	min-height: 0;
+	overflow: auto;
+}
+
+.toolbar-only-layout[data-toolbar-behavior='scroll-away'] {
+	timeline-scope: --main-contentx;
+}
+
+@keyframes shouldHideOnScroll {
+	to {
+		transform: translateY(-64px);
+	}
+}

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import {
 	LucideArrowLeft,
@@ -33,9 +32,6 @@ describe('AppPageNotFoundComponent', () => {
 	});
 
 	it('should contain not found page text', () => {
-		const container = fixture.debugElement.query(
-			By.css('[data-testid="page-container"]')
-		);
-		expect(container.nativeElement?.textContent).toMatch(/not found/i);
+		expect(fixture.nativeElement.textContent).toMatch(/page not found/i);
 	});
 });

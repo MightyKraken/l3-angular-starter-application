@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DAISY_THEME_IDS, ThemeService } from '@core';
+import { DAISY_THEME_IDS, ThemeService } from '@shared';
 
 import { AppSettingsComponent } from './app-settings.component';
 

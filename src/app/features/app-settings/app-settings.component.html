@@ -6,7 +6,10 @@
 		</p>
 	</header>
 
-	<section aria-labelledby="appearance-heading" class="app-settings-card">
+	<section
+		aria-labelledby="appearance-heading"
+		class="rounded-xl bg-base-100 p-5 shadow-sm"
+	>
 		<h2
 			class="m-0 mb-5 text-base font-semibold text-base-content"
 			id="appearance-heading"
@@ -29,9 +32,11 @@
 				<button
 					[attr.aria-label]="theme.label + ' theme'"
 					[attr.aria-selected]="isThemeActive(theme.id)"
-					[class.app-selectable-option-active]="isThemeActive(theme.id)"
+					[class.bg-base-content/10]="isThemeActive(theme.id)"
+					[class.shadow-base-content/10]="isThemeActive(theme.id)"
+					[class.shadow-sm]="isThemeActive(theme.id)"
 					(click)="setTheme(theme.id)"
-					class="app-selectable-option flex flex-col items-center gap-2 border-transparent px-2 py-3"
+					class="flex cursor-pointer flex-col items-center gap-2 rounded-[10px] border-2 border-base-content/15 bg-base-content/5 px-2 py-3 text-base-content transition-[border-color,background-color,box-shadow] duration-150 hover:bg-base-content/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content/35"
 					role="option"
 					type="button"
 				>
@@ -45,7 +50,10 @@
 		</div>
 	</section>
 
-	<section aria-labelledby="layout-heading" class="app-settings-card mt-4">
+	<section
+		aria-labelledby="layout-heading"
+		class="mt-4 rounded-xl bg-base-100 p-5 shadow-sm"
+	>
 		<h2
 			class="m-0 mb-5 text-base font-semibold text-base-content"
 			id="layout-heading"

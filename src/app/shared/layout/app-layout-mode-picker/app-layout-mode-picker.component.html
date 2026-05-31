@@ -1,0 +1,47 @@
+<div
+	[attr.aria-label]="'Application layout'"
+	class="flex flex-wrap gap-3"
+	role="radiogroup"
+>
+	@for (option of options; track option.id) {
+	<button
+		[attr.aria-checked]="isActive(option.id)"
+		[attr.aria-label]="option.label + '. ' + option.description"
+		[class.bg-base-content/10]="isActive(option.id)"
+		[class.border-primary]="isActive(option.id)"
+		[class.shadow-base-content/10]="isActive(option.id)"
+		[class.shadow-sm]="isActive(option.id)"
+		(click)="select(option.id)"
+		class="flex min-w-[7.5rem] cursor-pointer flex-col items-center gap-2.5 rounded-[10px] border-2 border-base-content/15 bg-base-content/5 p-3 text-base-content transition-[border-color,background-color,box-shadow] duration-150 hover:bg-base-content/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-base-content/35"
+		role="radio"
+		type="button"
+	>
+		@if (option.id === appLayoutModes.toolbarTop) {
+		<span
+			aria-hidden="true"
+			class="grid h-12 w-18 gap-0.5 rounded bg-base-content/6 p-[3px] grid-rows-[0.75rem_1fr]"
+		>
+			<span class="rounded-sm bg-base-content/55"></span>
+			<span class="grid min-h-0 grid-cols-[1.1rem_1fr] gap-0.5">
+				<span class="rounded-sm bg-base-content/35"></span>
+				<span class="rounded-sm bg-base-content/12"></span>
+			</span>
+		</span>
+		} @else {
+		<span
+			aria-hidden="true"
+			class="grid h-12 w-18 grid-cols-[1.1rem_1fr] gap-0.5 rounded bg-base-content/6 p-[3px]"
+		>
+			<span class="rounded-sm bg-base-content/35"></span>
+			<span class="grid min-w-0 grid-rows-[0.75rem_1fr] gap-0.5">
+				<span class="rounded-sm bg-base-content/55"></span>
+				<span class="rounded-sm bg-base-content/12"></span>
+			</span>
+		</span>
+		}
+		<span class="text-center text-[0.8125rem] leading-snug font-medium"
+			>{{ option.label }}</span
+		>
+	</button>
+	}
+</div>

@@ -1,2 +1,4 @@
+<div [attr.inert]="appLoader.isAppLoading() ? '' : null">
+	<router-outlet />
+</div>
 <app-loader />
-<router-outlet />

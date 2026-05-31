@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AppLoaderService } from '@shared';
 
 @Component({
 	selector: 'app-playground',
@@ -6,4 +7,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	templateUrl: './app-playground.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppPlaygroundComponent {}
+export class AppPlaygroundComponent {
+	private readonly loader = inject(AppLoaderService);
+
+	loadIcon(): void {
+		this.loader.show();
+		setTimeout(() => {
+			this.loader.hide();
+		}, 2000);
+	}
+}
