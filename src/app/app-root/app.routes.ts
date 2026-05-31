@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { ILayoutData } from '@core';
 import { AppLayoutComponent } from '@shared';
 
 import { AppHomeComponent } from '../features/app-home/app-home.component';
@@ -30,7 +29,7 @@ export const routes: Routes = [
 				data: { title: 'Settings' }
 			}
 		],
-		data: <ILayoutData>{
+		data: {
 			showToolbar: true,
 			showNavigation: true
 		}

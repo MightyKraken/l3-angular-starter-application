@@ -10,11 +10,9 @@ export class AppLoaderService {
 
 	show(): void {
 		this._isAppLoading.set(true);
-		document.body.classList.add('overflow-hidden');
 	}
 
 	hide(): void {
 		this._isAppLoading.set(false);
-		document.body.classList.remove('overflow-hidden');
 	}
 }

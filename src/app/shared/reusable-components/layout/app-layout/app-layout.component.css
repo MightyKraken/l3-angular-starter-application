@@ -2,7 +2,9 @@
 	display: block;
 	min-block-size: 100dvh;
 }
-
+.content {
+	height: 100dvh;
+}
 .toolbar-only-layout {
 	display: grid;
 	height: 100dvh;
@@ -74,6 +76,9 @@
 	}
 
 	> .content {
+		animation: shouldHideOnScroll linear both;
+		animation-timeline: --main-contentx;
+		animation-range: 0 80px;
 		scroll-timeline-name: --main-contentx;
 		scroll-timeline-axis: block;
 		grid-area: content;
@@ -111,7 +116,6 @@
 
 @keyframes shouldHideOnScroll {
 	to {
-		transform: translateY(-20px);
-		display: none;
+		transform: translateY(-64px);
 	}
 }

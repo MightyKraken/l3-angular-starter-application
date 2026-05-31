@@ -12,9 +12,8 @@ import {
 } from '@angular/router';
 import {
 	AppLayoutModeService,
+	AppLoaderService,
 	AppTitleStrategyService,
-	BreakPointDetectorService,
-	ScreenSizeObserver,
 	SidebarTogglePreferenceService,
 	ThemeService,
 	ToolbarBehaviorPreferenceService
@@ -36,7 +35,6 @@ export const appConfig: ApplicationConfig = {
 			inject(SidebarTogglePreferenceService).initFromStorage();
 			inject(ToolbarBehaviorPreferenceService).initFromStorage();
 		}),
-		{ provide: TitleStrategy, useClass: AppTitleStrategyService },
-		{ provide: ScreenSizeObserver, useClass: BreakPointDetectorService }
+		{ provide: TitleStrategy, useClass: AppTitleStrategyService }
 	]
 };

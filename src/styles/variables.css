@@ -1,5 +1,4 @@
-:root {
-	--font-family: 'Gantari', sans-serif;
+@theme {
 	--sidebar-width: 250px;
 	--sidebar-width-mini: 4.5rem;
 	--toolbar-height: 64px;

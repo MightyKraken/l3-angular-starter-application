@@ -1,14 +1,9 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
-import { ScreenSizeObserver } from '../../core/models/interfaces/IScreenSizeObserver.interface';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
 	selector: 'app-playground',
-	imports: [AsyncPipe],
+	imports: [],
 	templateUrl: './app-playground.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppPlaygroundComponent {
-	protected screenSizeObserver = inject(ScreenSizeObserver);
-}
+export class AppPlaygroundComponent {}

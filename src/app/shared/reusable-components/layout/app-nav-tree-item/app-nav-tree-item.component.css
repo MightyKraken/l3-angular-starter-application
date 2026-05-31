@@ -38,7 +38,7 @@
 
 	/* background: var(--color-neutral);
 	color: var(--color-neutral-content); */
-	background-color: var(--color-base-200);
+	background-color: var(--color-base-100);
 	color: var(--color-base-content);
 	text-decoration: none;
 	font: inherit;

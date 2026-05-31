@@ -46,7 +46,7 @@ describe('AppSettingsComponent', () => {
 			fixture.nativeElement.querySelectorAll(
 				'[role="listbox"] [role="option"]'
 			);
-		expect(cards.length).toBe(DAISY_THEME_IDS.length);
+		expect(cards.length).toBe(Object.values(DAISY_THEME_IDS).length);
 
 		cards[2].click();
 		expect(theme.themeId()).toBe('cupcake');

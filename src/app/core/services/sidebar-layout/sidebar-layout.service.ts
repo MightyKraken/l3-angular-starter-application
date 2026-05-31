@@ -1,6 +1,9 @@
 import { inject, Injectable, signal } from '@angular/core';
 
-import type { SidebarTogglePreference } from '../../constants/sidebar-toggle.const';
+import {
+	SIDEBAR_TOGGLE_PREFERENCES,
+	type SidebarTogglePreference
+} from '../../constants/sidebar-toggle.const';
 import { SidebarTogglePreferenceService } from '../sidebar-toggle-preference/sidebar-toggle-preference.service';
 
 export type SidebarMode = 'expanded' | 'mini' | 'hidden';
@@ -50,7 +53,7 @@ export class SidebarLayoutService {
 function getCycleForPreference(
 	preference: SidebarTogglePreference
 ): Array<SidebarMode> {
-	return preference === 'expanded-mini'
+	return preference === SIDEBAR_TOGGLE_PREFERENCES.expandedMini
 		? ['expanded', 'mini']
 		: ['expanded', 'hidden'];
 }

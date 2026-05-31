@@ -1,3 +1,11 @@
+@theme {
+	--animate-fade-in: fade-in 0.5s ease-in;
+	--animate-fade-out: fade-out 0.3s ease-out;
+	--animate-scale-out: scale-out 0.5s ease-in;
+	--animate-route-enter: route-enter 0.35s ease-out;
+	--animate-route-leave: route-leave 0.25s ease-in;
+}
+
 @keyframes fade-in {
 	from {
 		opacity: 0;
@@ -19,6 +27,18 @@
 	to {
 		opacity: 0;
 		transform: translateY(100px);
+	}
+}
+
+@keyframes scale-out {
+	from {
+		opacity: 0;
+		scale: 0;
+	}
+
+	to {
+		opacity: 1;
+		scale: 1;
 	}
 }
 

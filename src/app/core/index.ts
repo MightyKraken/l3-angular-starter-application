@@ -5,7 +5,6 @@ export * from './constants/screen-break-points.const';
 export * from './constants/sidebar-toggle.const';
 export * from './constants/theme.const';
 export * from './constants/toolbar-behavior.const';
-export * from './models/interfaces/ILayoutData.interface';
 export * from './models/interfaces/IScreenSizeObserver.interface';
 export * from './services/app-layout-mode/app-layout-mode.service';
 export * from './services/app-loader/app-loader.service';

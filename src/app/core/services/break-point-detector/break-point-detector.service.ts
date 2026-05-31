@@ -16,7 +16,9 @@ import {
 	ScreenSize
 } from '../../models/interfaces/IScreenSizeObserver.interface';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class BreakPointDetectorService implements IScreenSizeObserver {
 	private readonly breakpointObserver = inject(BreakpointObserver);
 

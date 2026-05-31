@@ -1,4 +1,4 @@
-import { InjectionToken, Signal } from '@angular/core';
+import { Signal } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface ScreenSize {
@@ -24,7 +24,3 @@ export interface IScreenSizeObserver {
 	readonly isLessThanExtraLarge: Signal<boolean | undefined>;
 	readonly screenSize$: Observable<ScreenSize>;
 }
-
-export const ScreenSizeObserver = new InjectionToken<IScreenSizeObserver>(
-	'ScreenSizeObserver'
-);

@@ -33,7 +33,7 @@ describe('AppThemePickerComponent', () => {
 
 	it('should render all daisy themes in the menu', () => {
 		const options = host.querySelectorAll('[role="option"]');
-		expect(options.length).toBe(DAISY_THEME_IDS.length);
+		expect(options.length).toBe(Object.values(DAISY_THEME_IDS).length);
 	});
 
 	it('should change theme when an option is selected', () => {
