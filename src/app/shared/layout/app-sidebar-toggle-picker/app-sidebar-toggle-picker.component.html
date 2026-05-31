@@ -7,9 +7,9 @@
 >
 	@for (option of options; track option.id) {
 	<mat-button-toggle
-		class="radio-card-option"
-		[value]="option.id"
 		[aria-label]="option.label + '. ' + option.description"
+		[value]="option.id"
+		class="radio-card-option"
 		disableRipple
 	>
 		<span class="text-base leading-snug font-semibold">{{ option.label }}</span>

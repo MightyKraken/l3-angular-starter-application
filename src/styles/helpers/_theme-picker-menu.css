@@ -7,9 +7,9 @@
 	max-height: 20rem;
 	overflow: hidden;
 	border-radius: var(--radius-box, 1rem);
-	background-color: var(--color-base-100, oklch(100% 0 0));
+	background-color: var(--color-base-100, oklch(100% 0 0deg));
 	padding: 0;
-	color: var(--color-base-content, oklch(20% 0.02 260));
+	color: var(--color-base-content, oklch(20% 0.02 260deg));
 	box-shadow: 0 1px 2px 0
 		color-mix(in oklch, var(--color-base-content) 10%, transparent);
 }
