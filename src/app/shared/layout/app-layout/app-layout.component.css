@@ -52,13 +52,22 @@
 		grid-area: nav;
 		display: flex;
 		flex-direction: column;
+		position: relative;
+		z-index: 30;
 		min-block-size: 0;
 		min-inline-size: 0;
 		block-size: 100%;
 		align-self: stretch;
-		overflow: hidden;
+		overflow: visible;
 		visibility: visible;
+		transform: translateY(0);
 		transition: visibility 0s linear 0s;
+		/* mirror toolbar shadow-sm + shadow-base-content/10, cast to the right */
+		box-shadow:
+			1px 0 3px 0
+				color-mix(in oklch, var(--color-base-content) 10%, transparent),
+			1px 0 2px -1px
+				color-mix(in oklch, var(--color-base-content) 10%, transparent);
 	}
 
 	> .toolbar {
@@ -72,6 +81,12 @@
 	}
 
 	&[data-toolbar-behavior='scroll-away'] > .toolbar {
+		animation: shouldHideOnScroll linear both;
+		animation-timeline: --main-contentx;
+		animation-range: 0 80px;
+	}
+
+	&[data-layout='toolbar-top'][data-toolbar-behavior='scroll-away'] > .nav {
 		animation: shouldHideOnScroll linear both;
 		animation-timeline: --main-contentx;
 		animation-range: 0 80px;
