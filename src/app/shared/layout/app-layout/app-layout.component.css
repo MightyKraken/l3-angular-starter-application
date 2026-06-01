@@ -2,8 +2,7 @@
 	&[data-toolbar-behavior='scroll-away'] {
 		timeline-scope: --layout-content-scroll;
 		> .content {
-			scroll-timeline-name: --layout-content-scroll;
-			scroll-timeline-axis: block;
+			scroll-timeline: --layout-content-scroll block;
 		}
 
 		> .toolbar,
