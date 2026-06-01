@@ -15,23 +15,23 @@
 		@if (option.id === appLayoutModes.toolbarTop) {
 		<span
 			aria-hidden="true"
-			class="grid h-12 w-16 grid-rows-2 gap-0.5 rounded bg-base-content/6 p-0.5"
+			class="grid h-12 w-16 grid-rows-[auto_1fr] gap-px overflow-hidden rounded bg-base-content/15 p-px"
 		>
-			<span class="h-3 rounded-sm bg-base-content/55"></span>
-			<span class="grid min-h-0 grid-cols-2 gap-0.5">
-				<span class="w-4 rounded-sm bg-base-content/35"></span>
-				<span class="rounded-sm bg-base-content/12"></span>
+			<span class="h-3 shrink-0 bg-base-content/55"></span>
+			<span class="grid min-h-0 grid-cols-[1fr_3fr] gap-px">
+				<span class="bg-base-content/35"></span>
+				<span class="bg-base-content/12"></span>
 			</span>
 		</span>
 		} @else {
 		<span
 			aria-hidden="true"
-			class="grid h-12 w-16 grid-cols-2 gap-0.5 rounded bg-base-content/6 p-0.5"
+			class="grid h-12 w-16 grid-cols-[1fr_3fr] gap-px overflow-hidden rounded bg-base-content/15 p-px"
 		>
-			<span class="w-4 rounded-sm bg-base-content/35"></span>
-			<span class="grid min-w-0 grid-rows-2 gap-0.5">
-				<span class="h-3 rounded-sm bg-base-content/55"></span>
-				<span class="rounded-sm bg-base-content/12"></span>
+			<span class="bg-base-content/35"></span>
+			<span class="grid min-h-0 min-w-0 grid-rows-[auto_1fr] gap-px">
+				<span class="h-3 shrink-0 bg-base-content/55"></span>
+				<span class="bg-base-content/12"></span>
 			</span>
 		</span>
 		}
