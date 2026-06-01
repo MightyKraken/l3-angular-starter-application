@@ -15,15 +15,15 @@
 	white-space: normal;
 }
 
-.radio-card-group--horizontal.mat-button-toggle-group {
+.radio-card-group-horizontal.mat-button-toggle-group {
 	grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
 }
 
-.radio-card-group--vertical.mat-button-toggle-group {
+.radio-card-group-vertical.mat-button-toggle-group {
 	grid-template-columns: minmax(0, 1fr);
 }
 
-.radio-card-group--grid.mat-button-toggle-group {
+.radio-card-group-grid.mat-button-toggle-group {
 	grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
 	align-items: stretch;
 	gap: 0.625rem;
@@ -70,7 +70,7 @@
 	line-height: inherit;
 }
 
-.radio-card-group--align-center
+.radio-card-group-align-center
 	.radio-card-option
 	.mat-button-toggle-label-content {
 	flex-direction: column;
@@ -81,20 +81,20 @@
 	padding: 0.75rem 0.5rem;
 }
 
-.radio-card-group--grid.radio-card-group--align-center
+.radio-card-group-grid.radio-card-group-align-center
 	.radio-card-option
 	.mat-button-toggle-label-content {
 	padding: 0.875rem 0.625rem;
 }
 
-.radio-card-group--horizontal.radio-card-group--align-center
+.radio-card-group-horizontal.radio-card-group-align-center
 	.radio-card-option
 	.mat-button-toggle-label-content {
 	gap: 0.625rem;
 	padding: 0.75rem;
 }
 
-.radio-card-group--align-start
+.radio-card-group-align-start
 	.radio-card-option
 	.mat-button-toggle-label-content {
 	flex-direction: column;
