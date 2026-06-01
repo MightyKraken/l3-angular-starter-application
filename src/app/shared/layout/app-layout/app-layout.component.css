@@ -1,52 +1,38 @@
-/* Scroll-driven toolbar hide — no Tailwind utilities for scroll/animation timelines */
+.app-layout-shell {
+	&[data-toolbar-behavior='scroll-away'] {
+		timeline-scope: --layout-content-scroll;
+		> .content {
+			scroll-timeline-name: --layout-content-scroll;
+			scroll-timeline-axis: block;
+		}
 
-.app-layout-shell > .content {
-	scroll-timeline-name: --layout-content-scroll;
-	scroll-timeline-axis: block;
+		> .toolbar,
+		> .content {
+			@apply layout-toolbar-scroll-away;
+		}
+
+		&[data-layout='toolbar-top'] {
+			> .nav {
+				@apply layout-toolbar-scroll-away;
+			}
+		}
+	}
+
+	&[data-layout='sidebar-left'] {
+		grid-template-areas:
+			'nav toolbar'
+			'nav content';
+	}
+
+	&[data-layout='toolbar-top'] {
+		grid-template-areas:
+			'toolbar toolbar'
+			'nav content';
+	}
 }
 
-.app-layout-shell[data-toolbar-behavior='scroll-away'] {
-	timeline-scope: --layout-content-scroll;
-}
-
-.app-layout-shell[data-toolbar-behavior='scroll-away'] > .toolbar {
+@utility layout-toolbar-scroll-away {
 	animation: layout-toolbar-hide-on-scroll linear both;
 	animation-timeline: --layout-content-scroll;
 	animation-range: 0 var(--layout-content-scroll-range);
-}
-
-.app-layout-shell[data-toolbar-behavior='scroll-away'] > .content {
-	animation: layout-toolbar-hide-on-scroll linear both;
-	animation-timeline: --layout-content-scroll;
-	animation-range: 0 var(--layout-content-scroll-range);
-}
-
-.app-layout-shell.grid[data-layout='toolbar-top'][data-toolbar-behavior='scroll-away']
-	> .nav {
-	animation: layout-toolbar-hide-on-scroll linear both;
-	animation-timeline: --layout-content-scroll;
-	animation-range: 0 var(--layout-content-scroll-range);
-}
-
-/* Grid layout areas — driven by data-layout */
-
-.app-layout-shell.grid[data-layout='sidebar-left'] {
-	grid-template-areas:
-		'nav toolbar'
-		'nav content';
-}
-
-.app-layout-shell.grid[data-layout='toolbar-top'] {
-	grid-template-areas:
-		'toolbar toolbar'
-		'nav content';
-}
-
-/* Nav edge shadow — directional color-mix, no Tailwind equivalent */
-
-.app-layout-shell.grid > .nav {
-	box-shadow:
-		1px 0 3px 0 color-mix(in oklch, var(--color-base-content) 10%, transparent),
-		1px 0 2px -1px
-			color-mix(in oklch, var(--color-base-content) 10%, transparent);
 }
