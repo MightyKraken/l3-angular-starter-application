@@ -7,15 +7,20 @@
 	class="app-layout-shell grid group h-dvh grid-cols-[auto_1fr] grid-rows-[auto_1fr] overflow-hidden data-[sidebar-mode=hidden]:[--sidebar-width:0] data-[sidebar-mode=mini]:[--sidebar-width:var(--sidebar-width-mini)]"
 >
 	<div
-		class="nav relative z-30 flex h-full min-h-0 min-w-0 flex-col self-stretch overflow-visible shadow-sm shadow-base-content/10 transition-[visibility] duration-0 [grid-area:nav] group-data-[sidebar-mode=hidden]:pointer-events-none group-data-[sidebar-mode=hidden]:invisible group-data-[sidebar-mode=hidden]:delay-220"
+		class="nav relative z-30 flex h-dvh min-h-0 min-w-0 flex-col self-stretch overflow-visible shadow-sm shadow-base-content/10 transition-[visibility] duration-0 [grid-area:nav] group-data-[sidebar-mode=hidden]:pointer-events-none group-data-[sidebar-mode=hidden]:invisible group-data-[sidebar-mode=hidden]:delay-220"
 	>
 		<ng-container *ngTemplateOutlet="navigationbar" />
 	</div>
 	<div class="toolbar sticky top-0 z-40 min-w-0 self-start [grid-area:toolbar]">
 		<ng-container *ngTemplateOutlet="toolbar" />
 	</div>
-	<div class="content h-dvh min-h-0 min-w-0 overflow-auto [grid-area:content]">
-		<ng-container *ngTemplateOutlet="content" />
+	<div class="content min-h-0 min-w-0 overflow-hidden [grid-area:content]">
+		<div
+			appScrollAwayToolbar
+			class="content-scroll h-full min-h-0 overflow-auto"
+		>
+			<ng-container *ngTemplateOutlet="content" />
+		</div>
 	</div>
 </div>
 }
@@ -47,8 +52,13 @@
 	<div class="toolbar sticky top-0 z-40 min-w-0 self-start">
 		<ng-container *ngTemplateOutlet="toolbar" />
 	</div>
-	<div class="content h-dvh min-h-0 min-w-0 overflow-auto">
-		<ng-container *ngTemplateOutlet="content" />
+	<div class="content min-h-0 min-w-0 overflow-hidden">
+		<div
+			appScrollAwayToolbar
+			class="content-scroll h-full min-h-0 overflow-auto"
+		>
+			<ng-container *ngTemplateOutlet="content" />
+		</div>
 	</div>
 </div>
 }

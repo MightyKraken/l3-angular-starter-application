@@ -1,18 +1,23 @@
 .app-layout-shell {
 	&[data-toolbar-behavior='scroll-away'] {
-		timeline-scope: --layout-content-scroll;
-		> .content {
-			scroll-timeline: --layout-content-scroll block;
-		}
-
 		> .toolbar,
 		> .content {
-			@apply layout-toolbar-scroll-away;
+			transform: translateY(0);
+		}
+		> .toolbar,
+		&[data-layout='toolbar-top'] > .nav {
+			transform: translateY(0);
+			transition: transform 0.2s ease;
 		}
 
-		&[data-layout='toolbar-top'] {
-			> .nav {
-				@apply layout-toolbar-scroll-away;
+		&.is-toolbar-scroll-hidden {
+			> .toolbar,
+			> .content {
+				transform: translateY(calc(-1 * var(--toolbar-height)));
+			}
+
+			&[data-layout='toolbar-top'] > .nav {
+				transform: translateY(calc(-1 * var(--toolbar-height)));
 			}
 		}
 	}
@@ -28,10 +33,4 @@
 			'toolbar toolbar'
 			'nav content';
 	}
-}
-
-@utility layout-toolbar-scroll-away {
-	animation: layout-toolbar-hide-on-scroll linear both;
-	animation-timeline: --layout-content-scroll;
-	animation-range: 0 var(--layout-content-scroll-range);
 }

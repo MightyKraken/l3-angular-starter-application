@@ -65,9 +65,3 @@
 		transform: translateY(-12px);
 	}
 }
-
-@keyframes layout-toolbar-hide-on-scroll {
-	to {
-		transform: translateY(calc(-1 * var(--toolbar-height)));
-	}
-}

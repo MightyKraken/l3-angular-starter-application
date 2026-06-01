@@ -11,6 +11,7 @@ import { AppLayoutModeService } from '../app-layout-mode-picker/app-layout-mode.
 import { AppNavigationBarComponent } from '../app-navigation-bar/app-navigation-bar.component';
 import { AppToolBarComponent } from '../app-tool-bar/app-tool-bar.component';
 import { ToolbarBehaviorPreferenceService } from '../app-toolbar-behavior-picker/toolbar-behavior-preference.service';
+import { ScrollAwayToolbarDirective } from '../scroll-away-toolbar/scroll-away-toolbar.directive';
 import { SidebarLayoutService } from '../sidebar-layout/sidebar-layout.service';
 
 @Component({
@@ -19,7 +20,8 @@ import { SidebarLayoutService } from '../sidebar-layout/sidebar-layout.service';
 		RouterOutlet,
 		AppNavigationBarComponent,
 		AppToolBarComponent,
-		NgTemplateOutlet
+		NgTemplateOutlet,
+		ScrollAwayToolbarDirective
 	],
 	templateUrl: './app-layout.component.html',
 	styleUrl: './app-layout.component.css',
