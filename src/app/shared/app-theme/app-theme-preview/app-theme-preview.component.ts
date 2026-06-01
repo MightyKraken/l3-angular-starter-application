@@ -1,9 +1,11 @@
+import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import type { DaisyThemeId } from '../theme.const';
 
 @Component({
 	selector: 'app-theme-preview',
+	imports: [NgClass],
 	templateUrl: './app-theme-preview.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	host: {

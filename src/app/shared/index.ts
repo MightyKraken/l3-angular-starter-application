@@ -5,6 +5,7 @@ export * from './app-icon/app-lucide-icons';
 export * from './app-icon/icon-asset.service';
 export * from './app-loader/app-loader.component';
 export * from './app-loader/app-loader.service';
+export * from './app-theme/app-theme-card-picker/app-theme-card-picker.component';
 export * from './app-theme/app-theme-picker/app-theme-picker.component';
 export * from './app-theme/app-theme-preview/app-theme-preview.component';
 export * from './app-theme/theme.const';

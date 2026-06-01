@@ -4,16 +4,7 @@
 	<div
 		class="box-border flex h-[var(--toolbar-height)] w-full min-w-0 max-w-full items-center gap-4"
 	>
-		<div [attr.data-tip]="toggleTooltip()" class="tooltip tooltip-right">
-			<button
-				[attr.aria-label]="toggleAriaLabel()"
-				(click)="onMenuToggle()"
-				class="btn btn-circle btn-ghost border-0 text-base-content hover:bg-base-content/10 active:bg-base-content/20"
-				type="button"
-			>
-				<app-icon name="list" />
-			</button>
-		</div>
+		<app-sidebar-menu-toggle />
 		<app-icon ariaLabel="Company logo" name="angular" source="asset" />
 		<span
 			class="min-w-0 flex-1 overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap"

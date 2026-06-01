@@ -1,23 +1,11 @@
-@if (swatchSize() === 'sm') {
 <div
 	[attr.aria-hidden]="true"
 	[attr.data-theme]="themeId()"
-	class="box-border grid size-7 shrink-0 grid-cols-2 place-content-center gap-0.5 rounded-md bg-base-100 p-1 shadow-sm"
+	[ngClass]="{'size-7 p-1': swatchSize() === 'sm','size-8 p-1.5': swatchSize() !== 'sm',}"
+	class="box-border grid shrink-0 grid-cols-2 place-content-center gap-0.5 rounded-md bg-base-100 shadow-sm"
 >
 	<div class="size-2 rounded-full bg-base-content"></div>
 	<div class="size-2 rounded-full bg-primary"></div>
 	<div class="size-2 rounded-full bg-secondary"></div>
 	<div class="size-2 rounded-full bg-accent"></div>
 </div>
-} @else {
-<div
-	[attr.aria-hidden]="true"
-	[attr.data-theme]="themeId()"
-	class="box-border grid size-8 shrink-0 grid-cols-2 place-content-center gap-0.5 rounded-md bg-base-100 p-1.5 shadow-sm"
->
-	<div class="size-2 rounded-full bg-base-content"></div>
-	<div class="size-2 rounded-full bg-primary"></div>
-	<div class="size-2 rounded-full bg-secondary"></div>
-	<div class="size-2 rounded-full bg-accent"></div>
-</div>
-}

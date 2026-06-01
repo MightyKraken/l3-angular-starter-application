@@ -1,16 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-	MatButtonToggle,
-	MatButtonToggleGroup
-} from '@angular/material/button-toggle';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
 	AppLayoutModePickerComponent,
 	AppSidebarTogglePickerComponent,
-	AppThemePreviewComponent,
-	AppToolbarBehaviorPickerComponent,
-	DAISY_THEME_OPTIONS,
-	type DaisyThemeId,
-	ThemeService
+	AppThemeCardPickerComponent,
+	AppToolbarBehaviorPickerComponent
 } from '@shared';
 
 @Component({
@@ -18,21 +11,10 @@ import {
 	imports: [
 		AppLayoutModePickerComponent,
 		AppSidebarTogglePickerComponent,
-		AppToolbarBehaviorPickerComponent,
-		AppThemePreviewComponent,
-		MatButtonToggle,
-		MatButtonToggleGroup
+		AppThemeCardPickerComponent,
+		AppToolbarBehaviorPickerComponent
 	],
 	templateUrl: './app-settings.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppSettingsComponent {
-	private readonly theme = inject(ThemeService);
-
-	readonly themes = DAISY_THEME_OPTIONS;
-	readonly themeId = this.theme.themeId;
-
-	setTheme(id: unknown): void {
-		this.theme.setTheme(id as DaisyThemeId);
-	}
-}
+export class AppSettingsComponent {}

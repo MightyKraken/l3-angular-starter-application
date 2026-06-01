@@ -14,7 +14,7 @@
 	<div class="toolbar sticky top-0 z-40 min-w-0 self-start [grid-area:toolbar]">
 		<ng-container *ngTemplateOutlet="toolbar" />
 	</div>
-	<div class="content min-h-0 min-w-0 overflow-auto [grid-area:content]">
+	<div class="content h-dvh min-h-0 min-w-0 overflow-auto [grid-area:content]">
 		<ng-container *ngTemplateOutlet="content" />
 	</div>
 </div>
@@ -22,9 +22,19 @@
 
 <!-- Content With Navigation -->
 @if (showNavigation() && !showToolbar()) {
-<div>
-	<ng-container *ngTemplateOutlet="navigationbar" />
-	<ng-container *ngTemplateOutlet="content" />
+<div
+	[attr.data-layout]="layoutMode()"
+	[attr.data-sidebar-mode]="sidebarMode()"
+	class="app-layout-shell grid group h-dvh grid-cols-[auto_1fr] grid-rows-1fr overflow-hidden data-[sidebar-mode=hidden]:[--sidebar-width:var(--sidebar-width-mini)] data-[sidebar-mode=mini]:[--sidebar-width:var(--sidebar-width-mini)]"
+>
+	<div
+		class="nav relative z-30 flex h-full min-h-0 min-w-0 flex-col self-stretch overflow-visible transition-[visibility] duration-0"
+	>
+		<ng-container *ngTemplateOutlet="navigationbar" />
+	</div>
+	<div class="content h-full min-h-0 min-w-0 overflow-auto">
+		<ng-container *ngTemplateOutlet="content" />
+	</div>
 </div>
 }
 
@@ -37,7 +47,7 @@
 	<div class="toolbar sticky top-0 z-40 min-w-0 self-start">
 		<ng-container *ngTemplateOutlet="toolbar" />
 	</div>
-	<div class="content min-h-0 min-w-0 overflow-auto">
+	<div class="content h-dvh min-h-0 min-w-0 overflow-auto">
 		<ng-container *ngTemplateOutlet="content" />
 	</div>
 </div>
@@ -53,7 +63,7 @@
 </ng-template>
 
 <ng-template #navigationbar>
-	<app-navigation-bar />
+	<app-navigation-bar [showSidebarToggle]="!showToolbar()" />
 </ng-template>
 
 <ng-template #toolbar>

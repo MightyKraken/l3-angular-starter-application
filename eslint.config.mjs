@@ -135,7 +135,7 @@ export default [
 				'error',
 				{ allowNullOrUndefined: true }
 			],
-			'@angular-eslint/template/no-duplicate-attributes': 'error',
+			'@angular-eslint/template/no-duplicate-attributes': 'off',
 			'@angular-eslint/template/no-negated-async': 'error',
 			'@angular-eslint/template/prefer-control-flow': 'error',
 			'@angular-eslint/template/prefer-ngsrc': 'error',

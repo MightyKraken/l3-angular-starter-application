@@ -1,19 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DAISY_THEME_IDS, ThemeService } from '@shared';
 
 import { AppSettingsComponent } from './app-settings.component';
 
 describe('AppSettingsComponent', () => {
 	let fixture: ComponentFixture<AppSettingsComponent>;
-	let theme: ThemeService;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppSettingsComponent]
 		}).compileComponents();
-
-		theme = TestBed.inject(ThemeService);
-		theme.initFromStorage();
 
 		fixture = TestBed.createComponent(AppSettingsComponent);
 		fixture.detectChanges();
@@ -41,14 +36,9 @@ describe('AppSettingsComponent', () => {
 		).toBeTruthy();
 	});
 
-	it('should set theme from theme cards', () => {
-		const cards: NodeListOf<HTMLButtonElement> =
-			fixture.nativeElement.querySelectorAll(
-				'[aria-label="Theme"] mat-button-toggle button'
-			);
-		expect(cards.length).toBe(Object.values(DAISY_THEME_IDS).length);
-
-		cards[2].click();
-		expect(theme.themeId()).toBe('cupcake');
+	it('should render theme card picker', () => {
+		expect(
+			fixture.nativeElement.querySelector('app-theme-card-picker')
+		).toBeTruthy();
 	});
 });

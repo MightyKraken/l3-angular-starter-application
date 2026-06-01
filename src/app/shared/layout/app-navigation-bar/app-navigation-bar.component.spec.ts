@@ -5,6 +5,7 @@ import {
 	LucideChevronRight,
 	LucideFlaskConical,
 	LucideHouse,
+	LucideList,
 	LucideSettings,
 	provideLucideIcons
 } from '@lucide/angular';
@@ -28,7 +29,8 @@ describe('AppNavigationBarComponent', () => {
 					LucideSettings,
 					LucideFlaskConical,
 					LucideChevronRight,
-					LucideChevronDown
+					LucideChevronDown,
+					LucideList
 				)
 			]
 		}).compileComponents();
@@ -62,5 +64,31 @@ describe('AppNavigationBarComponent', () => {
 			expect(style.maxInlineSize).toBe('0px');
 			expect(style.visibility).toBe('hidden');
 		});
+	});
+
+	it('should show sidebar toggle in header when showSidebarToggle is true', () => {
+		fixture.componentRef.setInput('showSidebarToggle', true);
+		fixture.detectChanges();
+
+		expect(
+			hostElement.querySelector('header app-sidebar-menu-toggle')
+		).toBeTruthy();
+	});
+
+	it('should hide sidebar toggle when showSidebarToggle is false', () => {
+		expect(hostElement.querySelector('header')).toBeNull();
+	});
+
+	it('should cycle sidebar from nav toggle when showSidebarToggle is true', () => {
+		fixture.componentRef.setInput('showSidebarToggle', true);
+		fixture.detectChanges();
+
+		const toggle: HTMLButtonElement = hostElement.querySelector(
+			'header .tooltip button'
+		)!;
+		toggle.click();
+		fixture.detectChanges();
+
+		expect(sidebarLayout.mode()).toBe('mini');
 	});
 });

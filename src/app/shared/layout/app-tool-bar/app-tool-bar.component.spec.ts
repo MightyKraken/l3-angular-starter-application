@@ -37,7 +37,7 @@ describe('AppToolBarComponent', () => {
 		expect(sidebarLayout.mode()).toBe('expanded');
 
 		const toggle: HTMLButtonElement = fixture.nativeElement.querySelector(
-			'nav .tooltip button[aria-label]'
+			'app-sidebar-menu-toggle .tooltip button[aria-label]'
 		)!;
 		toggle.click();
 		fixture.detectChanges();
@@ -51,7 +51,9 @@ describe('AppToolBarComponent', () => {
 		).toBeTruthy();
 
 		const menuToggle: HTMLButtonElement | null =
-			fixture.nativeElement.querySelector('nav .tooltip button');
+			fixture.nativeElement.querySelector(
+				'app-sidebar-menu-toggle .tooltip button'
+			);
 		expect(menuToggle).toBeTruthy();
 	});
 });

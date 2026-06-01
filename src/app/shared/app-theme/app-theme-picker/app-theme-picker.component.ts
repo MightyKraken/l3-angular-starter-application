@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	inject,
+	ViewEncapsulation
+} from '@angular/core';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 import { AppIconComponent } from '../../app-icon/app-icon.component';
@@ -16,6 +21,8 @@ import { ThemeService } from '../theme.service';
 		MatMenuTrigger
 	],
 	templateUrl: './app-theme-picker.component.html',
+	styleUrl: './app-theme-picker-menu.css',
+	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppThemePickerComponent {

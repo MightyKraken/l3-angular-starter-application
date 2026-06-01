@@ -23,28 +23,7 @@
 				id="theme-label"
 				>Theme</span
 			>
-			<mat-button-toggle-group
-				[attr.aria-labelledby]="'theme-label'"
-				[value]="themeId()"
-				(change)="setTheme($event.value)"
-				aria-label="Theme"
-				class="radio-card-group radio-card-group-grid radio-card-group-align-center"
-				hideSingleSelectionIndicator
-			>
-				@for (theme of themes; track theme.id) {
-				<mat-button-toggle
-					[aria-label]="theme.label + ' theme'"
-					[value]="theme.id"
-					class="radio-card-option"
-					disableRipple
-				>
-					<app-theme-preview [themeId]="theme.id" swatchSize="md" />
-					<span class="text-center text-xs leading-tight font-medium"
-						>{{ theme.label }}</span
-					>
-				</mat-button-toggle>
-				}
-			</mat-button-toggle-group>
+			<app-theme-card-picker [attr.aria-labelledby]="'theme-label'" />
 		</div>
 	</section>
 

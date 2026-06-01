@@ -1,0 +1,93 @@
+/* Generic Material mat-menu panel and items (CDK overlay) */
+
+.cdk-overlay-container .mat-mdc-menu-panel.menu-dropdown {
+	box-sizing: border-box;
+	overflow: hidden;
+	border-radius: var(--radius-box, 1rem);
+	background-color: var(--color-base-200, oklch(100% 0 0deg));
+	padding: 0;
+	color: var(--color-base-content, oklch(20% 0.02 260deg));
+	box-shadow: 0 1px 2px 0
+		color-mix(in oklch, var(--color-base-content) 10%, transparent);
+}
+
+.menu-dropdown .mat-mdc-menu-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	overflow: hidden auto;
+	overscroll-behavior: contain;
+	padding: 0.5rem;
+}
+
+.menu-dropdown-item.mat-mdc-menu-item {
+	box-sizing: border-box;
+	display: flex;
+	min-height: 2.5rem;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.75rem;
+	padding-inline: 0.5rem;
+	background-color: transparent;
+}
+
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item:hover:not([disabled]),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.cdk-program-focused:not([disabled]),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.cdk-keyboard-focused:not([disabled]),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.mat-mdc-menu-item-highlighted:not(
+		[disabled]
+	) {
+	background-color: color-mix(
+		in oklch,
+		var(--color-base-content, oklch(20% 0.02 260deg)) 10%,
+		transparent
+	);
+}
+
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.btn-active:hover:not([disabled]),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.btn-active.cdk-program-focused:not(
+		[disabled]
+	),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.btn-active.cdk-keyboard-focused:not(
+		[disabled]
+	),
+.cdk-overlay-container
+	.menu-dropdown
+	.menu-dropdown-item.mat-mdc-menu-item.btn-active.mat-mdc-menu-item-highlighted:not(
+		[disabled]
+	) {
+	background-color: color-mix(
+		in oklch,
+		var(--color-base-content, oklch(20% 0.02 260deg)) 16%,
+		transparent
+	);
+}
+
+.menu-dropdown-item.mat-mdc-menu-item .mat-mdc-menu-item-text {
+	display: flex;
+	width: 100%;
+	min-width: 0;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.75rem;
+}
+
+.menu-dropdown-item.mat-mdc-menu-item .mat-mdc-menu-ripple,
+.menu-dropdown-item.mat-mdc-menu-item .mat-mdc-menu-submenu-icon {
+	display: none;
+}

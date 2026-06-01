@@ -10,7 +10,7 @@
 <mat-menu
 	#themeMenu="matMenu"
 	aria-label="Themes"
-	class="theme-picker-menu max-h-80 w-52 max-w-52 overflow-hidden"
+	class="menu-dropdown theme-picker-menu"
 	xPosition="before"
 >
 	@for (theme of themes; track theme.id) {
@@ -18,7 +18,7 @@
 		[attr.aria-label]="theme.label + ' theme'"
 		[class.btn-active]="isActive(theme.id)"
 		(click)="onSelect(theme.id)"
-		class="theme-picker-menu-item btn btn-ghost h-auto min-h-10 w-full justify-start gap-3 border-0 py-2 font-normal"
+		class="menu-dropdown-item theme-picker-menu-item btn btn-ghost h-auto min-h-10 w-full justify-start gap-3 border-0 py-2 font-normal"
 		disableRipple
 		mat-menu-item
 		type="button"

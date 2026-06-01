@@ -1,0 +1,11 @@
+/* Theme picker menu panel (CDK overlay; requires ViewEncapsulation.None) */
+
+.cdk-overlay-container .mat-mdc-menu-panel.theme-picker-menu {
+	width: 13rem;
+	max-width: 13rem;
+	max-height: 20rem;
+}
+
+.theme-picker-menu .mat-mdc-menu-content {
+	max-height: 20rem;
+}
