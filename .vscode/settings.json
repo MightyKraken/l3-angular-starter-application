@@ -20,7 +20,7 @@
         "statusBarItem.remoteBackground": "#daf7a6",
         "statusBarItem.remoteForeground": "#15202b",
         "titleBar.activeBackground": "#daf7a6",
-        "titleBar.activeForeground": "#f75b00",
+        "titleBar.activeForeground": "#15202b",
         "titleBar.inactiveBackground": "#daf7a699",
         "titleBar.inactiveForeground": "#15202b99"
     },
