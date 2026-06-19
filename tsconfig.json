@@ -18,7 +18,8 @@
 		"paths": {
 			"@environment": ["./src/environments/environment.ts"],
 			"@shared": ["./src/app/shared/index.ts"],
-			"@core": ["./src/app/core/index.ts"]
+			"@core": ["./src/app/core/index.ts"],
+            "@test":["./src/tests/index.ts"]
 		}
 	},
 	"angularCompilerOptions": {

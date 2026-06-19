@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { provideLucideIcons } from '@lucide/angular';
 import { appLucideIcons } from '@shared';
+import { activatedRouteMock, routerMock } from '@test';
 
-import { activatedRouteMock, routerMock } from '../../../../tests';
 import { AppLayoutModeService } from '../app-layout-mode-picker/app-layout-mode.service';
 import { APP_LAYOUT_MODES } from '../app-layout-mode-picker/layout.const';
 import { SidebarTogglePreferenceService } from '../app-sidebar-toggle-picker/sidebar-toggle-preference.service';
