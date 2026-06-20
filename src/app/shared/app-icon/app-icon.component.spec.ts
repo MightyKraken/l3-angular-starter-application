@@ -33,14 +33,14 @@ describe('AppIconComponent', () => {
 	});
 
 	it('should create', () => {
-		fixture.componentRef.setInput('name', 'house');
+		fixture.componentRef.setInput('icon', 'house');
 		fixture.detectChanges();
 		expect(fixture.componentInstance).toBeTruthy();
 	});
 
 	describe('Lucide source', () => {
 		it('should render a lucide svg for a registered icon name', () => {
-			fixture.componentRef.setInput('name', 'house');
+			fixture.componentRef.setInput('icon', 'house');
 			fixture.detectChanges();
 
 			const svg = hostElement.querySelector('svg');
@@ -48,14 +48,14 @@ describe('AppIconComponent', () => {
 		});
 
 		it('should apply default size on host', () => {
-			fixture.componentRef.setInput('name', 'house');
+			fixture.componentRef.setInput('icon', 'house');
 			fixture.detectChanges();
 
 			expect(hostElement.style.getPropertyValue('--icon-size')).toBe('1.25rem');
 		});
 
 		it('should accept custom size input', () => {
-			fixture.componentRef.setInput('name', 'house');
+			fixture.componentRef.setInput('icon', 'house');
 			fixture.componentRef.setInput('size', '2rem');
 			fixture.detectChanges();
 
@@ -65,8 +65,7 @@ describe('AppIconComponent', () => {
 
 	describe('Asset source', () => {
 		it('should load and inline svg from public icons path', () => {
-			fixture.componentRef.setInput('name', 'test');
-			fixture.componentRef.setInput('source', 'asset');
+			fixture.componentRef.setInput('svgPath', 'test');
 			fixture.detectChanges();
 
 			const request = httpMock.expectOne('/icons/test.svg');
@@ -81,8 +80,7 @@ describe('AppIconComponent', () => {
 		});
 
 		it('should not request invalid asset names', () => {
-			fixture.componentRef.setInput('name', '../secret');
-			fixture.componentRef.setInput('source', 'asset');
+			fixture.componentRef.setInput('svgPath', '../secret');
 			fixture.detectChanges();
 
 			httpMock.expectNone('/icons/../secret.svg');
