@@ -7,12 +7,12 @@
 	type="button"
 >
 	@if (showIcon()) {
-	<app-icon [name]="node().icon!" class="nav-icon" />
+	<app-icon [icon]="node().icon!" class="nav-icon" />
 	}
 	<span class="nav-label">{{ node().label }}</span>
 	<span aria-hidden="true" class="nav-chevron">
 		<app-icon
-			[name]="isExpanded() ? 'chevron-down' : 'chevron-right'"
+			[icon]="isExpanded() ? 'chevron-down' : 'chevron-right'"
 			size="1rem"
 		/>
 	</span>
@@ -38,7 +38,7 @@
 	routerLinkActive="active"
 >
 	@if (showIcon()) {
-	<app-icon [name]="node().icon!" class="nav-icon" />
+	<app-icon [icon]="node().icon!" class="nav-icon" />
 	}
 	<span class="nav-label">{{ node().label }}</span>
 </a>

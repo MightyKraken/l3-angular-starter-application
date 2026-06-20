@@ -5,6 +5,7 @@ import {
 	LucideChevronRight,
 	LucideFlaskConical,
 	LucideHouse,
+	LucideIcon,
 	LucideList,
 	LucideMenu,
 	LucideMoon,
@@ -14,18 +15,22 @@ import {
 	LucideSun
 } from '@lucide/angular';
 
-export const appLucideIcons = [
-	LucideMenu,
-	LucideSettings,
-	LucideList,
-	LucideHouse,
-	LucidePalette,
-	LucideSun,
-	LucideMoon,
-	LucideFlaskConical,
-	LucideSearchX,
-	LucideArrowLeft,
-	LucideCheck,
-	LucideChevronRight,
-	LucideChevronDown
-] as const;
+const appLucideIconsConfig: Record<string, LucideIcon> = {
+	'menu': LucideMenu,
+	'settings': LucideSettings,
+	'list': LucideList,
+	'house': LucideHouse,
+	'palette': LucidePalette,
+	'sun': LucideSun,
+	'moon': LucideMoon,
+	'flask-conical': LucideFlaskConical,
+	'search-x': LucideSearchX,
+	'arrow-left': LucideArrowLeft,
+	'check': LucideCheck,
+	'chevron-right': LucideChevronRight,
+	'chevron-down': LucideChevronDown
+} as const;
+
+export type AppRegisteredLucideIcon = keyof typeof appLucideIconsConfig;
+
+export const appLucideIcons = Object.values(appLucideIconsConfig);

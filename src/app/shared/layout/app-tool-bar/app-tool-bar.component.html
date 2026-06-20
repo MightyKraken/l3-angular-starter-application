@@ -2,10 +2,10 @@
 	class="box-border w-full max-w-full bg-base-100 px-4 text-base-content shadow-sm shadow-base-content/10"
 >
 	<div
-		class="box-border flex h-[var(--toolbar-height)] w-full min-w-0 max-w-full items-center gap-4"
+		class="box-border flex h-(--toolbar-height) w-full min-w-0 max-w-full items-center gap-4"
 	>
 		<app-sidebar-menu-toggle />
-		<app-icon ariaLabel="Company logo" name="angular" source="asset" />
+		<app-icon ariaLabel="Company logo" svgPath="angular" />
 		<span
 			class="min-w-0 flex-1 overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap"
 			>{{ appTitle() }}</span

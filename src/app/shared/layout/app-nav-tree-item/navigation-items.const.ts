@@ -1,7 +1,9 @@
+import { AppRegisteredLucideIcon } from '../../app-icon/app-lucide-icons';
+
 interface BaseNavigationNode {
 	id: string;
 	label: string;
-	icon?: string;
+	icon?: AppRegisteredLucideIcon;
 }
 
 interface RouteNode extends BaseNavigationNode {

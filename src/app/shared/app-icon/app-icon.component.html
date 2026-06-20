@@ -1,11 +1,11 @@
-@if (isLucide()) {
+@if (icon(); as lucideIconName) {
 <svg
-	[lucideIcon]="name()"
+	[lucideIcon]="lucideIconName"
 	[size]="size()"
 	[strokeWidth]="strokeWidth()"
 	[title]="ariaLabel() ?? null"
 	class="size-full"
 ></svg>
-} @else if (assetSvg(); as svg) {
+} @else if(assetSvg(); as svg){
 <span [innerHTML]="svg" class="contents"></span>
 }

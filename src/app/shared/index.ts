@@ -1,6 +1,5 @@
 // @index(['./**/*.ts', '!./**/*.spec.ts'], f => `export * from '${f.path}';`)
 export * from './app-icon/app-icon.component';
-export * from './app-icon/app-icon.types';
 export * from './app-icon/app-lucide-icons';
 export * from './app-icon/icon-asset.service';
 export * from './app-loader/app-loader.component';
