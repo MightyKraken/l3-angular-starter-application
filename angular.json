@@ -33,7 +33,13 @@
 								"input": "public"
 							}
 						],
-						"styles": ["src/styles/styles.css"]
+						"styles": ["src/styles/styles.css"],
+                        "statsJson": true,
+                        "sourceMap": {
+                            "scripts": true,
+                            "styles": true,
+                            "vendor": true
+                        }
 					},
 					"configurations": {
 						"production": {
