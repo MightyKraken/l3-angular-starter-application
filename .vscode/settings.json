@@ -219,7 +219,7 @@
     "editor.lineHeight": 24,
     "gitlens.launchpad.indicator.enabled": false,
     "window.title": "${dirty}${rootName}",
-    "workbench.iconTheme": "symbols",
+    "workbench.iconTheme": "material-icon-theme",
     "git.replaceTagsWhenPull": true,
 
     "github.copilot.advanced": {
@@ -332,7 +332,7 @@
         "javascript": "javascript",
         "css": "css"
     },
-    "workbench.productIconTheme": "Default",
+    "workbench.productIconTheme": "feather-vscode",
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
