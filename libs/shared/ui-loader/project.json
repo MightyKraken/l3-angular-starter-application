@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-ui-loader",
+	"projectType": "library",
+	"sourceRoot": "libs/shared/ui-loader/src",
+	"prefix": "",
+	"tags": ["scope:shared", "type:ui"],
+	"targets": {}
+}

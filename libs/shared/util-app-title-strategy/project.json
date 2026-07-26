@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-util-app-title-strategy",
+	"projectType": "library",
+	"sourceRoot": "libs/shared/util-app-title-strategy/src",
+	"prefix": "",
+	"tags": ["scope:shared", "type:util"],
+	"targets": {}
+}

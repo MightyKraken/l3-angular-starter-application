@@ -2,15 +2,18 @@ import eslintPluginAngular from '@angular-eslint/eslint-plugin';
 import eslintPluginAngularTemplate from '@angular-eslint/eslint-plugin-template';
 import angularTemplateParser from '@angular-eslint/template-parser';
 import pluginJs from '@eslint/js';
+import nxPlugin from '@nx/eslint-plugin';
 import stylistic from '@stylistic/eslint-plugin';
 import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	{ ignores: ['node_modules/', 'dist/', '.angular/'] },
+	{ ignores: ['node_modules/', 'dist/', '.angular/', '.nx/'] },
+	...nxPlugin.configs['flat/base'],
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended.map((config) => ({
 		...config,
@@ -28,6 +31,75 @@ export default [
 			globals: globals.browser
 		},
 		rules: {
+			'@nx/enforce-module-boundaries': [
+				'error',
+				{
+					enforceBuildableLibDependency: false,
+					allow: [],
+					depConstraints: [
+						{
+							sourceTag: 'type:app',
+							onlyDependOnLibsWithTags: [
+								'type:feature',
+								'type:ui',
+								'type:data-access',
+								'type:util'
+							]
+						},
+						{
+							sourceTag: 'type:feature',
+							onlyDependOnLibsWithTags: [
+								'type:feature',
+								'type:ui',
+								'type:data-access',
+								'type:util'
+							]
+						},
+						{
+							sourceTag: 'type:ui',
+							onlyDependOnLibsWithTags: ['type:ui', 'type:util']
+						},
+						{
+							sourceTag: 'type:data-access',
+							onlyDependOnLibsWithTags: ['type:data-access', 'type:util']
+						},
+						{
+							sourceTag: 'type:util',
+							onlyDependOnLibsWithTags: ['type:util']
+						},
+						{
+							sourceTag: 'scope:shared',
+							onlyDependOnLibsWithTags: ['scope:shared']
+						},
+						{
+							sourceTag: 'scope:home',
+							onlyDependOnLibsWithTags: ['scope:home', 'scope:shared']
+						},
+						{
+							sourceTag: 'scope:settings',
+							onlyDependOnLibsWithTags: ['scope:settings', 'scope:shared']
+						},
+						{
+							sourceTag: 'scope:playground',
+							onlyDependOnLibsWithTags: ['scope:playground', 'scope:shared']
+						},
+						{
+							sourceTag: 'scope:page-not-found',
+							onlyDependOnLibsWithTags: ['scope:page-not-found', 'scope:shared']
+						},
+						{
+							sourceTag: 'scope:app',
+							onlyDependOnLibsWithTags: [
+								'scope:shared',
+								'scope:home',
+								'scope:settings',
+								'scope:playground',
+								'scope:page-not-found'
+							]
+						}
+					]
+				}
+			],
 			// ESLint core rules
 			'constructor-super': 'off',
 			'eqeqeq': ['error', 'always', { null: 'ignore' }],

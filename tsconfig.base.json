@@ -1,0 +1,55 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "ES2022",
+		"module": "es2022",
+		"moduleResolution": "bundler",
+		"paths": {
+			"@environment": ["./libs/shared/util-environment/src/environment.ts"],
+			"@shared/ui-layout": ["./libs/shared/ui-layout/src/index.ts"],
+			"@shared/ui-theme": ["./libs/shared/ui-theme/src/index.ts"],
+			"@shared/ui-icon": ["./libs/shared/ui-icon/src/index.ts"],
+			"@shared/ui-loader": ["./libs/shared/ui-loader/src/index.ts"],
+			"@shared/util-cookie-storage": [
+				"./libs/shared/util-cookie-storage/src/index.ts"
+			],
+			"@shared/util-break-point-detector": [
+				"./libs/shared/util-break-point-detector/src/index.ts"
+			],
+			"@shared/util-app-title-strategy": [
+				"./libs/shared/util-app-title-strategy/src/index.ts"
+			],
+			"@shared/util-environment": [
+				"./libs/shared/util-environment/src/index.ts"
+			],
+			"@shared/util-testing": ["./libs/shared/util-testing/src/index.ts"],
+			"@home/feature-home": ["./libs/home/feature-home/src/index.ts"],
+			"@settings/feature-settings": [
+				"./libs/settings/feature-settings/src/index.ts"
+			],
+			"@playground/feature-playground": [
+				"./libs/playground/feature-playground/src/index.ts"
+			],
+			"@page-not-found/feature-page-not-found": [
+				"./libs/page-not-found/feature-page-not-found/src/index.ts"
+			],
+			"@test": ["./libs/shared/util-testing/src/index.ts"]
+		}
+	},
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true,
+		"strictInputTypes": true
+	}
+}

@@ -1,0 +1,37 @@
+.app-layout-shell {
+	&[data-toolbar-behavior='scroll-away'] {
+		> .toolbar,
+		> .content {
+			transform: translateY(0);
+		}
+
+		> .toolbar,
+		&[data-layout='toolbar-top'] > .nav {
+			transform: translateY(0);
+			transition: transform 0.2s ease;
+		}
+
+		&.is-toolbar-scroll-hidden {
+			> .toolbar,
+			> .content {
+				transform: translateY(calc(-1 * var(--toolbar-height)));
+			}
+
+			&[data-layout='toolbar-top'] > .nav {
+				transform: translateY(calc(-1 * var(--toolbar-height)));
+			}
+		}
+	}
+
+	&[data-layout='sidebar-left'] {
+		grid-template-areas:
+			'nav toolbar'
+			'nav content';
+	}
+
+	&[data-layout='toolbar-top'] {
+		grid-template-areas:
+			'toolbar toolbar'
+			'nav content';
+	}
+}

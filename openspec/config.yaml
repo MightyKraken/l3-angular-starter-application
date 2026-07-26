@@ -1,0 +1,41 @@
+schema: spec-driven
+
+# Shown to AI when creating artifacts. Keep current; update as milestones complete.
+context: |
+  Tech stack: Angular 21 (standalone components), Angular Material, Tailwind CSS 4 + daisyUI,
+  Lucide icons, RxJS, Vitest + jsdom, ESLint + Stylelint + HTMLHint, Prettier, Husky,
+  conventional commits (commitlint), Docker.
+
+  Path aliases: @environment, @shared, @core, @test (evolve per milestone).
+
+  Architecture (Nx enterprise Angular patterns):
+  - Scope via grouping folders (e.g. shared/, home/, settings/).
+  - Type via library folder prefix: feature-*, ui-*, data-access-*, util-*
+    (e.g. ui-layout, NOT ui/layout).
+  - Four lib types only: feature (containers/pages), ui (presentational),
+    data-access (API/state), util (pure helpers/services).
+  - Each lib-like folder exposes a public barrel index.ts.
+  - Do not organize by file type (no top-level services/, components/).
+
+  Phased migration (single app; multi-app optional later):
+  1. DONE — Reshape under src/app by scope + type prefix (archived).
+  2. DONE — Init Nx; libs under libs/<scope>/<type>-*; tagged projects.
+  3. DONE — Enforce module boundaries (@nx/eslint-plugin) for type + scope.
+
+  Path aliases: granular only (@shared/ui-layout, @home/feature-home, @environment,
+  @test, …). No catch-all @shared / @core barrels (they break boundary analysis).
+
+  Non-goals for now: multi-app monorepo, publishable npm libs, microfrontends,
+  empty data-access-* folders without real API/state (YAGNI).
+
+rules:
+  proposal:
+    - Keep proposals under 500 words
+    - Always include a "Non-goals" section
+    - Reference which roadmap milestone this change implements
+  tasks:
+    - Break tasks into small, verifiable chunks (one scope or one lib at a time where possible)
+    - Include a verify step (build and/or test and/or lint)
+  design:
+    - Prefer path aliases + barrels over deep relative imports across lib boundaries
+    - Note follow-ups deferred to later milestones explicitly

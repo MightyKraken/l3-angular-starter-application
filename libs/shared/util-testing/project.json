@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-util-testing",
+	"projectType": "library",
+	"sourceRoot": "libs/shared/util-testing/src",
+	"prefix": "",
+	"tags": ["scope:shared", "type:util"],
+	"targets": {}
+}

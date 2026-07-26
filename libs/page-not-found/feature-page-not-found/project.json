@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "page-not-found-feature-page-not-found",
+	"projectType": "library",
+	"sourceRoot": "libs/page-not-found/feature-page-not-found/src",
+	"prefix": "",
+	"tags": ["scope:page-not-found", "type:feature"],
+	"targets": {}
+}

@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "playground-feature-playground",
+	"projectType": "library",
+	"sourceRoot": "libs/playground/feature-playground/src",
+	"prefix": "",
+	"tags": ["scope:playground", "type:feature"],
+	"targets": {}
+}

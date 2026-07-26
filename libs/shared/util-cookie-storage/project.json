@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-util-cookie-storage",
+	"projectType": "library",
+	"sourceRoot": "libs/shared/util-cookie-storage/src",
+	"prefix": "",
+	"tags": ["scope:shared", "type:util"],
+	"targets": {}
+}

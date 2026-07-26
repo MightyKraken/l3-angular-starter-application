@@ -1,0 +1,95 @@
+{
+	"$schema": "node_modules/nx/schemas/project-schema.json",
+	"name": "l3-angular-starter-application",
+	"projectType": "application",
+	"sourceRoot": "src",
+	"prefix": "",
+	"tags": ["type:app", "scope:app"],
+	"targets": {
+		"build": {
+			"executor": "@angular/build:application",
+			"options": {
+				"outputPath": "dist/l3-angular-starter-application",
+				"index": "src/index.html",
+				"browser": "src/main.ts",
+				"tsConfig": "tsconfig.app.json",
+				"inlineStyleLanguage": "css",
+				"assets": [
+					{
+						"glob": "**/*",
+						"input": "public"
+					}
+				],
+				"styles": ["src/styles/styles.css"],
+				"statsJson": true,
+				"sourceMap": {
+					"scripts": true,
+					"styles": true,
+					"vendor": true
+				}
+			},
+			"configurations": {
+				"production": {
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "500kB",
+							"maximumError": "1MB"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kB",
+							"maximumError": "4kB"
+						}
+					],
+					"outputHashing": "all",
+					"fileReplacements": [
+						{
+							"replace": "libs/shared/util-environment/src/environment.ts",
+							"with": "libs/shared/util-environment/src/environment.prod.ts"
+						}
+					],
+					"sourceMap": false,
+					"namedChunks": false
+				},
+				"development": {
+					"optimization": false,
+					"extractLicenses": false,
+					"sourceMap": true,
+					"fileReplacements": [
+						{
+							"replace": "libs/shared/util-environment/src/environment.ts",
+							"with": "libs/shared/util-environment/src/environment.dev.ts"
+						}
+					]
+				}
+			},
+			"defaultConfiguration": "development",
+			"outputs": ["{options.outputPath}"]
+		},
+		"serve": {
+			"executor": "@angular/build:dev-server",
+			"options": {
+				"proxyConfig": "src/proxy.conf.json"
+			},
+			"configurations": {
+				"production": {
+					"buildTarget": "l3-angular-starter-application:build:production"
+				},
+				"development": {
+					"buildTarget": "l3-angular-starter-application:build:development"
+				}
+			},
+			"defaultConfiguration": "development"
+		},
+		"extract-i18n": {
+			"executor": "@angular/build:extract-i18n"
+		},
+		"test": {
+			"executor": "@angular/build:unit-test",
+			"options": {
+				"include": ["**/*.spec.ts", "../libs/**/*.spec.ts"]
+			}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppLoaderComponent, AppLoaderService } from '@shared';
+import { AppLoaderComponent, AppLoaderService } from '@shared/ui-loader';
 
 @Component({
 	selector: 'app-root',

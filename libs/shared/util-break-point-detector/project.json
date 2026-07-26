@@ -1,0 +1,9 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-util-break-point-detector",
+	"projectType": "library",
+	"sourceRoot": "libs/shared/util-break-point-detector/src",
+	"prefix": "",
+	"tags": ["scope:shared", "type:util"],
+	"targets": {}
+}

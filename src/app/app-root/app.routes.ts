@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { AppLayoutComponent } from '@shared';
-
-import { AppHomeComponent } from '../features/app-home/app-home.component';
-import { AppPageNotFoundComponent } from '../features/app-page-not-found/app-page-not-found.component';
+import { AppHomeComponent } from '@home/feature-home';
+import { AppPageNotFoundComponent } from '@page-not-found/feature-page-not-found';
+import { AppLayoutComponent } from '@shared/ui-layout';
 
 export const routes: Routes = [
 	{
@@ -16,14 +15,14 @@ export const routes: Routes = [
 			{
 				path: 'playground',
 				loadComponent: () =>
-					import('../features/app-playground/app-playground.component').then(
+					import('@playground/feature-playground').then(
 						(c) => c.AppPlaygroundComponent
 					)
 			},
 			{
 				path: 'settings',
 				loadComponent: () =>
-					import('../features/app-settings/app-settings.component').then(
+					import('@settings/feature-settings').then(
 						(c) => c.AppSettingsComponent
 					),
 				data: { title: 'Settings' }

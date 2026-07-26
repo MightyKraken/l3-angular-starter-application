@@ -10,15 +10,15 @@ import {
 	TitleStrategy,
 	withComponentInputBinding
 } from '@angular/router';
-import { AppTitleStrategyService } from '@core';
 import { provideLucideIcons } from '@lucide/angular';
+import { appLucideIcons } from '@shared/ui-icon';
 import {
 	AppLayoutModeService,
 	SidebarTogglePreferenceService,
-	ThemeService,
 	ToolbarBehaviorPreferenceService
-} from '@shared';
-import { appLucideIcons } from '@shared';
+} from '@shared/ui-layout';
+import { ThemeService } from '@shared/ui-theme';
+import { AppTitleStrategyService } from '@shared/util-app-title-strategy';
 
 import { routes } from './app.routes';
 
