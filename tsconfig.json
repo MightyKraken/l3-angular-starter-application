@@ -19,7 +19,7 @@
 			"@environment": ["./src/environments/environment.ts"],
 			"@shared": ["./src/app/shared/index.ts"],
 			"@core": ["./src/app/core/index.ts"],
-            "@test":["./src/tests/index.ts"]
+			"@test": ["./src/tests/index.ts"]
 		}
 	},
 	"angularCompilerOptions": {
@@ -27,7 +27,7 @@
 		"strictInjectionParameters": true,
 		"strictInputAccessModifiers": true,
 		"strictTemplates": true,
-        "strictInputTypes": true
+		"strictInputTypes": true
 	},
 	"files": [],
 	"references": [

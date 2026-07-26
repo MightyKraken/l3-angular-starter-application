@@ -34,12 +34,12 @@
 							}
 						],
 						"styles": ["src/styles/styles.css"],
-                        "statsJson": true,
-                        "sourceMap": {
-                            "scripts": true,
-                            "styles": true,
-                            "vendor": true
-                        }
+						"statsJson": true,
+						"sourceMap": {
+							"scripts": true,
+							"styles": true,
+							"vendor": true
+						}
 					},
 					"configurations": {
 						"production": {
