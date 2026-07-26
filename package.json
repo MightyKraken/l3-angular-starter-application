@@ -11,7 +11,7 @@
 		"test": "nx test",
 		"test:ci": "nx test --run",
 		"test:once": "nx test --watch=false",
-		"analyze": "npm run build && sonda-angular",
+		"analyze": "npm run build && node sonda.mjs",
 		"lint": "eslint && stylelint \"{src,libs}/**/*.css\" && htmlhint \"{src,libs}/**/*.html\"",
 		"lint:fix": "eslint --fix && stylelint \"{src,libs}/**/*.css\" --fix",
 		"prepare": "husky install",
